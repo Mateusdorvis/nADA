@@ -2,7 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from tkinter import font as ft
-from login_v import NovoLogin, Login
+from login_v import Login
+from login_v_cad import NovoLogin
 from elementos import MensagensProntas
 
 
@@ -74,7 +75,7 @@ class PaginaInicial:
                 status.add_command(label=f'Data de nascimento do usuário {nome} : {data}')
                 self.menu_barra.add_cascade(label=f'Usuario : {nome}', menu=status)
 
-            cadastro = NovoLogin(Confirmar_cadastrado)
+            novo_cadastro = NovoLogin(Confirmar_cadastrado)
 
         def fazer_login():
             self.menu_barra.entryconfig('Login', state=tk.DISABLED)

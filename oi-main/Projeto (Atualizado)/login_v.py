@@ -1,11 +1,7 @@
 import tkinter as tk
 from  tkinter import ttk
 from datetime import datetime
-
 from elementos import MensagensProntas
-
-
-
 class Login:
      def __init__(self, funcao):
         self.funcao = funcao

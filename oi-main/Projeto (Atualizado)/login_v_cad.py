@@ -1,3 +1,8 @@
+import tkinter as tk
+from tkinter import ttk
+from datetime import datetime
+from elementos import MensagensProntas
+
 class NovoLogin:
     def __init__(self, funcao):
         self.funcao = funcao
@@ -14,8 +19,6 @@ class NovoLogin:
             self.root.grid_rowconfigure(x, weight=1)
         #desativar o menu assim que o usuario estiver nesta janela
         
-        
-
         
     
     def aparecer_nome_cadastro(self):
