@@ -9,7 +9,8 @@ class Cadastro:
         self.root.title('Cadastro')
 
     def coletar_dados(self):
-        self.nome_titulo = tk.Label(self.root, bg='white', text='NOME')
-        self.nome_titulo.grid()
+        self.nome_titulo = LabelPronta(self.root, bg='white', text='NOME')
+        
+        
         
         
