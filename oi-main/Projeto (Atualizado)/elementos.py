@@ -25,6 +25,18 @@ class MensagensProntas:
     def messageSimNao(mensagem1):
         return messagebox.askyesno('Escolha uma opção', mensagem1)
 
+def posicao_widget_grid(linha, coluna, widget_escolhido, **keyward):
+    widget_escolhido.grid(row=linha, column=coluna, **keyward)
+    
+class LabelPronta(tk.Label):
+    def __init_subclass__(self, master, **keyward):
+        super().__init__(master, **keyward)
+
+class EntradaTexto(tk.Text):
+    def __init_subclass__(self, master, **keyward):
+        super().__init__(master, **keyward)
+    
+    
 
         
             
