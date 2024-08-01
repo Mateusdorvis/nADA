@@ -1,2 +1,2 @@
 import tkinter as tk
-from 
+from tkinter import ttk
