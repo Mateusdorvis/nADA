@@ -6,5 +6,7 @@ class Cadastro:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title('Cadastro')
-        self.root.
+        
+    def coletar_dados(self):
+        
         
