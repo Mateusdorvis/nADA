@@ -25,11 +25,20 @@ class Cadastro:
         self.entrada_data()
         self.entraad_senha()
         self.root.mainloop()
- 
-      
+    
+  
         
     def enviarCadastro(self):
+        #pegar a data após um clique no botão
+        try:
+                data_format = datetime.strptime(self.data_get(), '%d-%m-%Y')
+                data_padrao = data_format.strftime('%d-%m-%Y')
+                Mensagens.msgInfo('Data enviada com suceeso !')
+                return data_padrao
         
+        except ValueError:
+                  Mensagens.msgAtencao('Inválida a data !')
+      
         
         if self.nome_get()=='' and self.senha_get()=='' and self.data_get()=='':
             Mensagens.msgAtencao('Preencha os três campos !')
@@ -42,13 +51,7 @@ class Cadastro:
         
         elif self.nome_get()=='' and self.senha_get()=='' and self.data_get()!='':
             Mensagens.msgAtencao('Preencha o campo nome e senha !')
-            try:
-                data_format = datetime.strptime(self.data_get(), '%d-%m-%Y')
-                data_padrao = data_format.strftime('%d-%m-%Y')
-                Mensagens.msgInfo('Data enviada com suceeso !')
-                return data_padrao
-            except ValueError:
-                  Mensagens.msgAtencao('Inválida a data !')
+            
         
         elif self.senha_get()=='':
             Mensagens.msgAtencao('Preencha o campo senha !')
