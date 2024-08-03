@@ -66,10 +66,10 @@ class Cadastro:
             Mensagens.msgAtencao('Os campos nome e senha, não foram preenchidos de forma adequada!') 
 
         elif self.nome_status.cget('fg')=='red':  
-            Mensagens.msgAtencao('O campo nome  não segue os requistos  desejados !')
+            Mensagens.msgAtencao('O campo NOME  não segue os requistos  desejados !')
 
         elif self.data_status.cget('fg')=='red':  
-            Mensagens.msgAtencao(f'O campo SENHA {self.nome_get()}, NÃO segue os requistos desejados  !')  
+            Mensagens.msgAtencao(f'O campo DATA {self.nome_get()}, NÃO segue os requistos desejados  !')  
 
         elif self.senha_status.cget('fg')=='red':  
             Mensagens.msgAtencao(f'O campo SENHA {self.nome_get()}, NÃO  segue os requistos  desejados !')        
