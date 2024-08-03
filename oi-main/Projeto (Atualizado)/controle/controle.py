@@ -1,3 +1,5 @@
+import tkinter as tk
+
 from visualizacao.elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
 from visualizacao.login import Login
 from visualizacao.cadastro import Cadastro
