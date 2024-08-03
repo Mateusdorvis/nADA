@@ -17,7 +17,35 @@ class Login(Cadastro):
     def data_get(self):
         pass
     
-    def en
+    def enviarCadastro(self):
+
+        if self.nome_get()=='' and self.senha_get()=='':
+            Mensagens.msgAtencao('Preencha os dois campos !')
+            
+        elif self.nome_get()!='' and self.senha_get()=='':
+            Mensagens.msgAtencao('Preencha o campo senha !')
+        
+        elif self.nome_get()=='' and self.senha_get()!='':
+            Mensagens.msgAtencao('Preencha o campo nome !')
+
+        elif self.nome_status.cget('fg')=='red' and self.senha_status.cget('fg')=='red':  
+            Mensagens.msgAtencao('Todos os campos foram inseridos de maneira inadequadamente  !')
+
+        elif self.nome_status.cget('fg')!='red'  and self.senha_status.cget('fg')=='red':  
+            Mensagens.msgAtencao('O campo SENHA , não foi preenchido adequadamente  !') 
+
+        elif self.nome_status.cget('fg')=='red' and self.senha_status.cget('fg')!='red':  
+            Mensagens.msgAtencao('O campo NOME, não foi preenchido de forma adequada!') 
+            
+        else:
+            self.contar+=1
+            if self.contar>=2:
+                Mensagens.msgAtencao('Seu cadastro já foi enviado !')
+            else:
+                    Mensagens.msgInfo(f'Seu cadastro {self.nome_get()}, foi realizado com sucesso !')
+                    self.nome_text_entry.config(state=tk.DISABLED)
+                    self.senha_text_entry.config(state=tk.DISABLED)
+                    
 
 if __name__=='__main__':
     root = tk.Tk()
