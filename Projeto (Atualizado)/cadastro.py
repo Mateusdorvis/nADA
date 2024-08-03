@@ -218,7 +218,7 @@ class Cadastro:
                 
     def formata_data(self):
         try:
-           return datetime.strptime(self.data_get())
+           return datetime.strptime(self.data_get(), '%d-%m-%Y')
         except ValueError:
             print('Erro ao formatar a data')
                      
