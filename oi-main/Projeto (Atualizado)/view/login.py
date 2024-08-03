@@ -42,7 +42,7 @@ class Login(Cadastro):
             if self.contar>=2:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
-                    Mensagens.msgInfo(f'Seu cadastro {self.nome_get()}, foi realizado com sucesso !')
+                    Mensagens.msgInfo(f'Seu login {self.nome_get()}, foi realizado com sucesso !')
                     self.nome_text_entry.config(state=tk.DISABLED)
                     self.senha_text_entry.config(state=tk.DISABLED)
                     
