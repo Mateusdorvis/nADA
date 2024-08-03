@@ -217,7 +217,7 @@ class Cadastro:
                     fg='red')
                 
     def formata_data(self):
-        self.date_fromat = datetime.strptime(self.data_get(), '%d-%m-%Y')
+        date_fromat = datetime.strptime(self.data_get(), '%d-%m-%Y')
                      
     def eventoTeclado_Data(self, event):
         try:
