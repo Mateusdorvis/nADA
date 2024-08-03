@@ -17,5 +17,9 @@ class Controle:
 
         save_users = SalvarUsuario(nome_cadastrado, data_cadastrada, senha_cadastrada)
 
+if __name__=='__main__':
+    root= tk.Tk()
+    app = Controle(root)
+    root.mainloop()
         
 

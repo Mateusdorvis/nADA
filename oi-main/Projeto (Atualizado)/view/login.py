@@ -47,11 +47,6 @@ class Login(Cadastro):
                     self.senha_text_entry.config(state=tk.DISABLED)
                     
 
-if __name__=='__main__':
-    root = tk.Tk()
-    login = Login(root)
-    root.mainloop()
-
 
 
         

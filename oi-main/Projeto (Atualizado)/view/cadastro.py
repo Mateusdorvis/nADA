@@ -232,10 +232,6 @@ class Cadastro:
         except ValueError:
              self.data_status.config(text='Insira uma data no formato dd-mm-YYYY', fg='red')
         
-if __name__=='__main__':
-    root = tk.Tk()
-    cad = Cadastro(root)
-    root.mainloop()
 
         
         
