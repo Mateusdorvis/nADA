@@ -6,9 +6,15 @@ from cadastro import Cadastro
 class Login(Cadastro):
     def __init__(self, root):
         super().__init__(root)
-        del self.entrada_data()
-        del self.data_get()
-        del self.eventoTeclado_Data()
+    
+    def entrada_data(self):
+        pass
+
+    def eventoTeclado_Data(self, event):
+        pass
+
+    def data_get(self):
+        pass
 
 if __name__=='__main__':
     root = tk.Tk()
