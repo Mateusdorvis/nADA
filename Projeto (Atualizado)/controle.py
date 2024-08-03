@@ -4,6 +4,7 @@ from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncu
 from login import Login
 from cadastro import Cadastro
 from Salvadados import SalvarUsuario
+from datetime import datetime
 
 
 class Controle:
@@ -15,8 +16,10 @@ class Controle:
         nome_cadastrado = self.cadastro.nome_get()
         data_cadastrada = self.cadastro.formata_data()
         senha_cadastrada = self.cadastro.senha_get()
+        data = datetime.strptime(data_cadastrada, '%Y-5m-%d')
 
-        save_users = SalvarUsuario(nome_cadastrado, data_cadastrada, senha_cadastrada)
+
+        save_users = SalvarUsuario(nome_cadastrado, data, senha_cadastrada)
         print(save_users)
 
 

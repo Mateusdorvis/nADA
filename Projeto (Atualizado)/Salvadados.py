@@ -35,12 +35,12 @@ class SalvarUsuario:
             print(f'Erro ao criar tabela !')
 
     def inserir_usuario_nas_tabelas(self):
-        formata_data_banco = datetime.strptime(self.data_usuario, '%d-%m-%Y')
+       
         try:
             self.cursor.execute( """
             INSERT INTO dados_usuarios (nome_usuarios, datas_de_nascimentos, senhas_usuarios)
             VALUES (%s, %s, %s,);
-            """, (self.nome_usuario, formata_data_banco, self.senha_usuario))
+            """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
                 
             if self.nome_usuario.endswith('a'):
                 print(f' A Usuária {self.nome_usuario} foi inserida na tabela com sucesso !')
