@@ -8,10 +8,9 @@ from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncu
 
 class Cadastro:
 
-    def __init__(self):
-        self.root = tk.Tk()
-        self.root.geometry('400x400') 
-        
+    def __init__(self, root):
+        self.root = root
+        self.root.resizable(False, False)
         self.root.title('Cadastro de usuário')
         self.root.config(bg='#2f6f8e')
         self.entrada_nome()
@@ -228,9 +227,9 @@ class Cadastro:
         except ValueError:
              self.data_status.config(text='Inválido', fg='red')
         
-     
-
-Cadastro()
+if __name__=='__main__':
+    root = tk.Tk()
+    cad = Cadastro(root)
 
         
         
