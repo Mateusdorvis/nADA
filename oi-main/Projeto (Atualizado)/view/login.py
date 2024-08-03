@@ -6,7 +6,7 @@ from cadastro import Cadastro
 class Login(Cadastro):
     def __init__(self, root):
         super().__init__(root)
-        self.root.title('Login de usuário')
+        self.title('Login de usuário')
     
     def entrada_data(self):
         pass
