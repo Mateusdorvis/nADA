@@ -19,7 +19,7 @@ class Cadastro:
         self.root.grid_rowconfigure(0, weight=1)
         
         self.button_enviar = Buttoncustomizado(self.box_frame, text='Enviar cadastro', width=20, command=self.enviarCadastro)
-        self.button_enviar.grid(row=13, column=0, pady=5)
+        self.button_enviar.grid(row=13, column=0, pady=5, padx=10)
         
         self.entrada_data()
         self.entrada_senha()
