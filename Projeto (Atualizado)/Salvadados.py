@@ -38,7 +38,7 @@ class SalvarUsuario:
         try:
             self.cursor.execute( """
             INSERT INTO dados_usuarios (nome_usuarios, datas_de_nascimentos, senhas_usuarios)
-            VALUES (%s, %s, %s);
+            VALUES (%s, %s, %s,);
             """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
                 
             if self.nome_usuario.endswith('a'):
