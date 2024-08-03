@@ -3,13 +3,14 @@ from datetime import datetime
 from tkinter import Widget, ttk
 from tkinter import messagebox
 from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
+from controle import Controle
 
 
 
 class Cadastro:
 
-    def __init__(self, root):
-        self.root = root
+    def __init__(self):
+        self.root = tk.Tk()
         #self.root.resizable(False, False)
         self.root.title('Cadastro de usuário')
         self.root.config(bg='#2f6f8e')
@@ -18,7 +19,7 @@ class Cadastro:
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
         
-        self.button_enviar = Buttoncustomizado(self.box_frame, text='Checar campos', width=20, command=self.checarCadastro)
+        self.button_enviar = Buttoncustomizado(self.box_frame, text='Enviar cadastro', width=20, command=self.enviarCadastro)
         self.button_enviar.grid(row=13, column=0, pady=5, padx=10)
         
         self.entrada_data()
@@ -26,7 +27,7 @@ class Cadastro:
     
   
         
-    def checarCadastro(self):
+    def enviarCadastro(self):
         
         
         if self.nome_get()=='' and self.senha_get()=='' and self.data_get()=='':
@@ -78,9 +79,9 @@ class Cadastro:
         else:
             self.contar+=1
             if self.contar>=2:
-                Mensagens.msgAtencao('Já foi checado todos os campos!')
+                Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
-                    Mensagens.msgInfo('Todos os campos foram preenchidos com sucesso !')
+                    Mensagens.msgInfo(f'Seu cadastro {self.nome_get()}, foi realizado com sucesso !')
                     self.nome_text_entry.config(state=tk.DISABLED)
                     self.data_text_entry.config(state=tk.DISABLED)
                     self.senha_text_entry.config(state=tk.DISABLED)
@@ -217,7 +218,6 @@ class Cadastro:
                     fg='red')
                 
     def formata_data(self):
-        
         try:
             data_formatada = datetime.strptime(self.data_get(), '%d-%m-%Y')
             data_padrao = data_formatada.strftime('%d-%m-%Y')
