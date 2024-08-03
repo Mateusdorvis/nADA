@@ -56,6 +56,7 @@ class SalvarUsuario:
         mostrar_usuarios = self.cursor.fetchall()
         print(mostrar_usuarios)
 
-    
-        
-        
+
+
+#teste
+salva = SalvarUsuario('mateus (teste)','2005-09-20', 'amor123' )
