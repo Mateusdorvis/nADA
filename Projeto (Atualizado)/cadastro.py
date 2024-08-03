@@ -217,16 +217,12 @@ class Cadastro:
                     fg='red')
                 
     def formata_data(self):
-        try:
-                data_format = datetime.strptime(self.data_get(), '%d-%m-%Y')
-                data_padrao = data_format.strftime('%d-%m-%Y')
-        except ValueError:
-             print('Erro ao formatar a data !')
+        return datetime.strptime(self.data_get())
                      
     def eventoTeclado_Data(self, event):
-        data =  self.formata_data()
         try:
-            self.data_status.config(text=f' Sua data de nascimento ficou : {data}.', fg='green')
+            data_padrao = self.formata_data().strftime('%d-%m-%Y')
+            self.data_status.config(text=f' Sua data de nascimento ficou : {data_padrao}.', fg='green')
                 
         
         except ValueError:

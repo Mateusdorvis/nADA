@@ -13,10 +13,9 @@ class Controle:
 
     def salvar_usuario(self):
         nome_cadastrado = self.cadastro.nome_get()
-        data_cadastrada = self.cadastro.data_get()
         senha_cadastrada = self.cadastro.senha_get()
 
-        save_users = SalvarUsuario(nome_cadastrado, data_cadastrada, senha_cadastrada)
+        save_users = SalvarUsuario(nome_cadastrado,  senha_cadastrada)
 
 if __name__=='__main__':
     root= tk.Tk()
