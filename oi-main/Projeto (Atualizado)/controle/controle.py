@@ -1,6 +1,6 @@
-from view.elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
-from view.login import Login
-from view.cadastro import Cadastro
+from visualizacao.elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
+from visualizacao.login import Login
+from visualizacao.cadastro import Cadastro
 from modelo.Salvadados import SalvarUsuario
 
 
