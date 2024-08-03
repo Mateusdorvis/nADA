@@ -7,7 +7,7 @@ class Login(Cadastro):
     def __init__(self, root):
         super().__init__(root)
         self.root.title('Login de usuário')
-    
+    #desabilitand o campo data
     def entrada_data(self):
         pass
 
@@ -16,6 +16,8 @@ class Login(Cadastro):
 
     def data_get(self):
         pass
+    
+    def en
 
 if __name__=='__main__':
     root = tk.Tk()
