@@ -25,69 +25,6 @@ class Cadastro:
     
   
         
-    def enviarCadastro(self):
-        
-        
-        if self.nome_get()=='' and self.senha_get()=='' and self.data_get()=='':
-            Mensagens.msgAtencao('Preencha os três campos !')
-            
-        elif self.nome_get()!='' and self.senha_get()=='' and self.data_get()=='':
-            Mensagens.msgAtencao('Preencha o campo senha e data !')
-        
-        elif self.nome_get()=='' and self.senha_get()!='' and self.data_get()=='':
-            Mensagens.msgAtencao('Preencha o campo nome e data !')
-        
-        elif self.nome_get()=='' and self.senha_get()=='' and self.data_get()!='':
-            Mensagens.msgAtencao('Preencha o campo nome e senha !')
-            
-        
-        elif self.senha_get()=='':
-            Mensagens.msgAtencao('Preencha o campo senha !')
-        
-        elif self.nome_get()=='':
-            Mensagens.msgAtencao('Preencha o campo nome !')
-            
-        elif self.data_get()=='':
-            Mensagens.msgAtencao('Preencha o campo  data !')
-
-        elif self.nome_status.cget('fg')=='red' and self.data_status.cget('fg')=='red' and self.senha_status.cget('fg')=='red':  
-            Mensagens.msgAtencao('Todos os campos foram inseridos de maneira inadequadamente  !')
-
-        elif self.nome_status.cget('fg')!='red' and self.data_status.cget('fg')=='red' and self.senha_status.cget('fg')=='red':  
-            Mensagens.msgAtencao('Os campos SENHA e DATA, não foram preenchidos de forma adequada  !') 
-
-        elif self.nome_status.cget('fg')=='red' and self.data_status.cget('fg')!='red' and self.senha_status.cget('fg')=='red':  
-            Mensagens.msgAtencao('Os campos NOME e SENHA, não foram preenchidos de forma adequada!') 
-
-        elif self.nome_status.cget('fg')=='red' and self.data_status.cget('fg')=='red' and self.senha_status.cget('fg')!='red':  
-            Mensagens.msgAtencao('Os campos NOME e DATA, não foram preenchidos de forma adequada!') 
-
-        elif self.nome_status.cget('fg')=='red':  
-            Mensagens.msgAtencao('O campo NOME  não segue os requistos  desejados !')
-
-        elif self.data_status.cget('fg')=='red':  
-            Mensagens.msgAtencao(f'O campo DATA {self.nome_get()}, NÃO segue os requistos desejados  !')  
-
-        elif self.senha_status.cget('fg')=='red':  
-            Mensagens.msgAtencao(f'O campo SENHA {self.nome_get()}, NÃO  segue os requistos  desejados !')        
-        
-            
-         
-            
-        else:
-            self.contar+=1
-            if self.contar>=2:
-                Mensagens.msgAtencao('Seu cadastro já foi enviado !')
-            else:
-                    Mensagens.msgInfo(f'Seu cadastro {self.nome_get()}, foi realizado com sucesso !')
-                    self.nome_text_entry.config(state=tk.DISABLED)
-                    self.data_text_entry.config(state=tk.DISABLED)
-                    self.senha_text_entry.config(state=tk.DISABLED)
-                    
-            
-        
-        
-            
     
    
     def nome_get(self):
