@@ -29,14 +29,14 @@ class Login(Cadastro):
             Mensagens.msgAtencao('Preencha o campo nome !')
 
         elif self.nome_status.cget('fg')=='red' and self.senha_status.cget('fg')=='red':  
-            Mensagens.msgAtencao('Todos os campos foram inseridos de maneira inadequadamente  !')
+            Mensagens.msgAtencao('Todos os campos foram inseridos de maneira inadequada  !')
 
         elif self.nome_status.cget('fg')!='red'  and self.senha_status.cget('fg')=='red':  
             Mensagens.msgAtencao('O campo SENHA , não foi preenchido adequadamente  !') 
 
         elif self.nome_status.cget('fg')=='red' and self.senha_status.cget('fg')!='red':  
             Mensagens.msgAtencao('O campo NOME, não foi preenchido de forma adequada!') 
-            
+
         else:
             self.contar+=1
             if self.contar>=2:
