@@ -8,9 +8,9 @@ class SalvarUsuario:
         self.senha_usuario = senha_usuario
         self.conexao = mysql.connector.connect(
             host="localhost",       
-            user="mateus",             
+            user="app",             
             password="oi",         
-            database="formulario"    
+            database="app_jogos"    
         )
         self.cursor = self.conexao.cursor()
         self.criar_tabela_dados_usuarios()
