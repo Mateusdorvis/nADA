@@ -52,7 +52,27 @@ class Cadastro:
             
         elif self.data_get()=='':
             Mensagens.msgAtencao('Preencha o campo  data !')
-            
+
+        elif self.nome_status.cget('fg')=='red' and self.data_status.cget('fg')=='red' and self.senha_status.cget('fg')=='red':  
+            Mensagens.msgAtencao('Todos os campos foram inseridos de maneira inadequadamente  !')
+
+        elif self.nome_status.cget('fg')!='red' and self.data_status.cget('fg')=='red' and self.senha_status.cget('fg')=='red':  
+            Mensagens.msgAtencao('Os campos senha e data, não foram preenchidos de forma adequada  !') 
+
+        elif self.nome_status.cget('fg')=='red' and self.data_status.cget('fg')!='red' and self.senha_status.cget('fg')=='red':  
+            Mensagens.msgAtencao('Os campos nome e data, não foram preenchidos de forma adequada!') 
+
+        elif self.nome_status.cget('fg')=='red' and self.data_status.cget('fg')=='red' and self.senha_status.cget('fg')!='red':  
+            Mensagens.msgAtencao('Os campos nome e senha, não foram preenchidos de forma adequada!') 
+
+        elif self.nome_status.cget('fg')=='red':  
+            Mensagens.msgAtencao('O campo nome segue os não segue os requistos !')
+
+        elif self.data_status.cget('fg')=='red':  
+            Mensagens.msgAtencao(f'O campo {self.nome_get()}, data segue os não segue os requistos !')  
+
+        elif self.senha_status.cget('fg')=='red':  
+            Mensagens.msgAtencao(f'O campo {self.nome_get()}, senha segue os não segue os requistos !')        
         
             
          
@@ -116,7 +136,7 @@ class Cadastro:
         self.data_text_entry.grid(row=6, column=1, sticky=tk.NSEW)
 
         self.data_status = Labelcustomizada(self.box_frame, wraplength=200)
-        self.data_status.grid(row=7, column=1, sticky=tk.NSEW)
+        self.data_status.grid(row=7, column=0, sticky=tk.NSEW)
         self.data_text_entry.bind('<KeyRelease>', self.eventoTeclado_Data)
         
 
