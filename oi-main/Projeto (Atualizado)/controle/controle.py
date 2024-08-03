@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
-from view.elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
-from view.login import Login
-from view.cadastro import Cadastro
+from ..view.elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
+from ..view.login import Login
+from ..view.cadastro import Cadastro
 from modelo.Salvadados import SalvarUsuario
 
 class Controle:
