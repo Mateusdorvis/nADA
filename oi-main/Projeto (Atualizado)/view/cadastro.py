@@ -216,15 +216,21 @@ class Cadastro:
                     f'Digite uma senha que tenha de 5 a 10 caracteres ! Tem somente {ler_caractere_senha} caractere !',
                     fg='red')
                 
-    def eventoTeclado_Data(self, event):
+    def formata_data(self):
         try:
                 data_format = datetime.strptime(self.data_get(), '%d-%m-%Y')
                 data_padrao = data_format.strftime('%d-%m-%Y')
-                self.data_status.config(text=f' Sua data de nascimento ficou : {data_padrao}.', fg='green')
+        except ValueError:
+             print('Erro ao formatar a data !')
+                     
+    def eventoTeclado_Data(self, event):
+        data =  self.formata_data()
+        try:
+            self.data_status.config(text=f' Sua data de nascimento ficou : {data}.', fg='green')
                 
         
         except ValueError:
-             self.data_status.config(text='Inválido', fg='red')
+             self.data_status.config(text='Insira uma data no formato dd-mm-YYYY', fg='red')
         
 if __name__=='__main__':
     root = tk.Tk()
