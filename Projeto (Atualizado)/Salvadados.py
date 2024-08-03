@@ -1,4 +1,4 @@
-import mysql.connector
+import mariadb
 from datetime import datetime
 
 class SalvarUsuario:
@@ -6,7 +6,7 @@ class SalvarUsuario:
         self.nome_usuario = nome_usuario
         self.data_usuario = data_usuario
         self.senha_usuario = senha_usuario
-        self.conexao = mysql.connector.connect(
+        self.conexao = mariadb.connect(
             host="localhost",       
             user="app",             
             password="oi",         
