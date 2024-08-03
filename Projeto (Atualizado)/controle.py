@@ -9,7 +9,7 @@ from datetime import datetime
 class Controle:
     def __init__(self, root):
         self.root = root
-        self.cadastro = Cadastro()
+        self.cadastro = Cadastro(self.root)
         self.salvar()
 
     def salvar(self):
