@@ -10,6 +10,7 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.cadastro = Cadastro()
+        self.salvar()
 
     def salvar(self):
         nome_cadastrado = self.cadastro.nome_get()
