@@ -54,7 +54,11 @@ class SalvarUsuario:
     def provar_que_os_usuarios_foram_inseridos(self):
         self.cursor.execute("SELECT * FROM dados_usuarios;")
         mostrar_usuarios = self.cursor.fetchall()
-        print(mostrar_usuarios)
+        dicio_pessoa = {}
+        for usuario in mostrar_usuarios:
+            dicio_pessoa['usuário '] = {'ID': [0],'Nome' :  [1], 'Data de nascimento ': [2], 'Senha'  : [3]}
+            print(dicio_pessoa)
+
 
 
 
