@@ -20,6 +20,7 @@ class Controle:
         save_users.criar_tabela_dados_usuarios()
         save_users.inserir_usuario_nas_tabelas()
         save_users.provar_que_os_usuarios_foram_inseridos()
+        print(save_users)
 
 
 if __name__=='__main__':
