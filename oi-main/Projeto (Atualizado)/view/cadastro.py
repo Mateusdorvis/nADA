@@ -116,7 +116,7 @@ class Cadastro:
         self.data_text_entry.grid(row=6, column=1, sticky=tk.NSEW)
 
         self.data_status = Labelcustomizada(self.box_frame, wraplength=200)
-        self.data_status.grid(row=6, column=1, sticky=tk.NSEW)
+        self.data_status.grid(row=7, column=1, sticky=tk.NSEW)
         
 
     def entrada_senha(self):
