@@ -1,14 +1,16 @@
 import tkinter as tk
-from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
 from cadastro import Cadastro
-from Salvadados import SalvarUsuario
+from SalvarUsuario import SalvarUsuario
+from elementos_tkinter import Buttoncustomizado, Mensagens
 
 class Controle:
     def __init__(self, root):
         self.root = root
         self.cadastro = Cadastro(self.root)
+        
+        # Adiciona o botão 'Salvar Usuário' usando grid
         self.button_salvar = Buttoncustomizado(self.root, text='Salvar Usuário', command=self.salvar_usuario)
-        self.button_salvar.pack()
+        self.button_salvar.grid(row=1, column=0, pady=10, padx=10)
 
     def salvar_usuario(self):
         nome_cadastrado = self.cadastro.nome_get()
