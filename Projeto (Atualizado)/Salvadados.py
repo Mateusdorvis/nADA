@@ -2,7 +2,7 @@ import mysql.connector
 from datetime import datetime
 
 class SalvarUsuario:
-    def __init__(self, nome_usuario , data_usuario , senha_usuario):
+    def __init__(self, nome_usuario : str, data_usuario : datetime , senha_usuario : str):
         self.nome_usuario = nome_usuario
         self.data_usuario = data_usuario
         self.senha_usuario = senha_usuario
