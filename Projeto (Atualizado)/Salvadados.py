@@ -61,6 +61,3 @@ class SalvarUsuario:
 
 
 
-
-#teste
-salva = SalvarUsuario('mateus (teste)','2005-09-20', 'amor123' )
