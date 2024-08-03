@@ -26,7 +26,7 @@ class Controle:
         elif self.cadastro.nome_get()=='' and self.cadastro.senha_get()!='' and self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha o campo nome e data !')
         
-        elif self.nome_get()=='' and self.senha_get()=='' and self.data_get()!='':
+        elif self.cadastro.nome_get()=='' and self.cadastro.senha_get()=='' and self.cadastro.data_get()!='':
             Mensagens.msgAtencao('Preencha o campo nome e senha !')
             
         
