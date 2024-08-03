@@ -229,6 +229,7 @@ class Cadastro:
 if __name__=='__main__':
     root = tk.Tk()
     cad = Cadastro(root)
+    root.mainloop()
 
         
         
