@@ -56,7 +56,7 @@ class SalvarUsuario:
         mostrar_usuarios = self.cursor.fetchall()
         dicio_pessoa = {}
         for usuario in mostrar_usuarios:
-            dicio_pessoa['usuário '] = {'ID': [0],'Nome' :  [1], 'Data de nascimento ': [2], 'Senha'  : [3]}
+            dicio_pessoa['usuário '] = {'ID': usuario[0],'Nome' :  usuario[1], 'Data de nascimento ': usuario[2], 'Senha'  : usuario[3]}
             print(dicio_pessoa)
 
 
