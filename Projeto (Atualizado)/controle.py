@@ -12,6 +12,7 @@ class Controle:
         self.root = root
         self.cadastro = Cadastro(self.root)
         self.button_enviar = Buttoncustomizado(self.cadastro.box_frame, text='Enviar cadastro', width=20, command=self.salvar_usuario)
+        self.button_enviar.grid(row=14, column=0)
         
     
 
