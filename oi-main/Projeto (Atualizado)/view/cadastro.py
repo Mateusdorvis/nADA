@@ -117,6 +117,7 @@ class Cadastro:
 
         self.data_status = Labelcustomizada(self.box_frame, wraplength=200)
         self.data_status.grid(row=7, column=1, sticky=tk.NSEW)
+        self.data_text_entry.bind('<KeyRelease>', self.eventoTeclado_Data)
         
 
     def entrada_senha(self):
