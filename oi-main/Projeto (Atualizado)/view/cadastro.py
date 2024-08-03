@@ -180,9 +180,7 @@ class Cadastro:
             if ler_caractere_nome <= 1:
                 self.nome_status.config(
                     text=f'Tem {ler_caractere_nome} caractere !', fg='red')
-                self.root.after(
-                    30000, lambda: self.nome_status.config(
-                        text='Não se esqueça de preencher este campo !'))
+                
 
     #senha
     def eventoTeclado_Senha(self, event):
@@ -219,10 +217,6 @@ class Cadastro:
                     text=
                     f'Digite uma senha que tenha de 5 a 10 caracteres ! Tem somente {ler_caractere_senha} caractere !',
                     fg='red')
-                self.root.after(
-                    300, lambda: self.senha_status.config(
-                        text='Não se esqueça de preencher este campo !',
-                        fg='green'))
                 
     def eventoTeclado_Data(self, event):
         try:
