@@ -23,7 +23,6 @@ class Cadastro:
         
         self.entrada_data()
         self.entrada_senha()
-        self.root.mainloop()
     
   
         
