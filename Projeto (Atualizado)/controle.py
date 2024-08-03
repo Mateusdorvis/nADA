@@ -1,7 +1,7 @@
 import tkinter as tk
 from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
 from cadastro import Cadastro
-from SalvarUsuario import SalvarUsuario
+from Salvadados import SalvarUsuario
 
 class Controle:
     def __init__(self, root):
