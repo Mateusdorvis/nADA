@@ -1,6 +1,6 @@
 import tkinter as tk
 from cadastro import Cadastro
-from SalvarUsuario import SalvarUsuario
+from Salvadados import SalvarUsuario
 from elementos_tkinter import Buttoncustomizado, Mensagens
 
 class Controle:
