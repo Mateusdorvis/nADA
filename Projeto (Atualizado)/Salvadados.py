@@ -2,7 +2,7 @@ import mysql.connector
 from datetime import datetime
 
 class SalvarUsuario:
-    def __init__(self, nome_usuario, data_usuario, senha_usuario):
+    def __init__(self, nome_usuario , data_usuario , senha_usuario):
         self.nome_usuario = nome_usuario
         self.data_usuario = data_usuario
         self.senha_usuario = senha_usuario
@@ -19,6 +19,7 @@ class SalvarUsuario:
         self.conexao.commit()
         self.conexao.close()
         
+
     def criar_tabela_dados_usuarios(self):
         try:
             self.cursor.execute("""
@@ -29,26 +30,32 @@ class SalvarUsuario:
                 senhas_usuarios VARCHAR(255) NOT NULL
             );
             """)
-            print(f'Tabela criada com sucesso!')
-        except Exception as e:
-            print(f'Erro ao criar tabela: {e}')
+            print(f' Tabela criada com sucesso !')
+        except ValueError:
+            print(f'Erro ao criar tabela !')
 
     def inserir_usuario_nas_tabelas(self):
+       
         try:
-            self.cursor.execute("""
+            self.cursor.execute( """
             INSERT INTO dados_usuarios (nome_usuarios, datas_de_nascimentos, senhas_usuarios)
-            VALUES (%s, %s, %s);
+            VALUES (%s, %s, %s,);
             """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
                 
             if self.nome_usuario.endswith('a'):
-                print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
+                print(f' A Usuária {self.nome_usuario} foi inserida na tabela com sucesso !')
             else:
-                print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
+                print(f' O Usuário {self.nome_usuario} foi inserido na tabela com sucesso !')
 
-        except Exception as e:
-            print(f'Erro ao inserir o usuário {self.nome_usuario}: {e}')
+
+        except ValueError:
+            print(f'Erro ao inserir o usuário {self.nome_usuario} !')
 
     def provar_que_os_usuarios_foram_inseridos(self):
         self.cursor.execute("SELECT * FROM dados_usuarios;")
         mostrar_usuarios = self.cursor.fetchall()
         print(mostrar_usuarios)
+
+    
+        
+        
