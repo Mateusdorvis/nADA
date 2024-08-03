@@ -57,13 +57,13 @@ class Cadastro:
             Mensagens.msgAtencao('Todos os campos foram inseridos de maneira inadequadamente  !')
 
         elif self.nome_status.cget('fg')!='red' and self.data_status.cget('fg')=='red' and self.senha_status.cget('fg')=='red':  
-            Mensagens.msgAtencao('Os campos senha e data, não foram preenchidos de forma adequada  !') 
+            Mensagens.msgAtencao('Os campos SENHA e DATA, não foram preenchidos de forma adequada  !') 
 
         elif self.nome_status.cget('fg')=='red' and self.data_status.cget('fg')!='red' and self.senha_status.cget('fg')=='red':  
-            Mensagens.msgAtencao('Os campos nome e data, não foram preenchidos de forma adequada!') 
+            Mensagens.msgAtencao('Os campos NOME e SENHA, não foram preenchidos de forma adequada!') 
 
         elif self.nome_status.cget('fg')=='red' and self.data_status.cget('fg')=='red' and self.senha_status.cget('fg')!='red':  
-            Mensagens.msgAtencao('Os campos nome e senha, não foram preenchidos de forma adequada!') 
+            Mensagens.msgAtencao('Os campos NOME e DATA, não foram preenchidos de forma adequada!') 
 
         elif self.nome_status.cget('fg')=='red':  
             Mensagens.msgAtencao('O campo NOME  não segue os requistos  desejados !')
