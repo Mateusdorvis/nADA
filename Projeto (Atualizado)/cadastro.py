@@ -217,7 +217,10 @@ class Cadastro:
                     fg='red')
                 
     def formata_data(self):
-        return datetime.strptime(self.data_get())
+        try:
+           return datetime.strptime(self.data_get())
+        except ValueError:
+            print('Erro ao formatar a data')
                      
     def eventoTeclado_Data(self, event):
         try:
