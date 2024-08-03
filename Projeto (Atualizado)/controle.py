@@ -16,10 +16,9 @@ class Controle:
         nome_cadastrado = self.cadastro.nome_get()
         data_cadastrada = self.cadastro.formata_data()
         senha_cadastrada = self.cadastro.senha_get()
-        data = datetime.strptime(data_cadastrada, '%Y-%m-%d')
 
 
-        save_users = SalvarUsuario(nome_cadastrado, data, senha_cadastrada)
+        save_users = SalvarUsuario(nome_cadastrado, data_cadastrada, senha_cadastrada)
         print(save_users)
 
 
