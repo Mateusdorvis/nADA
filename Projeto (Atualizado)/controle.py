@@ -10,15 +10,14 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.cadastro = Cadastro(self.root)
+
         self.salvar()
 
     def salvar(self):
-        nome_cadastrado = self.cadastro.nome_get()
-        data_cadastrada = self.cadastro.formata_data()
-        senha_cadastrada = self.cadastro.senha_get()
+       
 
-
-        save_users = SalvarUsuario(nome_cadastrado, data_cadastrada, senha_cadastrada)
+        save_users = SalvarUsuario(self.cadastro.nome_get(),self.cadastro.formata_data() ,self.cadastro.senha_get(
+        ) )
         print(save_users)
 
 
