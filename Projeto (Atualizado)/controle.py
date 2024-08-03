@@ -17,10 +17,6 @@ class Controle:
         senha_cadastrada = self.cadastro.senha_get()
 
         save_users = SalvarUsuario(nome_cadastrado, data_cadastrada, senha_cadastrada)
-        save_users.criar_tabela_dados_usuarios()
-        save_users.inserir_usuario_nas_tabelas()
-        save_users.provar_que_os_usuarios_foram_inseridos()
-        #sadsdsd
         print(save_users)
 
 
