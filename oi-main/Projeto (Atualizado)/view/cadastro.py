@@ -23,22 +23,13 @@ class Cadastro:
         self.button_enviar.grid(row=13, column=0, pady=5)
         
         self.entrada_data()
-        self.entraad_senha()
+        self.entrada_senha()
         self.root.mainloop()
     
   
         
     def enviarCadastro(self):
-        #pegar a data após um clique no botão
-        try:
-                data_format = datetime.strptime(self.data_get(), '%d-%m-%Y')
-                data_padrao = data_format.strftime('%d-%m-%Y')
-                Mensagens.msgInfo('Data enviada com suceeso !')
-                return data_padrao
         
-        except ValueError:
-                  Mensagens.msgAtencao('Inválida a data !')
-      
         
         if self.nome_get()=='' and self.senha_get()=='' and self.data_get()=='':
             Mensagens.msgAtencao('Preencha os três campos !')
@@ -124,7 +115,11 @@ class Cadastro:
         self.data_text_entry = tk.Text(self.box_frame, width=12, height=0)
         self.data_text_entry.grid(row=6, column=1, sticky=tk.NSEW)
 
-    def entraad_senha(self):
+        self.data_status = Labelcustomizada(self.box_frame, wraplength=200)
+        self.data_status.grid(row=6, column=1, sticky=tk.NSEW)
+        
+
+    def entrada_senha(self):
         self.senha_titulo = LabelcustomizadaTitulo(self.box_frame,
                                      text='CAMPO SENHA.')
         self.senha_titulo.grid(row=9, column=0, sticky=tk.NSEW)
@@ -207,8 +202,16 @@ class Cadastro:
                     300, lambda: self.senha_status.config(
                         text='Não se esqueça de preencher este campo !',
                         fg='green'))
-     
-   
+                
+    def eventoTeclado_Data(self, event):
+        try:
+                data_format = datetime.strptime(self.data_get(), '%d-%m-%Y')
+                data_padrao = data_format.strftime('%d-%m-%Y')
+                self.data_status.config(text=f' Sua data de nascimento ficou : {data_padrao}.', fg='green')
+                
+        
+        except ValueError:
+             self.data_status.config(text='Inválido', fg='red')
         
      
 
