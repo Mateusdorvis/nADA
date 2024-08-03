@@ -1,7 +1,6 @@
 import tkinter as tk
 
 from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
-from login import Login
 from cadastro import Cadastro
 from Salvadados import SalvarUsuario
 from datetime import datetime
