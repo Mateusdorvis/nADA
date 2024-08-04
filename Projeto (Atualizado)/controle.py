@@ -9,7 +9,10 @@ class Controle:
         self.registro = Registro(root)
 
         self.registro.button_enviar.config(command=self.salvar_usuario)
+
         self.registro.nome_entrada.bind('<KeyRelease>',self.dicas_nome)
+
+        self.registro.senha_entrada.bind('<KeyRelease>',self.dicas_senha)
         
     def dicas_nome(self, event):
         
@@ -27,7 +30,24 @@ class Controle:
         else:
             self.nome_status.config(text=f'Seu nome de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
             if self.ler_nome<=1:
-                self.nome_status.config(text=f'Seu nome de usuário é insuficente, pois tem {self.ler_nome}  caractere !',fg='red', wraplength=50)
+                self.nome_status.config(text=f'Seu nome de usuário é insuficente, pois tem {self.ler_nome}  caractere !',fg='red', wraplength=200)
+        
+    def dicas_senha(self, event):
+            self.ler_senha = len(self.registro.senha_get())
+            self.senha_status = self.registro.senha_dicas
+            if self.ler_senha>=5 and self.ler_senha<=9:
+                self.nome_status.config(text=f'Sua senha de usuário está no números de caracteres mínimo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
+                
+            elif self.ler_senha==10:
+                self.nome_status.config(text=f'Sua senha de usuário chegou ao número de caractere máximo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
+            
+            elif self.ler_senha>=11:
+                self.nome_status.config(text=f'Sua senha de usuário chegou número de caractere máximo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
+            
+            else:
+                self.senha_status.config(text=f'Sua senha de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
+                if self.ler_senha<=1:
+                    self.nome_status.config(text=f'Sua senha de usuário é insuficente, pois tem {self.ler_senha}  caractere !',fg='red', wraplength=200)
 
 
             
@@ -39,7 +59,7 @@ class Controle:
         self.nome = self.registro.nome_get()
         self.senha = self.registro.senha_get()
         self.data = self.registro.data_get()
-        
+
         if self.nome == '' and self.senha == '' and self.data == '':
             Mensagens.msgAtencao('Os três campos estão vazios, preencha por favor!')
         
