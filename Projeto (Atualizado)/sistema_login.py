@@ -7,8 +7,8 @@ from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncu
 class BaseCadastro:
     def __init__(self):
         self.root = tk.Tk()
-        self.frame_caixa = Framecustomizado(self.root)
-        self.frame_caixa.grid(row=0, column=0)
+        self.frame_caixa = Framecustomizado(self.root, width=500, height=500)
+        self.frame_caixa.pack_propagate(False)
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
         self.frame_caixa.grid_columnconfigure(0, weight=1)
