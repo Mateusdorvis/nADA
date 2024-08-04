@@ -54,7 +54,6 @@ class Controle:
             if self.cadastro.contar>=2:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
-                Mensagens.msgInfo(f'Sua data de nascimento ficou {data_padrao}')
                 Mensagens.msgInfo('Cadastro Realizado com sucesso !')
                 save_user = SalvarUsuario(self.cadastro.nome_get(),data_formatada,self.cadastro.senha_get())
                 
