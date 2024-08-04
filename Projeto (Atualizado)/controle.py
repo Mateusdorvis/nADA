@@ -2,7 +2,7 @@ import tkinter as tk
 
 from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
 from cadastro import Cadastro
-from Salvadados import SalvarUsuario
+from modelo import SalvarUsuario, CarregarUsuario
 from datetime import datetime
 from login import Login
 
@@ -17,9 +17,7 @@ class Controle:
         self.cadastro.senha_text_entry.bind('<KeyRelease>', self.EventoCampoSenha)
         self.cadastro.data_text_entry.bind('<KeyRelease>', self.EventoCampoData)
         self.root.mainloop()
-    
-    def janela_login(self):
-        pass
+
    
     #salva os dados do usuário, mas antes checa todas as possibilidades !
     def enviarCadastro(self):
@@ -133,8 +131,7 @@ class Controle:
         self.login = Login(self.root)
         self.button_check = Buttoncustomizado(self.login.box_frame, text='Enviar' ,command=self.checar_login)
     
-    def checar_login(self):
-        
+    
     
 
 

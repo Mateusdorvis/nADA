@@ -65,4 +65,33 @@ class SalvarUsuario:
             print(self.dicio_pessoa)
 
 
-
+class CarregarUsuario:
+    def __init__(self, nome_user  : str, senha_user : str):
+        self.nome_user = nome_user
+        self.senha_user  = senha_user
+        self.conexao = mysql.connector.connect(
+            host="localhost",       
+            user="app",             
+            password="oi",         
+            database="app_jogos"    
+        )
+        self.cursor = self.conexao.cursor()
+        self.show_users()
+        self.conexao.commit()
+        self.conexao.close()
+    
+    def show_users(self):
+        self.cursor.execute("SELECT * FROM dados_usuarios;")
+        self.mostrar_usuarios = self.cursor.fetchall()
+        self.dicio_pessoa = {}
+        contar = 0
+        for usuario in self.mostrar_usuarios:
+            self.dicio_pessoa[f'usuário {contar + 1} '] = {'ID': usuario[0],
+            'Nome' :  usuario[1], 
+            'Data de nascimento ': usuario[2], 
+            'Senha'  : usuario[3]
+            }
+            if usuario[1]==self.nome_user and usuario[3]==self.senha_user:
+                print(f'{self.nome_user} Encontrado')
+            else:
+                print(f'Não foi encontrado {self.nome_user} !')
