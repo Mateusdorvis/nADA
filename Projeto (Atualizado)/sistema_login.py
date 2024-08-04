@@ -76,7 +76,9 @@ class Login(BaseCadastro):
     def entrada_data(self):
         pass
 
-
+root = tk.Tk()
+login  = Registro(root)
+cadastro = Login(root)
 
 
         
