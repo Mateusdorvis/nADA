@@ -78,7 +78,7 @@ class Controle:
         
         else:
             self.cadastro.senha_status.config(text=f'Escreva mais, porque sua senha  tem  apenas {self.ler_campo_senha() } caracteres !', fg='red')
-            if self.ler_campo_senha<1:
+            if self.ler_campo_senha()<=1:
                 self.cadastro.senha_status.config(text=f'Senha insuficente, pois tem {self.ler_campo_senha()} caractere !', fg='red')
 
 
@@ -96,7 +96,7 @@ class Controle:
         else:
             self.cadastro.nome_status.config(text=f'Escreva mais, porque seu nome  tem  apenas {self.ler_campo_nome() } caracteres !', fg='red')
 
-            if self.ler_campo_nome<1:
+            if self.ler_campo_nome()<=1:
                 self.cadastro.nome_status.config(text=f'Nome de usuário insuficente, pois tem {self.ler_campo_nome()} caractere !', fg='red')
 
 
