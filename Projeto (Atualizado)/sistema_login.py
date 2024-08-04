@@ -9,12 +9,9 @@ class BaseCadastro:
         self.root = tk.Tk()
         self.frame_caixa = Framecustomizado(self.root,width=400, height=200)
         self.frame_caixa.grid_propagate(False)
-        self.frame_caixa.grid(row=0, column=0)
+        self.frame_caixa.grid(row=0, column=0, sticky=tk.NSEW)
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
-        self.frame_caixa.grid_columnconfigure(0, weight=1)
-        for linha in range(0,6, 1):
-             self.frame_caixa.grid_rowconfigure(linha, weight=1)
         self.root.config(bg='#0ba18c')
         self.entrada_nome()
         self.entrada_senha()
