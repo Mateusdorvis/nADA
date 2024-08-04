@@ -143,3 +143,8 @@ class Login(BaseCadastro):
     
     def entrada_data(self):
         pass
+
+    def config_eventos(self):
+        self.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
+        self.senha_entrada.bind('<KeyRelease>', self.dicas_senha)
+
