@@ -10,7 +10,7 @@ class Controle:
      
         self.registro.button_enviar.config(command=self.salvar_usuario)
         
-    def evento_tecla
+    def dicas_nome(self)
     
     def salvar_usuario(self):
         self.nome = self.registro.nome_get()
