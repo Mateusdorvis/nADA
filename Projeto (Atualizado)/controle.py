@@ -16,7 +16,8 @@ class Controle:
         self.nome = self.registro.nome_get()
         self.senha = self.registro.senha_get()
         self.data = self.registro.data_get()
-        
+        if 
+
 
 
 root = tk.Tk()
