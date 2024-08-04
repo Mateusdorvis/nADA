@@ -53,7 +53,16 @@ class Controle:
                     self.nome_status.config(text=f'Sua senha de usuário é insuficente, pois tem {self.ler_senha}  caractere !',fg='red', wraplength=200)
 
     def dicas_data(self, event):
-            try:
+        try:
+            self.data_formatada = datetime.strptime(self.registro.data_get(), '%d-%m-%Y')
+            self.data_padrao =  self.data_formatada.strftime('%d-%m-%Y')
+            self.registro.data_dicas.config(text=f'Sua  data de nascimento ficou : {self.data_padrao}', fg='green')
+
+        except ValueError:
+            self.registro.data_dicas.config(text='Inválido', fg='red')
+
+
+
 
             
 
