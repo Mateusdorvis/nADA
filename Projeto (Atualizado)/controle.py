@@ -35,14 +35,14 @@ class Controle:
         elif self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha o campo DATA  por favor !')
     def ler_campo_senha(self):
-        return len(self.cadastro.nome_get())
-    def ler_campo_senha(self):
-        return len(self.cadastro.nome_get())
-    def ler_campo_senha(self):
-        return len(self.cadastro.nome_get())
-    def EventoCampoNome(self):
+        return len(self.cadastro.senha_get())
     
-        if 
+    def ler_campo_nome(self):
+        return len(self.cadastro.nome_get())
+    
+    def EventoCampoNome(self):
+        if self.ler_campo_senha()>=5 and self.ler_campo_senha()<=9:
+            self.cadastro.nome_status.config(text=f'Sua senha atingiu número de caractere mínimo, pois tem {self.ler_campo_senha()}')
 
 
 
