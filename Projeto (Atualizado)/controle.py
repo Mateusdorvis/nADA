@@ -21,6 +21,10 @@ class Controle:
         
         elif self.ler_nome>=11:
             self.nome_status.config(text=f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !', wraplength=50)
+        
+        elif self.ler_nome>=11:
+            self.nome_status.config(text=f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !', wraplength=50)
+
 
             
 
