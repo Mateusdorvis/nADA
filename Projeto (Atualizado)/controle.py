@@ -41,6 +41,16 @@ class Controle:
         self.data = self.registro.data_get()
         if self.nome == '' and self.senha == '' and self.data == '':
             Mensagens.msgAtencao('Os três campos estão vazios, preencha por favor!')
+        
+        elif self.nome != '' and self.senha == '' and self.data == '':
+            Mensagens.msgAtencao('Os  campos data e senha estão vazios, preencha por favor!')
+        
+        elif self.nome == '' and self.senha != '' and self.data == '':
+            Mensagens.msgAtencao('Os campos data e nome estão vazios, preencha por favor!')
+        
+        elif self.nome == '' and self.senha == '' and self.data != '':
+            Mensagens.msgAtencao('Os  campos nome e senha estão vazios, preencha por favor!')
+
         elif self.nome == '':
             Mensagens.msgAtencao('O campo nome está vazio, preencha por favor!')
         elif self.senha == '':
