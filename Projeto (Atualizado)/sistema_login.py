@@ -71,9 +71,13 @@ class Login(BaseCadastro):
         self.root.title('Login de usuário')
         self.button_login = Buttoncustomizado(self.frame_caixa, text='Enviar login', bg='black', fg='white')
         self.button_login.grid(row=12, column=0, pady=5, padx=5)
+
+        self.button_senha = Buttoncustomizado(self.frame_caixa, text='Esqueci senha', bg='black', fg='white')
+        self.button_senha.grid(row=16, column=0, pady=5, padx=5)
     
     def entrada_data(self):
         pass
+
 
 root = tk.Tk()
 register = Registro(root)
