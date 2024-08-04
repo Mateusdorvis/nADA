@@ -1,13 +1,13 @@
 import tkinter as tk
 from elementos_tkinter import Buttoncustomizado, Labelcustomizada, LabelcustomizadaTitulo, Mensagens, Textcustomizado
-from sistema_login import Registro
+from sistema_login import Registro, BaseCadastro, Login
 from modelo import SalvarUsuario, CarregarUsuario
 from datetime import datetime
 
 class Controle:
     def __init__(self, root):
         self.root = root
-        self.registro = Registro(root)
+        self.registro = BaseCadastro(root)
 
         self.registro.button_enviar.config(command=self.salvar_usuario)
 
@@ -28,7 +28,7 @@ class Controle:
             self.nome_status.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
         
         elif self.ler_nome>=11:
-            self.nome_status.config(text=f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
+            Mensagens.msgAtencao(f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !')
         
         else:
             self.nome_status.config(text=f'Seu nome de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
