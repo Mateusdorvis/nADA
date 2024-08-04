@@ -54,7 +54,6 @@ class Cadastro:
         self.nome_status = Labelcustomizada(self.box_frame)
         self.nome_status.grid(row=3, column=0, sticky=tk.NSEW)
 
-        self.nome_text_entry.bind('<KeyRelease>', self.eventoTeclado_Nome)
 
     def entrada_data(self):
         self.data_titulo = LabelcustomizadaTitulo(self.box_frame,
@@ -69,8 +68,7 @@ class Cadastro:
 
         self.data_status = Labelcustomizada(self.box_frame, wraplength=200)
         self.data_status.grid(row=7, column=0, sticky=tk.NSEW)
-        self.data_text_entry.bind('<KeyRelease>', self.eventoTeclado_Data)
-        
+   
 
     def entrada_senha(self):
         self.senha_titulo = LabelcustomizadaTitulo(self.box_frame,
@@ -87,7 +85,7 @@ class Cadastro:
         self.senha_status = Labelcustomizada(self.box_frame, wraplength=200)
         self.senha_status.grid(row=11, column=0, sticky=tk.NSEW)
 
-        self.senha_text_entry.bind('<KeyRelease>', self.eventoTeclado_Senha)
+    
 
        
         

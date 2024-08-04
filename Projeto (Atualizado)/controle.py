@@ -38,8 +38,15 @@ class Controle:
         
         elif self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha o campo DATA  por favor !')
+        else:
+            self.cadastro.contar+=1
+            if self.cadastro.contar>=2:
+                Mensagens.msgAtencao('Seu cadastro já foi enviado !')
+            else:
+                Mensagens.msgInfo('Cadastro Realizado com sucesso !')
+                
 
-            
+
     def ler_campo_senha(self):
         return len(self.cadastro.senha_get())
     
@@ -53,6 +60,10 @@ class Controle:
 
         elif self.ler_campo_senha()==10:
             self.cadastro.nome_status.config(text=f'Sua senha atingiu número de caracteres máximo, pois tem {self.ler_campo_senha()} !')
+
+        elif self.ler_campo_senha()>=11:
+            self.cadastro.nome_status.config(text=f'Sua senha passou do número de caracteres máximo, pois tem {self.ler_campo_senha()} !')
+            self.cadastro.senha_text_entry.delete(1.0, tk.END)
         
         else:
             self.cadastro.nome_status.config(text=f'Escreva mais, porque sua senha  tem  apenas {self.ler_campo_senha() } caracteres !')
@@ -64,8 +75,12 @@ class Controle:
         if self.ler_campo_nome()>=5 and self.ler_campo_nome()<=9:
             self.cadastro.nome_status.config(text=f'Seu nome atingiu número de caracteres mínimo, pois tem {self.ler_campo_nome()} !')
 
-        elif self.ler_campo_senha()==10:
+        elif self.ler_campo_nome()==10:
             self.cadastro.nome_status.config(text=f'Seu nome atingiu número de caracteres máximo, pois tem {self.ler_campo_nome()} !')
+        
+        elif self.ler_campo_nome()>=11:
+            self.cadastro.nome_status.config(text=f'Seu nome de usuário passou do número de caracteres máximo, pois tem {self.ler_campo_nome()} !')
+            self.cadastro.nome_text_entry.delete(1.0, tk.END)
         
         else:
             self.cadastro.nome_status.config(text=f'Escreva mais, porque seu nome  tem  apenas {self.ler_campo_nome() } caracteres !')
