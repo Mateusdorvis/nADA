@@ -18,7 +18,7 @@ def titulo(titulo, master,linha,  **args,):
 
 #label para textos etc.
 def Labelcustomizada(master, **args):
-  args.setdefault('bg', '#fff8ff')
+  args.setdefault('bg', '#ffffff')
   args.setdefault('font', ('Courier New', 9))
   return tk.Label(master, **args)
 
@@ -37,7 +37,7 @@ def Buttoncustomizado(master, **args):
   return tk.Button(master, **args)
 
 def Framecustomizado(master, **args):
-  args.setdefault('bg', '#fff8ff')
+  args.setdefault('bg', '#ffffff')
   return tk.Frame(master,  **args)
 
 def Textcustomizado(master, **args):
