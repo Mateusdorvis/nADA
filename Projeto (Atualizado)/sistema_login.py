@@ -86,17 +86,3 @@ class Login(BaseCadastro):
     
     def entrada_data(self):
         pass
-
-
-root = tk.Tk()
-register = Registro(root)
-root.mainloop()
-root_l = tk.Tk()
-login = Login(root_l)
-root_l.mainloop()
-
-
-        
-
-
-        

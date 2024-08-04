@@ -1,6 +1,6 @@
 import tkinter as tk
 from elementos_tkinter import Buttoncustomizado, Labelcustomizada, LabelcustomizadaTitulo, Mensagens, Textcustomizado
-from sistema_login import Login, Registro
+from sistema_login import Registro
 from modelo import SalvarUsuario, CarregarUsuario
 
 class Controle:
