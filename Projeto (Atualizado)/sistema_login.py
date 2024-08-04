@@ -5,8 +5,8 @@ from tkinter import messagebox
 from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens, Framecustomizado, Textcustomizado
 
 class BaseCadastro:
-    def __init__(self):
-        self.root = tk.Tk()
+    def __init__(self, root):
+        self.root = root
         self.frame_caixa = Framecustomizado(self.root,width=400, height=400)
         self.frame_caixa.grid(row=0, column=0)
         self.root.grid_columnconfigure(0, weight=1)
@@ -58,14 +58,14 @@ class BaseCadastro:
     
 
 class Registro(BaseCadastro):
-    def __init__(self):
-        super().__init__()
-    
+    def __init__(self, root):
+        super().__init__(root)
     
 
+
 class Login(BaseCadastro):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, root):
+        super().__init__(root)
     
     def entrada_data(self):
         pass
