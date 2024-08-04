@@ -15,7 +15,6 @@ class BaseCadastro:
         self.entrada_nome()
         self.entrada_senha()
         self.entrada_data()
-        self.root.mainloop()
     
     def entrada_nome(self):
         self.nome_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
@@ -77,8 +76,8 @@ class Login(BaseCadastro):
         pass
 
 root = tk.Tk()
-login  = BaseCadastro(root)
 login2 = Registro(root)
+root.mainloop()
 
         
 
