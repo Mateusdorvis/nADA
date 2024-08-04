@@ -43,7 +43,7 @@ class Controle:
             try:
                     data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
                     data_padrao = data_formatada.strftime('%d-%m-%Y')
-                    Mensagens.msgInfo(f'Sua data de nascimento ficou {data_padrao}')
+                  
                 
             except ValueError:
                     Mensagens.msgAtencao('Insira uma data de nascimento no formato dd-mm-YYYY !')
@@ -54,8 +54,7 @@ class Controle:
             if self.cadastro.contar>=2:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
-                
-                    
+                Mensagens.msgInfo(f'Sua data de nascimento ficou {data_padrao}')
                 Mensagens.msgInfo('Cadastro Realizado com sucesso !')
                 save_user = SalvarUsuario(self.cadastro.nome_get(),data_formatada,self.cadastro.senha_get())
                 
