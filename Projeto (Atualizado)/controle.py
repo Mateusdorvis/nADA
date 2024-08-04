@@ -43,6 +43,7 @@ class Controle:
             if self.cadastro.contar>=2:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
+                
                 Mensagens.msgInfo('Cadastro Realizado com sucesso !')
                 
 
