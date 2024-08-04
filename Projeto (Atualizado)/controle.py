@@ -47,10 +47,11 @@ class Controle:
                 self.registro.senha_dicas.config(text=f'Sua senha de usuário chegou ao número de caractere máximo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
             
             elif self.ler_senha>=11:
-                self.registro.senha_dicas.config(text=f'Sua senha de usuário chegou número de caractere máximo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
+                Mensagens.msgAtencao(f'Sua senha de usuário chegou número de caractere máximo, pois tem {self.ler_senha} !')
+                self.registro.senha_entrada.delete(0, tk.END)
             
             else:
-                self.senha_dicas.config(text=f'Sua senha de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
+                self.registro.senha_dicas.config(text=f'Sua senha de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
                 if self.ler_senha<=1:
                     self.registro.senha_dicas.config(text=f'Sua senha de usuário é insuficente, pois tem {self.ler_senha}  caractere !',fg='red', wraplength=200)
 
