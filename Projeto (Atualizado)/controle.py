@@ -39,18 +39,18 @@ class Controle:
             self.ler_senha = len(self.registro.senha_get())
             self.senha_status = self.registro.senha_dicas
             if self.ler_senha>=5 and self.ler_senha<=9:
-                self.nome_status.config(text=f'Sua senha de usuário está no números de caracteres mínimo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
+                self.senha_status.config(text=f'Sua senha de usuário está no números de caracteres mínimo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
                 
             elif self.ler_senha==10:
-                self.nome_status.config(text=f'Sua senha de usuário chegou ao número de caractere máximo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
+                self.senha_status.config(text=f'Sua senha de usuário chegou ao número de caractere máximo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
             
             elif self.ler_senha>=11:
-                self.nome_status.config(text=f'Sua senha de usuário chegou número de caractere máximo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
+                self.senha_status.config(text=f'Sua senha de usuário chegou número de caractere máximo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
             
             else:
                 self.senha_status.config(text=f'Sua senha de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
                 if self.ler_senha<=1:
-                    self.nome_status.config(text=f'Sua senha de usuário é insuficente, pois tem {self.ler_senha}  caractere !',fg='red', wraplength=200)
+                    self.senha_status.config(text=f'Sua senha de usuário é insuficente, pois tem {self.ler_senha}  caractere !',fg='red', wraplength=200)
 
     def dicas_data(self, event):
         try:
