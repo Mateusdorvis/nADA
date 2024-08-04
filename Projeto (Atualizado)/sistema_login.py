@@ -17,16 +17,16 @@ class BaseCadastro:
     
     def entrada_nome(self):
         self.nome_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
-        self.nome_titulo.grid(row=0, column=0, sticky=tk.NSEW)
+        self.nome_titulo.grid(row=0, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.nome_label = Labelcustomizada(self.frame_caixa, text='Digite seu nome')
-        self.nome_label.grid(row=1, column=0, sticky=tk.NSEW)
+        self.nome_label.grid(row=1, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.nome_entrada = Textcustomizado(self.frame_caixa)
-        self.nome_entrada.grid(row=1, column=1, sticky=tk.NSEW)
+        self.nome_entrada.grid(row=1, column=1, sticky=tk.NSEW, pady=5, padx=5)
 
         self.nome_dicas = Labelcustomizada(self.frame_caixa)
-        self.nome_dicas.grid(row=2, column=0, sticky=tk.NSEW)
+        self.nome_dicas.grid(row=2, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
 
 BaseCadastro()
