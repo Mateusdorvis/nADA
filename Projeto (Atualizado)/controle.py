@@ -36,7 +36,7 @@ class Controle:
             Mensagens.msgAtencao('Preencha o campo DATA  por favor !')
         
         def EventoCampoNome(self):
-            
+            if self.cadastr
 
 
 
