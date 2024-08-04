@@ -86,10 +86,10 @@ class Controle:
                 Mensagens.msgAtencao('Os campos data  e senha   não seguem os requisitos ! Preencha por favor!')
             
             elif nome_status.cget('fg')=='red' and data_status.cget('fg')!='red' and senha_status.cget('fg')=='red':
-                Mensagens.msgAtencao('Os campos nome  e data   não seguem os requisitos ! Preencha por favor!')
+                Mensagens.msgAtencao('Os campos nome  e senha  não seguem os requisitos ! Preencha por favor!')
             
             elif nome_status.cget('fg')=='red' and data_status.cget('fg')=='red' and senha_status.cget('fg')!='red':
-                Mensagens.msgAtencao('Os campos nome  e senha   não seguem os requisitos ! Preencha por favor!')
+                Mensagens.msgAtencao('Os campos nome  e data  não seguem os requisitos ! Preencha por favor!')
             
             elif senha_status.cget('fg')=='red':
                 Mensagens.msgAtencao('O campo senha não segue requisitos ! Preencha por favor!')
