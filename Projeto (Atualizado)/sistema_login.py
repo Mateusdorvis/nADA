@@ -77,7 +77,8 @@ class Login(BaseCadastro):
         pass
 
 root = tk.Tk()
-login  = Registro(root)
+login  = BaseCadastro(root)
+login2 = Registro(root)
 
         
 
