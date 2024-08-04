@@ -37,7 +37,7 @@ class BaseCadastro:
         self.senha_titulo.grid(row=3, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.senha_label = Labelcustomizada(self.frame_caixa, text='Digite seu nome')
-        self.nome_label.grid(row=4, column=0, sticky=tk.NSEW, pady=5, padx=5)
+        self.senha_label.grid(row=4, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.senha_entrada = Textcustomizado(self.frame_caixa)
         self.senha_entrada.grid(row=4, column=1, sticky=tk.NSEW, pady=5, padx=5)
@@ -45,18 +45,18 @@ class BaseCadastro:
         self.senha_dicas = Labelcustomizada(self.frame_caixa)
         self.senha_dicas.grid(row=5, column=0, sticky=tk.NSEW, pady=5, padx=5)
     
-    def entrada_senha(self):
-        self.senha_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
-        self.senha_titulo.grid(row=3, column=0, sticky=tk.NSEW, pady=5, padx=5)
+    def entrada_data(self):
+        self.data_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
+        self.data_titulo.grid(row=6, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
-        self.senha_label = Labelcustomizada(self.frame_caixa, text='Digite seu nome')
-        self.nome_label.grid(row=4, column=0, sticky=tk.NSEW, pady=5, padx=5)
+        self.data_label = Labelcustomizada(self.frame_caixa, text='Digite seu nome')
+        self.data_label.grid(row=7, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
-        self.senha_entrada = Textcustomizado(self.frame_caixa)
-        self.senha_entrada.grid(row=4, column=1, sticky=tk.NSEW, pady=5, padx=5)
+        self.data_entrada = Textcustomizado(self.frame_caixa)
+        self.data_entrada.grid(row=7, column=1, sticky=tk.NSEW, pady=5, padx=5)
 
-        self.senha_dicas = Labelcustomizada(self.frame_caixa)
-        self.senha_dicas.grid(row=5, column=0, sticky=tk.NSEW, pady=5, padx=5)
+        self.data_dicas = Labelcustomizada(self.frame_caixa)
+        self.data_dicas.grid(row=8, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
 
 BaseCadastro()
