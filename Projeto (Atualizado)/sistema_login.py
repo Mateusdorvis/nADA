@@ -47,7 +47,7 @@ class BaseCadastro:
         self.data_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO DATA.')
         self.data_titulo.grid(row=6, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
-        self.data_label = Labelcustomizada(self.frame_caixa, text='Digite sua data de nascimento no formato dd-mm-YYYY :', justify='left')
+        self.data_label = Labelcustomizada(self.frame_caixa, text='Digite sua data de nascimento \n no formato dd-mm-YYYY :', justify='left')
         self.data_label.grid(row=7, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.data_entrada = Textcustomizado(self.frame_caixa)
