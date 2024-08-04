@@ -11,6 +11,8 @@ class BaseCadastro:
         self.frame_caixa.grid(row=0, column=0)
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
+        self.frame_caixa.grid_columnconfigure(0, weight=1)
+        self.frame_caixa.grid_rowconfigure(0, weight=1)
         self.root.config(bg='#0ba18c')
         self.entrada_nome()
         self.root.mainloop()
