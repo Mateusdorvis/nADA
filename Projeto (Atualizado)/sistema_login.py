@@ -8,7 +8,6 @@ class BaseCadastro:
     def __init__(self):
         self.root = tk.Tk()
         self.frame_caixa = Framecustomizado(self.root,width=300, height=200)
-        self.frame_caixa.grid_propagate(False)
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
         self.frame_caixa.grid_columnconfigure(0, weight=1)
