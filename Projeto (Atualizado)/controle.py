@@ -39,7 +39,7 @@ class Controle:
         
         elif self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha o campo DATA  por favor !')
-        elif self.cadastro.data_get()!=:
+        elif self.cadastro.data_get()!='':
             try:
                     data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
                     data_padrao = data_formatada.strftime('%d-%m-%Y')
