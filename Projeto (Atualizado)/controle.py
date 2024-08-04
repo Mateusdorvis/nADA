@@ -7,10 +7,12 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.registro = Registro(root)
-     
         self.registro.button_enviar.config(command=self.salvar_usuario)
         
+        self.registro.nome_entrada.bind('<KeyRelease>',self.dicas_nome)
+        
     def dicas_nome(self):
+        
         self.ler_nome = len(self.nome)
         self.nome_status = self.registro.nome_dicas
         if self.ler_nome>=5 and self.ler_nome<=9:
