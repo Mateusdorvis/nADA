@@ -18,11 +18,31 @@ class Controle:
 
         def verificar_campo_vazio():
             def verificar__cor():
-                nome_status = self.registro.nome_dicas()
-                senha_status = self.registro.nome_dicas()
-                data_status = self.registro.nome_dicas()
+                nome_status = self.registro.nome_dicas
+                senha_status = self.registro.senha_dicas
+                data_status = self.registro.data_dicas
 
-                if nome_status
+                if nome_status.cget('fg')=='red' and data_status.cget('fg')=='red' and senha_status.cget('fg')=='red':
+                    Mensagens.msgAtencao('Os três campos não seguem os requisitos ! Preencha por favor!')
+
+                elif nome_status.cget('fg')!='red' and data_status.cget('fg')=='red' and senha_status.cget('fg')=='red':
+                    Mensagens.msgAtencao('Os campos data  e senha   não seguem os requisitos ! Preencha por favor!')
+                
+                elif nome_status.cget('fg')=='red' and data_status.cget('fg')!='red' and senha_status.cget('fg')=='red':
+                    Mensagens.msgAtencao('Os campos nome  e data   não seguem os requisitos ! Preencha por favor!')
+                
+                elif nome_status.cget('fg')=='red' and data_status.cget('fg')=='red' and senha_status.cget('fg')!='red':
+                    Mensagens.msgAtencao('Os campos nome  e senha   não seguem os requisitos ! Preencha por favor!')
+                
+                elif senha_status.cget('fg')=='red':
+                    Mensagens.msgAtencao('O campo senha   não segue requisitos ! Preencha por favor!')
+                
+                elif senha_status.cget('fg')=='red':
+                    Mensagens.msgAtencao('O campo senha   não segue requisitos ! Preencha por favor!')
+                
+                elif senha_status.cget('fg')=='red':
+                    Mensagens.msgAtencao('O campo senha   não segue requisitos ! Preencha por favor!')
+            
             
             if self.nome == '' and self.senha == '' and self.data == '':
                 Mensagens.msgAtencao('Os três campos estão vazios, preencha por favor!')
