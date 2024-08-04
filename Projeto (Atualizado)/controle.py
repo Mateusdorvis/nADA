@@ -11,12 +11,9 @@ class Controle:
         self.root = root
         self.cadastro = Cadastro(self.root)
         self.button_enviar = Buttoncustomizado(self.cadastro.box_frame, text='Enviar cadastro', command=self.enviarCadastro)
-        self.button_enviar.grid(row=15, column=0, sticky=tk.NSEW)
-
+        self.button_enviar.grid(row=15, column=0, pady=5, padx=6)
         self.cadastro.nome_text_entry.bind('<KeyRelease>', self.EventoCampoNome)
-
         self.cadastro.senha_text_entry.bind('<KeyRelease>', self.EventoCampoSenha)
-
         self.cadastro.data_text_entry.bind('<KeyRelease>', self.EventoCampoData)
 
    
@@ -43,6 +40,27 @@ class Controle:
         
         elif self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha o campo DATA  por favor !')
+        
+        elif self.cadastro.nome_status.cget('fg')=='red' and self.cadastro.senha_status.cget('fg')=='red' and self.cadastro.data_status.cget('fg')=='red' :
+            Mensagens.msgAtencao('Nenhum campo foi preenchido corretamente !')
+        
+        elif self.cadastro.nome_status.cget('fg')!='red' and self.cadastro.senha_status.cget('fg')=='red' and self.cadastro.data_status.cget('fg')=='red' :
+            Mensagens.msgAtencao('Os campos DATA E SENHA não foram preenchidos corretamente !')
+
+        elif self.cadastro.nome_status.cget('fg')=='red' and self.cadastro.senha_status.cget('fg')!='red' and self.cadastro.data_status.cget('fg')=='red' :
+            Mensagens.msgAtencao('Os campos DATA E NOME não foram preenchidos corretamente !')
+
+        elif self.cadastro.nome_status.cget('fg')=='red' and self.cadastro.senha_status.cget('fg')=='red' and self.cadastro.data_status.cget('fg')!='red' :
+            Mensagens.msgAtencao('Os campos NOME E SENHA não foram preenchidos corretamente !')
+        
+        elif self.cadastro.nome_status.cget('fg')=='red':
+            Mensagens.msgAtencao('O campo NOME não foi  preenchido corretamente !')
+
+        elif self.cadastro.senha_status.cget('fg')=='red':
+            Mensagens.msgAtencao('O campo SENHA não foi  preenchido corretamente !')
+
+        elif self.cadastro.data_status.cget('fg')=='red':
+            Mensagens.msgAtencao('O campo DATA não foi  preenchido corretamente !')
        
             
         else:
