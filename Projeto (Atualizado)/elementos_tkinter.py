@@ -20,7 +20,7 @@ def titulo(titulo, master,linha,  **args,):
 def Labelcustomizada(master, **args):
   args.setdefault('bg', 'white')
   args.setdefault('font', ('Courier New', 9))
-  return tk.Label(master, wraplength=200, **args)
+  return tk.Label(master, wraplength=50, **args)
 
 #label dedicada a titulos
 def LabelcustomizadaTitulo(master, **args):
