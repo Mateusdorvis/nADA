@@ -43,7 +43,7 @@ def Framecustomizado(master, **args):
 def Textcustomizado(master, **args):
   args.setdefault('width', '12')
   args.setdefault('height', '0')
-  return tk.Text(master, **args)
+  return tk.Text(master, borderwidth=2, relief=tk.SOLID,**args)
                     
                     
 
