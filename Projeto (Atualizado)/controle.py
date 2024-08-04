@@ -16,27 +16,30 @@ class Controle:
         self.senha = self.registro.senha_get()
         self.data = self.registro.data_get()
 
-        if self.nome == '' and self.senha == '' and self.data == '':
-            Mensagens.msgAtencao('Os três campos estão vazios, preencha por favor!')
-        
-        elif self.nome != '' and self.senha == '' and self.data == '':
-            Mensagens.msgAtencao('Os  campos data e senha estão vazios, preencha por favor!')
-        
-        elif self.nome == '' and self.senha != '' and self.data == '':
-            Mensagens.msgAtencao('Os campos data e nome estão vazios, preencha por favor!')
-        
-        elif self.nome == '' and self.senha == '' and self.data != '':
-            Mensagens.msgAtencao('Os  campos nome e senha estão vazios, preencha por favor!')
+        def verificar_campo_vazio():
+            if self.nome == '' and self.senha == '' and self.data == '':
+                Mensagens.msgAtencao('Os três campos estão vazios, preencha por favor!')
+            
+            elif self.nome != '' and self.senha == '' and self.data == '':
+                Mensagens.msgAtencao('Os  campos data e senha estão vazios, preencha por favor!')
+            
+            elif self.nome == '' and self.senha != '' and self.data == '':
+                Mensagens.msgAtencao('Os campos data e nome estão vazios, preencha por favor!')
+            
+            elif self.nome == '' and self.senha == '' and self.data != '':
+                Mensagens.msgAtencao('Os  campos nome e senha estão vazios, preencha por favor!')
 
-        elif self.nome == '':
-            Mensagens.msgAtencao('O campo nome está vazio, preencha por favor!')
-        elif self.senha == '':
-            Mensagens.msgAtencao('O campo senha está vazio, preencha por favor!')
-        elif self.data == '':
-            Mensagens.msgAtencao('O campo data está vazio, preencha por favor!')
-        else:
-            Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
+            elif self.nome == '':
+                Mensagens.msgAtencao('O campo nome está vazio, preencha por favor!')
+            elif self.senha == '':
+                Mensagens.msgAtencao('O campo senha está vazio, preencha por favor!')
+            elif self.data == '':
+                Mensagens.msgAtencao('O campo data está vazio, preencha por favor!')
+            else:
+                Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
+            verificar_campo_vazio()
 
+                
 
         
 
