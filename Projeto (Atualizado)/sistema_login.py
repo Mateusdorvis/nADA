@@ -78,8 +78,6 @@ class Login(BaseCadastro):
 
 root = tk.Tk()
 login  = Registro(root)
-cadastro = Login(root)
-
 
         
 
