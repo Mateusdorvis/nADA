@@ -17,6 +17,8 @@ class Controle:
 
         self.cadastro.senha_text_entry.bind('<KeyRelease>', self.EventoCampoSenha)
 
+        self.cadastro.data_text_entry.bind('<KeyRelease>', self.EventoCampoData)
+
    
         
     def enviarCadastro(self):
@@ -49,7 +51,7 @@ class Controle:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
                 Mensagens.msgInfo('Cadastro Realizado com sucesso !')
-                save_user = SalvarUsuario(self.cadastro.nome_get(),self.formmat_data(),self.cadastro.senha_get())
+                save_user = SalvarUsuario(self.cadastro.nome_get(),self.data_formatada,self.cadastro.senha_get())
                 
 
 
@@ -98,6 +100,11 @@ class Controle:
         try:
             self.data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
             self.data_padrao = self.data_formatada.strftime('%d-%m-%Y')
+            self.cadastro.data_status.config(text=f'Sua data de nascimento ficou {self.data_padrao}  !', fg='green')
+            self.cadastro.data_text_entry.config(state=tk.DISABLED)
+
+        except ValueError:
+            self.cadastro.data_status.config(text='Digite uma data no formato dd-mm-YYYY !', fg='red')
 
 
 
