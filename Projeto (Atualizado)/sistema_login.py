@@ -13,7 +13,7 @@ class BaseCadastro:
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
         self.frame_caixa.grid_columnconfigure(0, weight=1)
-        for linha in range(20):
+        for linha in range(6):
              self.frame_caixa.grid_rowconfigure(linha+1, weight=1)
         self.root.config(bg='#0ba18c')
         self.entrada_nome()
