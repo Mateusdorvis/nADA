@@ -16,6 +16,13 @@ class Controle:
         if self.ler_nome>=5 and self.ler_nome<=9:
             self.nome_status.config(text=f'Seu nome de usuário está no números de caracteres mínimo, pois tem {self.ler_nome} !', wraplength=50)
             
+        elif self.ler_nome==10:
+            self.nome_status.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome} !', wraplength=50)
+        
+        elif self.ler_nome>=11:
+            self.nome_status.config(text=f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !', wraplength=50)
+
+            
 
 
 
