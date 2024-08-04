@@ -55,6 +55,15 @@ class BaseCadastro:
         self.data_dicas = Labelcustomizada(self.frame_caixa)
         self.data_dicas.grid(row=8, column=0, sticky=tk.NSEW, pady=5, padx=5)
     
+    def nome_get(self):
+        return self.nome_entrada.get(1.0, tk.END).strip()
+    
+    def senha_get(self):
+        return self.senha_entrada.get(1.0, tk.END).strip()
+    
+    def data_get(self):
+        return self.data_entrada.get(1.0, tk.END).strip()
+    
 
 class Registro(BaseCadastro):
     def __init__(self, root):
