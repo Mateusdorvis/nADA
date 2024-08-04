@@ -16,16 +16,16 @@ class Controle:
         self.ler_nome = len(self.registro.nome_get())
         self.nome_status = self.registro.nome_dicas
         if self.ler_nome>=5 and self.ler_nome<=9:
-            self.nome_status.config(text=f'Seu nome de usuário está no números de caracteres mínimo, pois tem {self.ler_nome} !',fg='green', wraplength=50)
+            self.nome_status.config(text=f'Seu nome de usuário está no números de caracteres mínimo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
             
         elif self.ler_nome==10:
-            self.nome_status.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome} !',fg='green', wraplength=50)
+            self.nome_status.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
         
         elif self.ler_nome>=11:
-            self.nome_status.config(text=f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !',fg='red', wraplength=50)
+            self.nome_status.config(text=f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
         
         else:
-            self.nome_status.config(text=f'Seu nome de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_nome} !',fg='red', wraplength=50)
+            self.nome_status.config(text=f'Seu nome de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
             if self.ler_nome<=1:
                 self.nome_status.config(text=f'Seu nome de usuário é insuficente, pois tem {self.ler_nome}  caractere !',fg='red', wraplength=50)
 
