@@ -10,7 +10,10 @@ class Controle:
         self.registro = BaseCadastro(root)
 
         self.registro.button_enviar.config(command=self.salvar_usuario)
+        self.config_eventos()
 
+    
+    def config_eventos(self):
         self.registro.nome_entrada.bind('<KeyRelease>',self.dicas_nome)
 
         self.registro.senha_entrada.bind('<KeyRelease>',self.dicas_senha)
