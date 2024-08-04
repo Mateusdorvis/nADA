@@ -16,6 +16,11 @@ class BaseCadastro:
         self.entrada_senha()
         self.entrada_data()
     
+    def config_eventos(self):
+        self.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
+        self.senha_entrada.bind('<KeyRelease>', self.dicas_senha)
+        self.data_entrada.bind('<KeyRelease>', self.dicas_data)
+    
     def entrada_nome(self):
         self.nome_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
         self.nome_titulo.grid(row=0, column=0, sticky=tk.NSEW, pady=5, padx=5)
@@ -68,20 +73,21 @@ class BaseCadastro:
     def dicas_nome(self, event):
         
         self.ler_nome = len(self.nome_get())
-        self.nome_status = self.registro.nome_dicas
+
         if self.ler_nome>=5 and self.ler_nome<=9:
-            self.nome_status.config(text=f'Seu nome de usuário está no números de caracteres mínimo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
+            self.nome_dicas.config(text=f'Seu nome de usuário está no números de caracteres mínimo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
             
         elif self.ler_nome==10:
-            self.nome_status.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
+            self.nome_dicas.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
         
         elif self.ler_nome>=11:
             Mensagens.msgAtencao(f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !')
+            self.nome_entrada.delete(0, tk.END)
         
         else:
-            self.nome_status.config(text=f'Seu nome de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
+            self.nome_dicas.config(text=f'Seu nome de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
             if self.ler_nome<=1:
-                self.nome_status.config(text=f'Seu nome de usuário é insuficente, pois tem {self.ler_nome}  caractere !',fg='red', wraplength=200)
+                self.nome_dicas.config(text=f'Seu nome de usuário é insuficente, pois tem {self.ler_nome}  caractere !',fg='red', wraplength=200)
         
     def dicas_senha(self, event):
             self.ler_senha = len(self.senha_get())
