@@ -10,7 +10,7 @@ from login import Login
 class Controle:
     def __init__(self, root):
         self.root = root
-        
+
         self.cadastro = Cadastro(self.root)
         self.button_enviar = Buttoncustomizado(self.cadastro.box_frame, text='Enviar cadastro', command=self.enviarCadastro)
         self.button_enviar.grid(row=15, column=0, pady=5, padx=6)
@@ -72,7 +72,8 @@ class Controle:
             if self.cadastro.contar>=2:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
-                Mensagens.msgInfo('Cadastro Realizado com sucesso !')
+                Mensagens.msgInfo(f'Seu cadastro foi realizado com sucesso {self.cadastro.nome_get()} !')
+                #salva as informações no banco de dados
                 self.save_user = SalvarUsuario(self.cadastro.nome_get(),self.data_formatada,self.cadastro.senha_get())
                 
 
