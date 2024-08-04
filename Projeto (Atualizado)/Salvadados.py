@@ -57,16 +57,12 @@ class SalvarUsuario:
         self.dicio_pessoa = {}
         contar = 0
         for usuario in self.mostrar_usuarios:
-            self.usuario = {
-                'ID': usuario[0],
-                'Nome': usuario[1],
-                'Data de nascimento': usuario[2],
-                'Senha': usuario[3]
+            self.dicio_pessoa[f'usuário {contar + 1} '] = {'ID': usuario[0],
+            'Nome' :  usuario[1], 
+            'Data de nascimento ': usuario[2], 
+            'Senha'  : usuario[3]
             }
-            self.dicio_pessoa[f'usuário {contar + 1}'] = self.usuario
-            contar += 1
             print(self.dicio_pessoa)
-
 
 
 
