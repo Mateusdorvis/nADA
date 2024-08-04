@@ -39,6 +39,7 @@ class Controle:
         self.nome = self.registro.nome_get()
         self.senha = self.registro.senha_get()
         self.data = self.registro.data_get()
+        
         if self.nome == '' and self.senha == '' and self.data == '':
             Mensagens.msgAtencao('Os três campos estão vazios, preencha por favor!')
         
