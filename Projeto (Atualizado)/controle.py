@@ -34,9 +34,15 @@ class Controle:
         
         elif self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha o campo DATA  por favor !')
-        
-        def EventoCampoNome(self):
-            if self.cadastro.
+    def ler_campo_senha(self):
+        return len(self.cadastro.nome_get())
+    def ler_campo_senha(self):
+        return len(self.cadastro.nome_get())
+    def ler_campo_senha(self):
+        return len(self.cadastro.nome_get())
+    def EventoCampoNome(self):
+    
+        if 
 
 
 
