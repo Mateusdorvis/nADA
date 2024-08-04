@@ -2,6 +2,7 @@ import tkinter as tk
 from elementos_tkinter import Buttoncustomizado, Labelcustomizada, LabelcustomizadaTitulo, Mensagens, Textcustomizado
 from sistema_login import Registro
 from modelo import SalvarUsuario, CarregarUsuario
+from datetime import datetime
 
 class Controle:
     def __init__(self, root):
@@ -13,6 +14,8 @@ class Controle:
         self.registro.nome_entrada.bind('<KeyRelease>',self.dicas_nome)
 
         self.registro.senha_entrada.bind('<KeyRelease>',self.dicas_senha)
+
+        self.registro.data_entrada.bind('<KeyRelease>',self.dicas_data)
         
     def dicas_nome(self, event):
         
@@ -49,6 +52,8 @@ class Controle:
                 if self.ler_senha<=1:
                     self.nome_status.config(text=f'Sua senha de usuário é insuficente, pois tem {self.ler_senha}  caractere !',fg='red', wraplength=200)
 
+    def dicas_data(self, event):
+            try:
 
             
 
