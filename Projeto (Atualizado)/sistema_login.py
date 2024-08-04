@@ -24,7 +24,7 @@ class BaseCadastro:
         self.nome_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
         self.nome_titulo.grid(row=0, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
-        self.nome_label = Labelcustomizada(self.frame_caixa, text='Digite seu nome')
+        self.nome_label = Labelcustomizada(self.frame_caixa, text='Digite seu nome :')
         self.nome_label.grid(row=1, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.nome_entrada = Textcustomizado(self.frame_caixa)
@@ -34,10 +34,10 @@ class BaseCadastro:
         self.nome_dicas.grid(row=2, column=0, sticky=tk.NSEW, pady=5, padx=5)
     
     def entrada_senha(self):
-        self.senha_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
+        self.senha_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO SENHA.')
         self.senha_titulo.grid(row=3, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
-        self.senha_label = Labelcustomizada(self.frame_caixa, text='Digite seu nome')
+        self.senha_label = Labelcustomizada(self.frame_caixa, text='Digite sua senha :')
         self.senha_label.grid(row=4, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.senha_entrada = Textcustomizado(self.frame_caixa)
@@ -47,10 +47,10 @@ class BaseCadastro:
         self.senha_dicas.grid(row=5, column=0, sticky=tk.NSEW, pady=5, padx=5)
     
     def entrada_data(self):
-        self.data_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
+        self.data_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO DATA.')
         self.data_titulo.grid(row=6, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
-        self.data_label = Labelcustomizada(self.frame_caixa, text='Digite seu nome')
+        self.data_label = Labelcustomizada(self.frame_caixa, text='Digite sua data de nascimento no formato dd-mm-YYYY :')
         self.data_label.grid(row=7, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.data_entrada = Textcustomizado(self.frame_caixa)
