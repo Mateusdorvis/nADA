@@ -38,12 +38,12 @@ def Buttoncustomizado(master, **args):
 
 def Framecustomizado(master, **args):
   args.setdefault('bg', 'white')
-  return tk.Frame(master, **args)
+  return tk.Frame(master, width=1000, height=500, **args)
 
 def Textcustomizado(master, **args):
   args.setdefault('width', '12')
   args.setdefault('height', '0')
-  return tk.Text(master,width=500, height=300, **args)
+  return tk.Text(master, **args)
                     
                     
 
