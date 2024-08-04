@@ -17,7 +17,15 @@ class Controle:
 
         self.cadastro.senha_text_entry.bind('<KeyRelease>', self.EventoCampoSenha)
 
-
+    def formmat_data(self):
+        try:
+            data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
+            data_padrao = data_formatada.strftime('%d-%m-%Y')
+            return data_formatada
+        
+        except ValueError:
+            return Mensagens.msgAtencao('Insira uma data de nascimento no formato dd-mm-YYYY !')
+        
     def enviarCadastro(self):
         if self.cadastro.nome_get()=='' and self.cadastro.senha_get()=='' and self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha os três campos por favor !')
@@ -39,15 +47,7 @@ class Controle:
         
         elif self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha o campo DATA  por favor !')
-        elif self.cadastro.data_get():
-            try:
-                    data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
-                    data_padrao = data_formatada.strftime('%d-%m-%Y')
-                  
-                
-            except ValueError:
-                    Mensagens.msgAtencao('Insira uma data de nascimento no formato dd-mm-YYYY !')
-                      
+       
             
         else:
             self.cadastro.contar+=1
