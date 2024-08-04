@@ -15,6 +15,7 @@ class BaseCadastro:
         self.entrada_nome()
         self.entrada_senha()
         self.entrada_data()
+        self.config_eventos()
     
     def config_eventos(self):
         self.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
