@@ -17,6 +17,13 @@ class Controle:
         self.data = self.registro.data_get()
 
         def verificar_campo_vazio():
+            def verificar__cor():
+                nome_status = self.registro.nome_dicas()
+                senha_status = self.registro.nome_dicas()
+                data_status = self.registro.nome_dicas()
+
+                if nome_status
+            
             if self.nome == '' and self.senha == '' and self.data == '':
                 Mensagens.msgAtencao('Os três campos estão vazios, preencha por favor!')
             
@@ -39,7 +46,7 @@ class Controle:
                 Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
             verificar_campo_vazio()
 
-                
+     
 
         
 
