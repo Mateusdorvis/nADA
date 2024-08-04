@@ -13,7 +13,7 @@ class Controle:
         
     def dicas_nome(self, event):
         
-        self.ler_nome = len(self.nome)
+        self.ler_nome = len(self.registro.nome_get())
         self.nome_status = self.registro.nome_dicas
         if self.ler_nome>=5 and self.ler_nome<=9:
             self.nome_status.config(text=f'Seu nome de usuário está no números de caracteres mínimo, pois tem {self.ler_nome} !',fg='green', wraplength=50)
