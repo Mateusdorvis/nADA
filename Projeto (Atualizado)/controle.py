@@ -55,7 +55,7 @@ class Controle:
         return len(self.cadastro.nome_get())
     
 
-    def EventoCampoSenha(self):
+    def EventoCampoSenha(self, event):
         if self.ler_campo_senha()>=5 and self.ler_campo_senha()<=9:
             self.cadastro.nome_status.config(text=f'Sua senha atingiu número de caracteres mínimo, pois tem {self.ler_campo_senha()} !', fg='green')
 
@@ -72,7 +72,7 @@ class Controle:
                 self.cadastro.nome_status.config(text=f'Senha insuficente, pois tem {self.ler_campo_senha()} caractere !', fg='red')
 
 
-    def EventoCampoNome(self):
+    def EventoCampoNome(self, event):
         if self.ler_campo_nome()>=5 and self.ler_campo_nome()<=9:
             self.cadastro.nome_status.config(text=f'Seu nome atingiu número de caracteres mínimo, pois tem {self.ler_campo_nome()} !', fg='green')
 
