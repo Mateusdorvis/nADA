@@ -51,7 +51,7 @@ class Cadastro:
         self.nome_text_entry = tk.Text(self.box_frame, width=12, height=0)
         self.nome_text_entry.grid(row=1, column=1, padx=5, pady=5)
 
-        self.nome_status = Labelcustomizada(self.box_frame)
+        self.nome_status = Labelcustomizada(self.box_frame, wraplength=200)
         self.nome_status.grid(row=3, column=0, sticky=tk.NSEW)
 
 
