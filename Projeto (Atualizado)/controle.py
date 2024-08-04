@@ -16,8 +16,7 @@ class Controle:
         self.nome = self.registro.nome_get()
         self.senha = self.registro.senha_get()
         self.data = self.registro.data_get()
-        dicio_pessoa = {'Nome': self.nome, 'Senha': self.senha, 'Data de nascimento' : self.data}
-        print(dicio_pessoa)
+        
 
 
 root = tk.Tk()
