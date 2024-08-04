@@ -62,7 +62,7 @@ class Controle:
             self.registro.data_dicas.config(text=f'Sua  data de nascimento ficou : {self.data_padrao}', fg='green')
 
         except ValueError:
-            self.data_dicas.config(text='Inválido', fg='red')
+            self.registro.data_dicas.config(text='Inválido', fg='red')
     
     def salvar_usuario(self):
         self.nome = self.registro.nome_get()
