@@ -4,20 +4,25 @@ from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncu
 from cadastro import Cadastro
 from Salvadados import SalvarUsuario
 from datetime import datetime
+from login import Login
 
-
+#este dá funcionalidade as coisas
 class Controle:
     def __init__(self, root):
         self.root = root
+    
+    def janela_cadastro(self):
         self.cadastro = Cadastro(self.root)
         self.button_enviar = Buttoncustomizado(self.cadastro.box_frame, text='Enviar cadastro', command=self.enviarCadastro)
         self.button_enviar.grid(row=15, column=0, pady=5, padx=6)
         self.cadastro.nome_text_entry.bind('<KeyRelease>', self.EventoCampoNome)
         self.cadastro.senha_text_entry.bind('<KeyRelease>', self.EventoCampoSenha)
         self.cadastro.data_text_entry.bind('<KeyRelease>', self.EventoCampoData)
-
+    
+    def janela_login(self):
+        pass
    
-        
+    #salva os dados do usuário, mas antes checa todas as possibilidades !
     def enviarCadastro(self):
 
         if self.cadastro.nome_get()=='' and self.cadastro.senha_get()=='' and self.cadastro.data_get()=='':
@@ -69,7 +74,7 @@ class Controle:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
                 Mensagens.msgInfo('Cadastro Realizado com sucesso !')
-                save_user = SalvarUsuario(self.cadastro.nome_get(),self.data_formatada,self.cadastro.senha_get())
+                self.save_user = SalvarUsuario(self.cadastro.nome_get(),self.data_formatada,self.cadastro.senha_get())
                 
 
 
@@ -124,7 +129,7 @@ class Controle:
         except ValueError:
             self.cadastro.data_status.config(text='Digite uma data no formato dd-mm-YYYY !', fg='red')
 
-
+    
 
 
        
