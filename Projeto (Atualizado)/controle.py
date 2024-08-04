@@ -16,7 +16,17 @@ class Controle:
         self.cadastro.nome_text_entry.bind('<KeyRelease>', self.EventoCampoNome)
 
         self.cadastro.senha_text_entry.bind('<KeyRelease>', self.EventoCampoSenha)
-    
+
+    def formatar_data(self):
+        try:
+            data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
+            data_padrao = data_formatada.strftime('%d-%m-%Y')
+            Mensagens.msgInfo(f'Sua data de nascimento ficou {data_padrao}')
+
+            return data_formatada
+        except ValueError:
+            Mensagens.msgAtencao('Insira uma data de nascimento no formato dd-mm-YYYY !')
+
     def enviarCadastro(self):
         if self.cadastro.nome_get()=='' and self.cadastro.senha_get()=='' and self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha os três campos por favor !')
@@ -43,8 +53,8 @@ class Controle:
             if self.cadastro.contar>=2:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
-                
                 Mensagens.msgInfo('Cadastro Realizado com sucesso !')
+                save_user = SalvarUsuario(self.cadastro.nome_get(), self.formatar_data(),self.cadastro.senha_get() )
                 
 
 
@@ -68,7 +78,7 @@ class Controle:
         
         else:
             self.cadastro.senha_status.config(text=f'Escreva mais, porque sua senha  tem  apenas {self.ler_campo_senha() } caracteres !', fg='red')
-            if self.ler_campo_senha<=1:
+            if self.ler_campo_senha<1:
                 self.cadastro.senha_status.config(text=f'Senha insuficente, pois tem {self.ler_campo_senha()} caractere !', fg='red')
 
 
@@ -85,7 +95,8 @@ class Controle:
         
         else:
             self.cadastro.nome_status.config(text=f'Escreva mais, porque seu nome  tem  apenas {self.ler_campo_nome() } caracteres !', fg='red')
-            if self.ler_campo_nome<=1:
+
+            if self.ler_campo_nome<1:
                 self.cadastro.nome_status.config(text=f'Nome de usuário insuficente, pois tem {self.ler_campo_nome()} caractere !', fg='red')
 
 
