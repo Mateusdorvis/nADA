@@ -39,5 +39,11 @@ def Buttoncustomizado(master, **args):
 def Framecustomizado(master, **args):
   args.setdefault('bg', 'white')
   return tk.Frame(master, **args)
+
+def Textcustomizado(master, **args):
+  args.setdefault('width', '12')
+  args.setdefault('height', '0')
+  return tk.Text(master, **args)
+                    
                     
 
