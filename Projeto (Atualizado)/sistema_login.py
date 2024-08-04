@@ -19,8 +19,13 @@ class BaseCadastro:
         self.nome_label = Labelcustomizada(self.root, text='Digite seu nome', wordwrap=200)
         self.nome_label.grid(row=1, column=0, sticky=tk.NSEW)
 
-        self.nome_label = Textcustomizado(self.root)
-        self.nome_label.grid(row=1, column=0, sticky=tk.NSEW)
+        self.nome_entrada = Textcustomizado(self.root)
+        self.nome_entrada.grid(row=1, column=1, sticky=tk.NSEW)
+
+        self.nome_dicas = Labelcustomizada(self.root)
+        self.nome_dicas.grid(row=2, column=0, sticky=tk.NSEW)
+
+
         
         
 
