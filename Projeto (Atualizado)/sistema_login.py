@@ -60,7 +60,7 @@ class Registro(BaseCadastro):
     def __init__(self, root):
         super().__init__(root)
         self.root.title('Registro de usuário')
-        self.button_enviar = Buttoncustomizado(self.root, text='Enviar', bg='black', fg='white')
+        self.button_enviar = Buttoncustomizado(self.root, text='Enviar cadastro', bg='black', fg='white')
         self.button_enviar.grid(row=12, column=0, pady=5, padx=5)
     
 
@@ -69,7 +69,7 @@ class Login(BaseCadastro):
     def __init__(self, root):
         super().__init__(root)
         self.root.title('Login de usuário')
-        self.button_login = Buttoncustomizado(self.root, text='Enviar', bg='black', fg='white')
+        self.button_login = Buttoncustomizado(self.root, text='Enviar login', bg='black', fg='white')
         self.button_login.grid(row=12, column=0, pady=5, padx=5)
     
     def entrada_data(self):
