@@ -8,8 +8,9 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.registro = BaseCadastro(root)
+        self.cadastro = Registro(self.registro)
 
-        self.registro.button_enviar.config(command=self.salvar_usuario)
+        self.cadastro.button_enviar.config(command=self.salvar_usuario)
         self.config_eventos()
 
     
