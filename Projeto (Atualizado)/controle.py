@@ -10,7 +10,7 @@ class Controle:
      
         self.registro.button_enviar.config(command=self.salvar_usuario)
         
-    
+    def evento_tecla
     
     def salvar_usuario(self):
         self.nome = self.registro.nome_get()
@@ -26,7 +26,7 @@ class Controle:
             Mensagens.msgAtencao('O campo data está vazio, preencha por favor!')
         else:
             Mensagens.msgSucesso('Seu cadastro foi realizado com sucesso !')
-            
+
 
         
 
