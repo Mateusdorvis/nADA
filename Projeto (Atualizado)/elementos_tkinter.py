@@ -31,8 +31,6 @@ def LabelcustomizadaTitulo(master, **args):
 
 #label dedicada a titulos
 def Buttoncustomizado(master, **args):
-  args.setdefault('bg', 'black')
-  args.setdefault('fg', 'white')
   args.setdefault('font', ('Courier New', 9, 'bold'))
   return tk.Button(master, **args)
 
