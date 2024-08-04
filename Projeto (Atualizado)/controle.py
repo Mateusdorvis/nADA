@@ -39,6 +39,16 @@ class Controle:
         
         elif self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha o campo DATA  por favor !')
+        elif self.cadastro.data_get()!=:
+            try:
+                    data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
+                    data_padrao = data_formatada.strftime('%d-%m-%Y')
+                    Mensagens.msgInfo(f'Sua data de nascimento ficou {data_padrao}')
+                
+            except ValueError:
+                    Mensagens.msgAtencao('Insira uma data de nascimento no formato dd-mm-YYYY !')
+                      
+            
         else:
             self.cadastro.contar+=1
             if self.cadastro.contar>=2:
