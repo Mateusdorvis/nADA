@@ -9,17 +9,7 @@ class Controle:
         self.root = root
         self.registro = Registro(root)
         self.login = Login(root)
-
         self.registro.button_enviar.config(command=self.salvar_usuario)
-        self.config_eventos()
-
-    
-   
-        
-    
-
-
-
     
     def salvar_usuario(self):
         self.nome = self.registro.nome_get()
