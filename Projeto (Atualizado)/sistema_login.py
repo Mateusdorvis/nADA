@@ -15,12 +15,7 @@ class BaseCadastro:
         self.entrada_nome()
         self.entrada_senha()
         self.entrada_data()
-        self.config_eventos()
     
-    def config_eventos(self):
-        self.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
-        self.senha_entrada.bind('<KeyRelease>', self.dicas_senha)
-        self.data_entrada.bind('<KeyRelease>', self.dicas_data)
     
     def entrada_nome(self):
         self.nome_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
@@ -70,57 +65,7 @@ class BaseCadastro:
     def data_get(self):
         return self.data_entrada.get(1.0, tk.END).strip()
 
-    
-    def dicas_nome(self, event):
-        
-        self.ler_nome = len(self.nome_get())
-
-        if self.ler_nome>=5 and self.ler_nome<=9:
-            self.nome_dicas.config(text=f'Seu nome de usuário está no números de caracteres mínimo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
-            
-        elif self.ler_nome==10:
-            self.nome_dicas.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
-        
-        elif self.ler_nome>=11:
-            Mensagens.msgAtencao(f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !')
-            self.nome_entrada.delete(0, tk.END)
-        
-        else:
-            self.nome_dicas.config(text=f'Seu nome de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
-            if self.ler_nome<=1:
-                self.nome_dicas.config(text=f'Seu nome de usuário é insuficente, pois tem {self.ler_nome}  caractere !',fg='red', wraplength=200)
-        
-    def dicas_senha(self, event):
-            self.ler_senha = len(self.senha_get())
-
-            if self.ler_senha>=5 and self.ler_senha<=9:
-                self.senha_dicas.config(text=f'Sua senha de usuário está no números de caracteres mínimo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
-                
-            elif self.ler_senha==10:
-                self.senha_dicas.config(text=f'Sua senha de usuário chegou ao número de caractere máximo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
-            
-            elif self.ler_senha>=11:
-                self.senha_dicas.config(text=f'Sua senha de usuário chegou número de caractere máximo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
-            
-            else:
-                self.senha_dicas.config(text=f'Sua senha de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
-                if self.ler_senha<=1:
-                    self.senha_dicas.config(text=f'Sua senha de usuário é insuficente, pois tem {self.ler_senha}  caractere !',fg='red', wraplength=200)
-
-    def dicas_data(self, event):
-        try:
-            self.data_formatada = datetime.strptime(self.data_get(), '%d-%m-%Y')
-            self.data_padrao =  self.data_formatada.strftime('%d-%m-%Y')
-            self.registro.data_dicas.config(text=f'Sua  data de nascimento ficou : {self.data_padrao}', fg='green')
-
-        except ValueError:
-            self.data_dicas.config(text='Inválido', fg='red')
-
-
-
-
-            
-    
+ 
 
 class Registro(BaseCadastro):
     def __init__(self, root):

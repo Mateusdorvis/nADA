@@ -10,6 +10,58 @@ class Controle:
         self.registro = Registro(root)
        
         self.registro.button_enviar.config(command=self.salvar_usuario)
+        self.config_eventos()
+
+    
+    def config_eventos(self):
+        self.registro.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
+        self.registro.senha_entrada.bind('<KeyRelease>', self.dicas_senha)
+        self.registro.data_entrada.bind('<KeyRelease>', self.dicas_data)
+       
+    def dicas_nome(self, event):
+        
+        self.ler_nome = len(self.registro.nome_get())
+
+        if self.ler_nome>=5 and self.ler_nome<=9:
+            self.registro.nome_dicas.config(text=f'Seu nome de usuário está no números de caracteres mínimo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
+            
+        elif self.ler_nome==10:
+            self.registro.nome_dicas.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome} !',fg='green', wraplength=200)
+        
+        elif self.ler_nome>=11:
+            Mensagens.msgAtencao(f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !')
+            self.registro.nome_entrada.delete(0, tk.END)
+        
+        else:
+            self.registro.nome_dicas.config(text=f'Seu nome de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
+            if self.ler_nome<=1:
+                self.registro.nome_dicas.config(text=f'Seu nome de usuário é insuficente, pois tem {self.ler_nome}  caractere !',fg='red', wraplength=200)
+        
+    def dicas_senha(self, event):
+            self.ler_senha = len(self.registro.senha_get())
+
+            if self.ler_senha>=5 and self.ler_senha<=9:
+                self.registro.senha_dicas.config(text=f'Sua senha de usuário está no números de caracteres mínimo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
+                
+            elif self.ler_senha==10:
+                self.registro.senha_dicas.config(text=f'Sua senha de usuário chegou ao número de caractere máximo, pois tem {self.ler_senha} !',fg='green', wraplength=200)
+            
+            elif self.ler_senha>=11:
+                self.registro.senha_dicas.config(text=f'Sua senha de usuário chegou número de caractere máximo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
+            
+            else:
+                self.senha_dicas.config(text=f'Sua senha de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_senha} !',fg='red', wraplength=200)
+                if self.ler_senha<=1:
+                    self.registro.senha_dicas.config(text=f'Sua senha de usuário é insuficente, pois tem {self.ler_senha}  caractere !',fg='red', wraplength=200)
+
+    def dicas_data(self, event):
+        try:
+            self.data_formatada = datetime.strptime(self.registro.data_get(), '%d-%m-%Y')
+            self.data_padrao =  self.data_formatada.strftime('%d-%m-%Y')
+            self.registro.data_dicas.config(text=f'Sua  data de nascimento ficou : {self.data_padrao}', fg='green')
+
+        except ValueError:
+            self.data_dicas.config(text='Inválido', fg='red')
     
     def salvar_usuario(self):
         self.nome = self.registro.nome_get()
@@ -35,13 +87,18 @@ class Controle:
                     Mensagens.msgAtencao('Os campos nome  e senha   não seguem os requisitos ! Preencha por favor!')
                 
                 elif senha_status.cget('fg')=='red':
-                    Mensagens.msgAtencao('O campo senha   não segue requisitos ! Preencha por favor!')
+                    Mensagens.msgAtencao('O campo senha não segue requisitos ! Preencha por favor!')
                 
-                elif senha_status.cget('fg')=='red':
-                    Mensagens.msgAtencao('O campo senha   não segue requisitos ! Preencha por favor!')
+                elif nome_status.cget('fg')=='red':
+                    Mensagens.msgAtencao('O campo nome não segue requisitos ! Preencha por favor!')
                 
-                elif senha_status.cget('fg')=='red':
-                    Mensagens.msgAtencao('O campo senha   não segue requisitos ! Preencha por favor!')
+                elif data_status.cget('fg')=='red':
+                    Mensagens.msgAtencao('O campo data não segue requisitos ! Preencha por favor!')
+                
+                else:
+                     Mensagens.msgInfo('Os valores digitados seguem todos os requisitos !')
+                verificar__cor()
+
             
             
             if self.nome == '' and self.senha == '' and self.data == '':
