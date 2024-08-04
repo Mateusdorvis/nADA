@@ -7,11 +7,11 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.registro = Registro(root)
-        
+
         self.registro.button_enviar.config(command=self.salvar_usuario)
         self.registro.nome_entrada.bind('<KeyRelease>',self.dicas_nome)
         
-    def dicas_nome(self):
+    def dicas_nome(self, event):
         
         self.ler_nome = len(self.nome)
         self.nome_status = self.registro.nome_dicas
@@ -48,7 +48,7 @@ class Controle:
         elif self.data == '':
             Mensagens.msgAtencao('O campo data está vazio, preencha por favor!')
         else:
-            Mensagens.msgSucesso('Seu cadastro foi realizado com sucesso !')
+            Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
 
 
         
