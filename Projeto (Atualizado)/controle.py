@@ -118,7 +118,7 @@ class Controle:
             else:
                 Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
             
-            verificar_campo_vazio()
+        verificar_campo_vazio()
 
      
 
