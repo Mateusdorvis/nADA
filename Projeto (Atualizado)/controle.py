@@ -51,8 +51,8 @@ class Controle:
             self.cadastro.nome_status.config(text=f'Escreva mais, porque sua senha  tem  apenas {self.ler_campo_senha() } caracteres !')
             if self.ler_campo_senha<=1:
                 self.cadastro.nome_status.config(text=f'Senha insuficente, pois tem {self.ler_campo_senha()} caractere !')
-                
-    def EventoCampoSenha(self):
+
+    def EventoCampoS(self):
         if self.ler_campo_senha()>=5 and self.ler_campo_senha()<=9:
             self.cadastro.nome_status.config(text=f'Sua senha atingiu número de caracteres mínimo, pois tem {self.ler_campo_senha()} !')
 
