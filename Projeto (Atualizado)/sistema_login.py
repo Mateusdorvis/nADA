@@ -2,10 +2,20 @@ import tkinter as tk
 from datetime import datetime
 from tkinter import Widget, ttk
 from tkinter import messagebox
-from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens
+from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens, Framecustomizado
 
 class BaseCadastro:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self):
+        self.root = tk.Tk()
+        self.frame_caixa = Framecustomizado(self.root, width=500, height=500)
+        self.frame_caixa.grid(row=0, column=0)
+        self.root.grid_columnconfigure(0, weight=1)
+        self.root.grid_rowconfigure(0, weight=1)
+    
+    def entrada_nome(self):
+        self.nome_titulo = LabelcustomizadaTitulo(self.root, text='CAMPO NOME.')
+        self.nome_titulo.grid(row=0, column=0)
         
+
+
         
