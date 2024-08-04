@@ -17,6 +17,7 @@ class BaseCadastro:
         self.root.config(bg='#0ba18c')
         self.entrada_nome()
         self.entrada_senha()
+        self.entrada_data()
         self.root.mainloop()
     
     def entrada_nome(self):
