@@ -11,7 +11,14 @@ class Controle:
         self.registro.button_enviar.config(command=self.salvar_usuario)
         
     def dicas_nome(self):
-        
+        self.ler_nome = len(self.nome)
+        self.nome_status = self.registro.nome_dicas
+        if self.ler_nome>=5 and self.ler_nome<=9:
+            self.nome_status.config(text=f'Seu nome de usuário está ')
+            
+
+
+
     
     def salvar_usuario(self):
         self.nome = self.registro.nome_get()
