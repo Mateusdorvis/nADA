@@ -17,16 +17,10 @@ class Controle:
 
         self.cadastro.senha_text_entry.bind('<KeyRelease>', self.EventoCampoSenha)
 
-    def formmat_data(self):
-        try:
-            data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
-            data_padrao = data_formatada.strftime('%d-%m-%Y')
-            return data_formatada
-        
-        except ValueError:
-            return Mensagens.msgAtencao('Insira uma data de nascimento no formato dd-mm-YYYY !')
+   
         
     def enviarCadastro(self):
+
         if self.cadastro.nome_get()=='' and self.cadastro.senha_get()=='' and self.cadastro.data_get()=='':
             Mensagens.msgAtencao('Preencha os três campos por favor !')
 
@@ -55,7 +49,7 @@ class Controle:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
                 Mensagens.msgInfo('Cadastro Realizado com sucesso !')
-                save_user = SalvarUsuario(self.cadastro.nome_get(),data_formatada,self.cadastro.senha_get())
+                save_user = SalvarUsuario(self.cadastro.nome_get(),self.formmat_data(),self.cadastro.senha_get())
                 
 
 
@@ -99,6 +93,12 @@ class Controle:
 
             if self.ler_campo_nome()<=1:
                 self.cadastro.nome_status.config(text=f'Nome de usuário insuficente, pois tem {self.ler_campo_nome()} caractere !', fg='red')
+
+    def EventoCampoData(self, event):
+        try:
+            self.data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
+            self.data_padrao = self.data_formatada.strftime('%d-%m-%Y')
+
 
 
 
