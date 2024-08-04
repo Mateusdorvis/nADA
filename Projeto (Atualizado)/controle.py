@@ -134,7 +134,7 @@ class Controle:
         self.button_check = Buttoncustomizado(self.login.box_frame, text='Enviar' ,command=self.checar_login)
     
     def checar_login(self):
-        pass
+        
     
 
 
