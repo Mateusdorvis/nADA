@@ -6,9 +6,12 @@ class Login(Cadastro):
     def __init__(self, root):
         super().__init__(root)
         self.root.title('Login de usuário')
+        self.tentativas = 0
     
     def entrada_data(self):
         pass
+
+    
 root = tk.Tk()
 login = Login(root)
 root.mainloop()

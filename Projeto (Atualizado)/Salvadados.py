@@ -15,7 +15,7 @@ class SalvarUsuario:
         self.cursor = self.conexao.cursor()
         self.criar_tabela_dados_usuarios()
         self.inserir_usuario_nas_tabelas()
-        self.provar_que_os_usuarios_foram_inseridos()
+        self.show_users()
         self.conexao.commit()
         self.conexao.close()
         
@@ -51,13 +51,22 @@ class SalvarUsuario:
         except ValueError:
             print(f'Erro ao inserir o usuário {self.nome_usuario} !')
 
-    def provar_que_os_usuarios_foram_inseridos(self):
+    def show_users(self):
         self.cursor.execute("SELECT * FROM dados_usuarios;")
-        mostrar_usuarios = self.cursor.fetchall()
-        dicio_pessoa = {}
-        for usuario in mostrar_usuarios:
-            dicio_pessoa['usuário '] = {'ID': usuario[0],'Nome' :  usuario[1], 'Data de nascimento ': usuario[2], 'Senha'  : usuario[3]}
-            print(dicio_pessoa)
+        self.mostrar_usuarios = self.cursor.fetchall()
+        self.dicio_pessoa = {}
+        contar = 0
+        for usuario in self.mostrar_usuarios:
+            self.usuario = {
+                'ID': usuario[0],
+                'Nome': usuario[1],
+                'Data de nascimento': usuario[2],
+                'Senha': usuario[3]
+            }
+            self.dicio_pessoa[f'usuário {contar + 1}'] = self.usuario
+            contar += 1
+            print(self.dicio_pessoa)
+
 
 
 

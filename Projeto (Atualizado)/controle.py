@@ -128,7 +128,12 @@ class Controle:
 
         except ValueError:
             self.cadastro.data_status.config(text='Digite uma data no formato dd-mm-YYYY !', fg='red')
-
+    
+    def janela_login(self):
+        self.login = Login(self.root)
+        self.button_check = Buttoncustomizado(self.login.box_frame, text='Enviar' ,command=self.checar_login)
+    
+    def checar_login(self):
     
 
 
