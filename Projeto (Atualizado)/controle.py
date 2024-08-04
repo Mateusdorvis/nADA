@@ -10,6 +10,7 @@ from login import Login
 class Controle:
     def __init__(self, root):
         self.root = root
+        
         self.cadastro = Cadastro(self.root)
         self.button_enviar = Buttoncustomizado(self.cadastro.box_frame, text='Enviar cadastro', command=self.enviarCadastro)
         self.button_enviar.grid(row=15, column=0, pady=5, padx=6)
