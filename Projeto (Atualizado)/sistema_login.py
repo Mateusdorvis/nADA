@@ -16,6 +16,7 @@ class BaseCadastro:
              self.frame_caixa.grid_rowconfigure(linha, weight=1)
         self.root.config(bg='#0ba18c')
         self.entrada_nome()
+        self.entrada_senha()
         self.root.mainloop()
     
     def entrada_nome(self):
