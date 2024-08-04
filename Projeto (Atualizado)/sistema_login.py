@@ -2,7 +2,7 @@ import tkinter as tk
 from datetime import datetime
 from tkinter import Widget, ttk
 from tkinter import messagebox
-from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens, Framecustomizado, Textcustomizado
+from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens, Framecustomizado, Textcustomizado, Entrycustomizado
 
 class BaseCadastro:
     def __init__(self, root):
@@ -37,7 +37,7 @@ class BaseCadastro:
         self.senha_label = Labelcustomizada(self.frame_caixa, text='Digite sua senha :')
         self.senha_label.grid(row=4, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
-        self.senha_entrada = Textcustomizado(self.frame_caixa, show='*')
+        self.senha_entrada = Entrycustomizado(self.frame_caixa, show='*')
         self.senha_entrada.grid(row=4, column=1, sticky=tk.NSEW, pady=5, padx=5)
 
         self.senha_dicas = Labelcustomizada(self.frame_caixa)
@@ -60,7 +60,7 @@ class BaseCadastro:
         return self.nome_entrada.get(1.0, tk.END).strip()
     
     def senha_get(self):
-        return self.senha_entrada.get(1.0, tk.END).strip()
+        return self.senha_entrada.get().strip()
     
     def data_get(self):
         return self.data_entrada.get(1.0, tk.END).strip()

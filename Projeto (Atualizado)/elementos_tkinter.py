@@ -42,6 +42,10 @@ def Textcustomizado(master, **args):
   args.setdefault('width', '12')
   args.setdefault('height', '0')
   return tk.Text(master, borderwidth=1, relief=tk.SOLID,**args)
+
+
+def Entrycustomizado(master, **args):
+  return tk.Entry(master, borderwidth=1, relief=tk.SOLID,**args)
                     
                     
 
