@@ -17,8 +17,6 @@ class Controle:
 
         self.cadastro.senha_text_entry.bind('<KeyRelease>', self.EventoCampoSenha)
 
-    def formatar_data(self):
-       
 
     def enviarCadastro(self):
         if self.cadastro.nome_get()=='' and self.cadastro.senha_get()=='' and self.cadastro.data_get()=='':
