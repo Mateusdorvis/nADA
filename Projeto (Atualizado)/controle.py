@@ -7,10 +7,10 @@ from datetime import datetime
 class Controle:
     def __init__(self, root):
         self.root = root
-        self.registro = BaseCadastro(root)
-        self.cadastro = Registro(root)
+        self.registro = Registro(root)
+        self.login = Login(root)
 
-        self.cadastro.button_enviar.config(command=self.salvar_usuario)
+        self.registro.button_enviar.config(command=self.salvar_usuario)
         self.config_eventos()
 
     
