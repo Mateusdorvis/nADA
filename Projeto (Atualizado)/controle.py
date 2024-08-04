@@ -18,14 +18,7 @@ class Controle:
         self.cadastro.senha_text_entry.bind('<KeyRelease>', self.EventoCampoSenha)
 
     def formatar_data(self):
-        try:
-            data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
-            data_padrao = data_formatada.strftime('%d-%m-%Y')
-            Mensagens.msgInfo(f'Sua data de nascimento ficou {data_padrao}')
-
-            return data_formatada
-        except ValueError:
-            Mensagens.msgAtencao('Insira uma data de nascimento no formato dd-mm-YYYY !')
+       
 
     def enviarCadastro(self):
         if self.cadastro.nome_get()=='' and self.cadastro.senha_get()=='' and self.cadastro.data_get()=='':
@@ -53,8 +46,18 @@ class Controle:
             if self.cadastro.contar>=2:
                 Mensagens.msgAtencao('Seu cadastro já foi enviado !')
             else:
+                try:
+                    data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
+                    data_padrao = data_formatada.strftime('%d-%m-%Y')
+                    Mensagens.msgInfo(f'Sua data de nascimento ficou {data_padrao}')
+                
+                except ValueError:
+                    Mensagens.msgAtencao('Insira uma data de nascimento no formato dd-mm-YYYY !')
+                      
+            
+                    
                 Mensagens.msgInfo('Cadastro Realizado com sucesso !')
-                save_user = SalvarUsuario(self.cadastro.nome_get(), self.formatar_data(),self.cadastro.senha_get() )
+                save_user = SalvarUsuario(self.cadastro.nome_get(),data_formatada,self.cadastro.senha_get())
                 
 
 
