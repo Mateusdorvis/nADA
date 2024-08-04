@@ -54,13 +54,13 @@ class Controle:
             Mensagens.msgAtencao('Os campos NOME E SENHA não foram preenchidos corretamente !')
         
         elif self.cadastro.nome_status.cget('fg')=='red':
-            Mensagens.msgAtencao('O campo NOME não foi  preenchido corretamente !')
+            Mensagens.msgAtencao('O campo NOME não foi  preenchido corretamente conforme as regras !')
 
         elif self.cadastro.senha_status.cget('fg')=='red':
-            Mensagens.msgAtencao('O campo SENHA não foi  preenchido corretamente !')
+            Mensagens.msgAtencao('O campo SENHA não foi  preenchido corretamente conforme as regras !')
 
         elif self.cadastro.data_status.cget('fg')=='red':
-            Mensagens.msgAtencao('O campo DATA não foi  preenchido corretamente !')
+            Mensagens.msgAtencao('O campo DATA não foi  preenchido corretamente conforme as regras !')
        
             
         else:
