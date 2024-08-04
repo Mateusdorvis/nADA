@@ -11,6 +11,7 @@ class BaseCadastro:
         self.frame_caixa.grid(row=0, column=0)
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
+        self.root.mainloop()
     
     def entrada_nome(self):
         self.nome_titulo = LabelcustomizadaTitulo(self.root, text='CAMPO NOME.')
@@ -26,7 +27,7 @@ class BaseCadastro:
         self.nome_dicas.grid(row=2, column=0, sticky=tk.NSEW)
 
 
-        
+BaseCadastro()
         
 
 
