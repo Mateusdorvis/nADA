@@ -37,7 +37,7 @@ class SalvarUsuario:
     def inserir_usuario_nas_tabelas(self):
        
         try:
-            self.data_usuario = self.data_usuario.strptime('%Y-%m-%d')
+            self.data_usuario = self.data_usuario.strftime('%Y-%m-%d')
             self.cursor.execute( """
             INSERT INTO dados_usuarios (nome_usuarios, datas_de_nascimentos, senhas_usuarios)
             VALUES (%s, %s, %s);
