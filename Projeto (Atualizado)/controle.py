@@ -14,11 +14,6 @@ class Controle:
         self.config_eventos()
     
     def abrir_janela_login(self):
-         self.window = tk.Tk()
-         self.root.destroy()
-         self.login = Login(self.window)
-         self.login.button_login.config(command=check_user_janela_login)
-
          def check_user_janela_login():
             self.nome_procurado = self.login.nome_get()
             self.senha_procurado = self.login.senha_get()
@@ -27,6 +22,12 @@ class Controle:
             if self.carrega_user.resposta:
                 return self.registro
         
+         self.window = tk.Tk()
+         self.root.destroy()
+         self.login = Login(self.window)
+         self.login.button_login.config(command=check_user_janela_login)
+
+         
     
     
     def config_check(self):
