@@ -11,10 +11,11 @@ class Controle:
         self.abrir_janela_login()
 
     def abrir_janela_registro(self):
+        # Verifica se a janela de registro já está aberta
         if hasattr(self, 'registro') and self.registro:
-            self.registro.deiconify()
+            self.registro.deiconify()  # Mostra a janela de registro
         else:
-            # Criar uma nova janela de registro
+            # Cria uma nova janela de registro sobre a janela principal
             self.registro = Registro(self.root)
             self.config_button_enviar()
             self.config_check()
@@ -26,12 +27,15 @@ class Controle:
             self.senha_procurado = self.login.senha_get()
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
             if self.carrega_user.resposta:
-                self.root.withdraw()
+                self.root.withdraw()  # Oculta a janela de login
                 self.abrir_janela_registro()
 
-        # Criar a janela de login
-        self.login = Login(self.root)
-        self.login.button_login.config(command=check_user_janela_login)
+        # Cria a janela de login
+        if hasattr(self, 'login') and self.login:
+            self.login.deiconify()  # Mostra a janela de login
+        else:
+            self.login = Login(self.root)
+            self.login.button_login.config(command=check_user_janela_login)
 
     def config_check(self):
         self.mostre_senha = tk.IntVar()
@@ -130,7 +134,7 @@ class Controle:
             elif self.data == '':
                 Mensagens.msgAtencao('O campo data está vazio, preencha por favor!')
             elif nome_status.cget('fg') == 'red' and self.data == '' and self.senha == '':
-                Mensagens.msgAtencao('O campo nome não seguiu os requisitos e ademais, os campos data e senha estão vazios, preencha por favor!')
+                Mensagens.msgAtencao('O campo nome não seguiu os requisitos e, ademais, os campos data e senha estão vazios, preencha por favor!')
             else:
                 self.contar_click += 1
                 if self.contar_click >= 2:
@@ -140,11 +144,11 @@ class Controle:
                     self.registro.data_entrada.config(state=tk.DISABLED)
                     self.registro.senha_entrada.config(state=tk.DISABLED)
                     self.salva_user_no_banco = SalvarUsuario(self.nome, self.data_formatada, self.senha)
-                    return self.abrir_janela_login()
+                    self.abrir_janela_login()  # Volta para a tela de login
 
         verificar_campo_vazio()
 
 if __name__ == '__main__':
     root = tk.Tk()
-    Controle(root)
+    app = Controle(root)
     root.mainloop()
