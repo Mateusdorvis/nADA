@@ -10,7 +10,7 @@ class Controle:
         self.registro = Registro(root)
        
         self.registro.button_enviar.config(command=self.salvar_usuario)
-        self.
+        self.registro.mostrar_senha.config(command=self.ocultar_senha)
         self.config_eventos()
     
 

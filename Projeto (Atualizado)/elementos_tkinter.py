@@ -34,6 +34,10 @@ def Buttoncustomizado(master, **args):
   args.setdefault('font', ('Courier New', 9, 'bold'))
   return tk.Button(master, **args)
 
+def CheckButtoncustomizado(master, **args):
+  args.setdefault('font', ('Courier New', 9, 'bold'))
+  return tk.Checkbutton(master, **args)
+
 def Framecustomizado(master, **args):
   args.setdefault('bg', '#ffffff')
   return tk.Frame(master,  **args)
