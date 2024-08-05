@@ -21,7 +21,7 @@ class Controle:
 
     def ocultar_senha(self):
         #no contexto checkbutton quando marco a caixa o valor é igual a 1
-        if self.mostre_senha.get():
+        if self.mostre_senha.get()==1:
             self.registro.senha_entrada.config(show='')
             self.registro.mostrar_senha.config(text='Ocultar senha')
         else:

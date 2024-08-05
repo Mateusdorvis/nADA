@@ -41,7 +41,7 @@ class BaseCadastro:
         self.senha_entrada.grid(row=4, column=1, sticky=tk.NSEW, pady=5, padx=5)
         
         
-        self.mostrar_senha = CheckButtoncustomizado(self.frame_caixa, text='mostrar senha', bg='white')
+        self.mostrar_senha = CheckButtoncustomizado(self.frame_caixa, text='Ocultar senha', bg='white')
         self.mostrar_senha.grid(row=5, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.senha_dicas = Labelcustomizada(self.frame_caixa)
