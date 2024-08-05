@@ -31,6 +31,7 @@ class Controle:
         elif self.ler_nome>=11:
             Mensagens.msgAtencao(f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !')
             self.registro.nome_entrada.delete(1.0, tk.END)
+            self.registro.nome_dicas.config(text='Entrada resetada')
         
         else:
             self.registro.nome_dicas.config(text=f'Seu nome de usuário não chegou ao  número de caractere mínimo, pois tem {self.ler_nome} !',fg='red', wraplength=200)
