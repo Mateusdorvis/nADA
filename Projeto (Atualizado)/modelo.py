@@ -71,7 +71,26 @@ class SalvarUsuario:
                 print(self.dicio_pessoa)
         except mysql.connector.Error as err:
             print(f'Erro ao mostrar usuários: {err}')
-
+class CheckSenha:
+     def __init__(self, senha_procurada: str):
+        self.senha_procurada = senha_procurada
+        
+        try:
+            self.conexao = mysql.connector.connect(
+                host="localhost",
+                user="app",
+                password="oi",
+                database="app_jogos"
+            )
+            self.cursor = self.conexao.cursor()
+            self.show_users()
+        except mysql.connector.Error as err:
+            print(f"Erro de conexão: {err}")
+        finally:
+            if self.cursor:
+                self.cursor.close()
+            if self.conexao:
+                self.conexao.close()
 class CarregarUsuario:
     def __init__(self, nome_procurado: str, senha_procurada: str):
         self.nome_procurado = nome_procurado
