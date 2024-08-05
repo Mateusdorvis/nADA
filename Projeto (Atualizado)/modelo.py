@@ -61,6 +61,7 @@ class SalvarUsuario:
             self.cursor.execute("SELECT * FROM dados_usuarios;")
             self.mostrar_usuarios = self.cursor.fetchall()
             self.dicio_pessoa = {}
+            usuario_novo = False
             for contar, usuario in enumerate(self.mostrar_usuarios, start=1):
                 self.dicio_pessoa[f'usuário {contar}'] = {
                     'ID': usuario[0],
@@ -68,29 +69,24 @@ class SalvarUsuario:
                     'Data de nascimento': usuario[2],
                     'Senha': usuario[3]
                 }
+                if usuario[1]==self.nome_usuario and usuario[3]==self.senha_usuario:
+                    Mensagens.msgAtencao('Já existe um usuário com este nome  e senha ! mude para outro nome e senha !')
+
+                elif usuario[1]!=self.nome_usuario and usuario[3]==self.senha_usuario:
+                    Mensagens.msgAtencao('Já existe um usuário com esta senha ! mude para outra senha !')
+                
+                else:
+                    Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
+                    usuario_novo = True
+                    break
+                    
+                
+                
                 print(self.dicio_pessoa)
         except mysql.connector.Error as err:
             print(f'Erro ao mostrar usuários: {err}')
-class CheckSenha:
-     def __init__(self, senha_procurada: str):
-        self.senha_procurada = senha_procurada
-        
-        try:
-            self.conexao = mysql.connector.connect(
-                host="localhost",
-                user="app",
-                password="oi",
-                database="app_jogos"
-            )
-            self.cursor = self.conexao.cursor()
-            self.show_users()
-        except mysql.connector.Error as err:
-            print(f"Erro de conexão: {err}")
-        finally:
-            if self.cursor:
-                self.cursor.close()
-            if self.conexao:
-                self.conexao.close()
+
+    
 class CarregarUsuario:
     def __init__(self, nome_procurado: str, senha_procurada: str):
         self.nome_procurado = nome_procurado
