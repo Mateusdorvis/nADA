@@ -8,102 +8,102 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.contar_click = 0
-        self.abrir_janela_login()
-
-    def abrir_janela_registro(self):
-        # Verifica se a janela de registro já está aberta
-        if hasattr(self, 'registro') and self.registro:
-            self.registro.deiconify()  # Mostra a janela de registro
+        self.cadastro = BaseCadastro(self.root)
+        self.abrir_janela_cadastro()
+       
+    # Só iremos chamar se o usuário se registrar pelo login
+    def abrir_janela_cadastro(self):
+        if hasattr(self, 'cadastro') and self.cadastro:
+            self.cadastro.deiconify()
         else:
-            # Cria uma nova janela de registro sobre a janela principal
             self.registro = Registro(self.root)
             self.config_button_enviar()
             self.config_check()
             self.config_eventos()
-
+    
     def abrir_janela_login(self):
         def check_user_janela_login():
             self.nome_procurado = self.login.nome_get()
             self.senha_procurado = self.login.senha_get()
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
+            # self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
             if self.carrega_user.resposta:
-                self.root.withdraw()  # Oculta a janela de login
-                self.abrir_janela_registro()
-
-        # Cria a janela de login
-        if hasattr(self, 'login') and self.login:
-            self.login.deiconify()  # Mostra a janela de login
-        else:
-            self.login = Login(self.root)
-            self.login.button_login.config(command=check_user_janela_login)
-
+                self.root.withdraw()
+                self.abrir_janela_cadastro()
+    
+        self.login = Login(self.root)
+        self.login.button_login.config(command=check_user_janela_login)
+    
     def config_check(self):
         self.mostre_senha = tk.IntVar()
-        self.registro.mostrar_senha.config(variable=self.mostre_senha, command=self.ocultar_senha)
+        self.cadastro.mostrar_senha.config(variable=self.mostre_senha, command=self.ocultar_senha)
 
     def config_button_enviar(self):
         self.registro.button_enviar.config(command=self.salvar_usuario)
 
     def ocultar_senha(self):
+        # No contexto checkbutton quando marco a caixa o valor é igual a 1
         if self.mostre_senha.get() == 1:
-            self.registro.senha_entrada.config(show='')
-            self.registro.mostrar_senha.config(text='Ocultar senha')
+            self.cadastro.senha_entrada.config(show='')
+            self.cadastro.mostrar_senha.config(text='Ocultar senha')
         else:
-            self.registro.senha_entrada.config(show='*')
-            self.registro.mostrar_senha.config(text='Mostrar senha')
+            self.cadastro.senha_entrada.config(show='*')
+            self.cadastro.mostrar_senha.config(text='Mostrar senha')
 
     def config_eventos(self):
-        self.registro.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
-        self.registro.senha_entrada.bind('<KeyRelease>', self.dicas_senha)
-        self.registro.data_entrada.bind('<KeyRelease>', self.dicas_data)
-
+        self.cadastro.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
+        self.cadastro.senha_entrada.bind('<KeyRelease>', self.dicas_senha)
+        self.cadastro.data_entrada.bind('<KeyRelease>', self.dicas_data)
+       
     def dicas_nome(self, event):
-        self.ler_nome = len(self.registro.nome_get())
-        if self.ler_nome >= 5 and self.ler_nome <= 9:
-            self.registro.nome_dicas.config(text=f'Seu nome de usuário está no número de caracteres mínimo, pois tem {self.ler_nome}!', fg='green', wraplength=200)
-        elif self.ler_nome == 10:
-            self.registro.nome_dicas.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome}!', fg='green', wraplength=200)
-        elif self.ler_nome >= 11:
-            Mensagens.msgAtencao(f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome}!')
-            self.registro.nome_entrada.delete(1.0, tk.END)
-            self.registro.nome_dicas.config(text='Entrada resetada')
-        else:
-            self.registro.nome_dicas.config(text=f'Seu nome de usuário não chegou ao número de caractere mínimo, pois tem {self.ler_nome}!', fg='red', wraplength=200)
-            if self.ler_nome <= 1:
-                self.registro.nome_dicas.config(text=f'Seu nome de usuário é insuficiente, pois tem {self.ler_nome} caractere!', fg='red', wraplength=200)
+        self.ler_nome = len(self.cadastro.nome_get())
 
-    def dicas_senha(self, event):
-        self.ler_senha = len(self.registro.senha_get())
-        if self.ler_senha >= 5 and self.ler_senha <= 9:
-            self.registro.senha_dicas.config(text=f'Sua senha de usuário está no número de caracteres mínimo, pois tem {self.ler_senha}!', fg='green', wraplength=200)
-        elif self.ler_senha == 10:
-            self.registro.senha_dicas.config(text=f'Sua senha de usuário chegou ao número de caractere máximo, pois tem {self.ler_senha}!', fg='green', wraplength=200)
-        elif self.ler_senha >= 11:
-            Mensagens.msgAtencao(f'Sua senha de usuário chegou ao número de caractere máximo, pois tem {self.ler_senha}!')
-            self.registro.senha_entrada.delete(0, tk.END)
-            self.registro.senha_dicas.config(text='Entrada resetada')
+        if self.ler_nome >= 5 and self.ler_nome <= 9:
+            self.cadastro.nome_dicas.config(text=f'Seu nome de usuário está no número de caracteres mínimo, pois tem {self.ler_nome} !', fg='green', wraplength=200)
+        elif self.ler_nome == 10:
+            self.cadastro.nome_dicas.config(text=f'Seu nome de usuário chegou ao número de caractere máximo, pois tem {self.ler_nome} !', fg='green', wraplength=200)
+        elif self.ler_nome >= 11:
+            Mensagens.msgAtencao(f'Seu nome de usuário chegou número de caractere máximo, pois tem {self.ler_nome} !')
+            self.cadastro.nome_entrada.delete(1.0, tk.END)
+            self.cadastro.nome_dicas.config(text='Entrada resetada')
         else:
-            self.registro.senha_dicas.config(text=f'Sua senha de usuário não chegou ao número de caractere mínimo, pois tem {self.ler_senha}!', fg='red', wraplength=200)
+            self.cadastro.nome_dicas.config(text=f'Seu nome de usuário não chegou ao número de caractere mínimo, pois tem {self.ler_nome} !', fg='red', wraplength=200)
+            if self.ler_nome <= 1:
+                self.cadastro.nome_dicas.config(text=f'Seu nome de usuário é insuficiente, pois tem {self.ler_nome} caractere !', fg='red', wraplength=200)
+        
+    def dicas_senha(self, event):
+        self.ler_senha = len(self.cadastro.senha_get())
+
+        if self.ler_senha >= 5 and self.ler_senha <= 9:
+            self.cadastro.senha_dicas.config(text=f'Sua senha de usuário está no número de caracteres mínimo, pois tem {self.ler_senha} !', fg='green', wraplength=200)
+        elif self.ler_senha == 10:
+            self.cadastro.senha_dicas.config(text=f'Sua senha de usuário chegou ao número de caractere máximo, pois tem {self.ler_senha} !', fg='green', wraplength=200)
+        elif self.ler_senha >= 11:
+            Mensagens.msgAtencao(f'Sua senha de usuário chegou número de caractere máximo, pois tem {self.ler_senha} !')
+            self.cadastro.senha_entrada.delete(0, tk.END)
+            self.cadastro.senha_dicas.config(text='Entrada resetada')
+        else:
+            self.cadastro.senha_dicas.config(text=f'Sua senha de usuário não chegou ao número de caractere mínimo, pois tem {self.ler_senha} !', fg='red', wraplength=200)
             if self.ler_senha <= 1:
-                self.registro.senha_dicas.config(text=f'Sua senha de usuário é insuficiente, pois tem {self.ler_senha} caractere!', fg='red', wraplength=200)
+                self.cadastro.senha_dicas.config(text=f'Sua senha de usuário é insuficiente, pois tem {self.ler_senha} caractere !', fg='red', wraplength=200)
 
     def dicas_data(self, event):
         try:
-            self.data_formatada = datetime.strptime(self.registro.data_get(), '%d-%m-%Y')
+            self.data_formatada = datetime.strptime(self.cadastro.data_get(), '%d-%m-%Y')
             self.data_padrao = self.data_formatada.strftime('%d-%m-%Y')
-            self.registro.data_dicas.config(text=f'Sua data de nascimento ficou: {self.data_padrao}', fg='green')
+            self.cadastro.data_dicas.config(text=f'Sua data de nascimento ficou: {self.data_padrao}', fg='green')
         except ValueError:
-            self.registro.data_dicas.config(text='Inválido', fg='red')
-
+            self.cadastro.data_dicas.config(text='Inválido', fg='red')
+    
     def salvar_usuario(self):
-        self.nome = self.registro.nome_get()
-        self.senha = self.registro.senha_get()
-        self.data = self.registro.data_get()
+        self.nome = self.cadastro.nome_get()
+        self.senha = self.cadastro.senha_get()
+        self.data = self.cadastro.data_get()
 
         def verificar_campo_vazio():
-            nome_status = self.registro.nome_dicas
-            senha_status = self.registro.senha_dicas
-            data_status = self.registro.data_dicas
+            nome_status = self.cadastro.nome_dicas
+            senha_status = self.cadastro.senha_dicas
+            data_status = self.cadastro.data_dicas
 
             if self.nome == '' and self.senha == '' and self.data == '':
                 Mensagens.msgAtencao('Os três campos estão vazios, preencha por favor!')
@@ -134,21 +134,21 @@ class Controle:
             elif self.data == '':
                 Mensagens.msgAtencao('O campo data está vazio, preencha por favor!')
             elif nome_status.cget('fg') == 'red' and self.data == '' and self.senha == '':
-                Mensagens.msgAtencao('O campo nome não seguiu os requisitos e, ademais, os campos data e senha estão vazios, preencha por favor!')
+                Mensagens.msgAtencao('O campo nome não seguiu os requisitos e ademais, os campos data e senha estão vazios, preencha por favor!')
             else:
                 self.contar_click += 1
                 if self.contar_click >= 2:
                     Mensagens.msgAtencao('Seu cadastro já foi enviado!')
                 else:
-                    self.registro.nome_entrada.config(state=tk.DISABLED)
-                    self.registro.data_entrada.config(state=tk.DISABLED)
-                    self.registro.senha_entrada.config(state=tk.DISABLED)
+                    self.cadastro.nome_entrada.config(state=tk.DISABLED)
+                    self.cadastro.data_entrada.config(state=tk.DISABLED)
+                    self.cadastro.senha_entrada.config(state=tk.DISABLED)
                     self.salva_user_no_banco = SalvarUsuario(self.nome, self.data_formatada, self.senha)
-                    self.abrir_janela_login()  # Volta para a tela de login
 
+                    return self.abrir_janela_login()
         verificar_campo_vazio()
 
 if __name__ == '__main__':
     root = tk.Tk()
-    app = Controle(root)
+    Controle(root)
     root.mainloop()
