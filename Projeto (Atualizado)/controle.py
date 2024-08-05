@@ -21,7 +21,7 @@ class Controle:
          def check_user_janela_login():
             def abrir_janela_registro():
                 self.window2.destroy()
-                return self.registro
+                self.registro
 
             self.nome_procurado = self.login.nome_get()
             self.senha_procurado = self.login.senha_get()
