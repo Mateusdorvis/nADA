@@ -8,24 +8,26 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.contar_click = 0
-        self.abrir_janela_registro()
+        self.registro = Registro(self.root)
         self.config_button_enviar()
         self.config_check()
         self.config_eventos()
     
-    def abrir_janela_registro(self):
-         self.window2.destroy()
-         self.registro = Registro(self.root)
+  
+        
 
 
     def abrir_janela_login(self):
          def check_user_janela_login():
+            def abrir_janela_registro():
+                self.window2.destroy()
+
             self.nome_procurado = self.login.nome_get()
             self.senha_procurado = self.login.senha_get()
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
             #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
             if self.carrega_user.resposta:
-                return self.abrir_janela_registro()
+                return abrir_janela_registro()
         
          self.window2 = tk.Tk()
          self.root.destroy()
