@@ -45,11 +45,11 @@ class SalvarUsuario:
     def inserir_usuario_nas_tabelas(self):
         try:
             self.cursor.execute("SELECT * FROM dados_usuarios WHERE nome_usuario = %s OR data_de_nascimento = %s OR senha_usuario = %s  ;", 
-                                (self.nome_usuario,self.data_usuario, self.senha_usuario))
+                                (self.nome_usuario, self.data_usuario, self.senha_usuario,))
             usuarios_existentes = self.cursor.fetchall()
 
             for usuario in usuarios_existentes:
-                if usuario[1] == self.nome_usuario and usuario[2] == self.data_usuario and usuario[3] == self.senha_usuario :
+                if usuario[1] == self.nome_usuario and usuario[2] == self.data_usuario and usuario[3] == self.senha_usuario:
                     Mensagens.msgAtencao('Você já foi cadastrado!')
                     return
                 elif usuario[3] == self.senha_usuario:
