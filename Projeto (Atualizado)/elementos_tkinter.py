@@ -4,7 +4,6 @@ from tkinter import messagebox
 
 class Mensagens:
   @staticmethod
-
   def msgAtencao(msg):
     messagebox.showwarning('Atenção', msg)
     
@@ -15,6 +14,13 @@ class Mensagens:
   @staticmethod
   def msgQuestao(msg):
     messagebox.askyesno('Questão', msg)
+  
+   @staticmethod
+  def msgErro(msg):
+    messagebox.showerror('Erro', msg)
+
+
+
 
 def titulo(titulo, master,linha,  **args,):
   label = tk.Label(master, **args)

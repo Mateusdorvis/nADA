@@ -13,9 +13,6 @@ class Controle:
   
     #só iremos chamar se o usuario se registrar pelo login
     def abrir_janela_registro(self):
-        if hasattr(self, 'registro') and self.registro:
-            self.registro.deiconify()
-        else:
            self.registro = Registro(self.root)
            self.config_button_enviar()
            self.config_check()
@@ -34,9 +31,13 @@ class Controle:
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
             # se caso o usuario não tiver login
             #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
-            if self.carrega_user.resposta:
-                self.window.destroy()
-                self.abrir_janela_registro()
+            try:
+                if self.carrega_user.resposta:
+                    self.window.destroy()
+                    self.registro.deiconify()
+                    
+            except ValueError:
+                Mensagens.msgErro('Não foi possível abrir a janela registro !')
 
         self.login.button_login.config(command=check_user_janela_login)
         
