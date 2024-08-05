@@ -56,9 +56,8 @@ class SalvarUsuario:
         self.cursor.execute("SELECT * FROM dados_usuarios;")
         self.mostrar_usuarios = self.cursor.fetchall()
         self.dicio_pessoa = {}
-        contar = 0
         for usuario in self.mostrar_usuarios:
-            self.dicio_pessoa[f'usuário {contar + 1} '] = {'ID': usuario[0],
+            self.dicio_pessoa[f'usuário {usuario[0]} '] = {'ID': usuario[0],
             'Nome' :  usuario[1], 
             'Data de nascimento ': usuario[2], 
             'Senha'  : usuario[3]
@@ -82,17 +81,21 @@ class CarregarUsuario:
         self.conexao.close()
     
     def show_users(self):
-        self.cursor.execute("SELECT * FROM dados_usuarios;")
-        self.mostrar_usuarios = self.cursor.fetchall()
-        self.dicio_pessoa = {}
-        for usuario in self.mostrar_usuarios:
-            self.dicio_pessoa[f'usuário {usuario[0]} '] = {'ID': usuario[0],
-            'Nome' :  usuario[1], 
-            'Data de nascimento ': usuario[2], 
-            'Senha'  : usuario[3]
-            }
-            if usuario[1]==self.nome_user and usuario[3]==self.senha_user:
-                Mensagens.msgInfo(f'{self.nome_user} Encontrado')
-                return
-            
-            Mensagens.msgAtencao(f'Não foi encontrado {self.nome_user} !')
+        try:
+            self.cursor.execute("SELECT * FROM dados_usuarios;")
+            self.mostrar_usuarios = self.cursor.fetchall()
+            self.dicio_pessoa = {}
+            for usuario in self.mostrar_usuarios:
+                self.dicio_pessoa[f'usuário {usuario[0]} '] = {'ID': usuario[0],
+                'Nome' :  usuario[1], 
+                'Data de nascimento ': usuario[2], 
+                'Senha'  : usuario[3]
+                }
+                if usuario[1]==self.nome_user and usuario[3]==self.senha_user:
+                    Mensagens.msgInfo(f'{self.nome_user} Encontrado')
+                    return
+                
+                Mensagens.msgAtencao(f'Não foi encontrado {self.nome_user} !')
+                
+        except mysql.connector.Error as err:
+            print(f'Erro ao mostrar usuários: {err}')
