@@ -15,7 +15,7 @@ class Mensagens:
   def msgQuestao(msg):
     messagebox.askyesno('Questão', msg)
   
-   @staticmethod
+  @staticmethod
   def msgErro(msg):
     messagebox.showerror('Erro', msg)
 
