@@ -29,17 +29,9 @@ class Controle:
             self.nome_procurado = self.login.nome_get()
             self.senha_procurado = self.login.senha_get()
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
-            # se caso o usuario não tiver login
-            #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
-            try:
-                if self.carrega_user.resposta:
-                    self.window.destroy()
-                    self.registro.deiconify()
-                    
-            except ValueError:
-                Mensagens.msgErro('Não foi possível abrir a janela registro !')
 
         self.login.button_login.config(command=check_user_janela_login)
+        self.login.button_reg.config(command=self.abrir_janela_registro)
         
 
          
