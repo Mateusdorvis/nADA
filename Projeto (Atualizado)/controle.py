@@ -115,6 +115,9 @@ class Controle:
                 Mensagens.msgAtencao('O campo senha está vazio, preencha por favor!')
             elif self.data == '':
                 Mensagens.msgAtencao('O campo data está vazio, preencha por favor!')
+            
+            elif  nome_status.cget('fg')=='red' and self.data == '' and self.senha == '' :
+                Mensagens.msgAtencao('O campo nome não seguiu os requsitos e ademais, os campos data e senha estão vazios, preencha por favor!')
             else:
                 Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
             
