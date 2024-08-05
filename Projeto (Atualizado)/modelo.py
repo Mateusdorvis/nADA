@@ -62,10 +62,6 @@ class SalvarUsuario:
                     Mensagens.msgAtencao('Já existe um usuário com esta senha! Mude para outra senha!')
                     return
         
-                     
-
-
-
         except mysql.connector.Error as err:
             print(f'Erro ao inserir o usuário {self.nome_usuario}: {err}')
         
@@ -74,13 +70,13 @@ class SalvarUsuario:
             INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
             VALUES (%s, %s, %s);
         """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
-        
+            
+            Mensagens.msgInfo('Seu cadastro foi realizado com sucesso!')
+            
             if self.nome_usuario.endswith('a'):
                 print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
             else:
                 print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
-            
-            Mensagens.msgInfo('Seu cadastro foi realizado com sucesso!')
 
 #classe dedica ao modulo login e verifica se o usuario existe ou não
 class CarregarUsuario:
