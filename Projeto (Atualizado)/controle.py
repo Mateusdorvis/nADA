@@ -20,7 +20,7 @@ class Controle:
           self.registro.button_enviar.config(command=self.salvar_usuario)
 
     def ocultar_senha(self):
-        if self.mostre_senha.get():
+        if self.mostre_senha.get()==1:
             self.registro.senha_entrada.config(show='')
         else:
             self.registro.senha_entrada.config(show='*')
