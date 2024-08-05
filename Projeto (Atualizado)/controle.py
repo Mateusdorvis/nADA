@@ -8,14 +8,24 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.registro = Registro(root)
-       
-        self.registro.button_enviar.config(command=self.salvar_usuario)
-        self.registro.mostrar_senha.config(command=self.ocultar_senha)
+        self.config_button_enviar()
+        self.config_check()
         self.config_eventos()
     
+    def config_check(self):
+        self.mostre_senha = tk.IntVar(value=0)
+        self.registro.mostrar_senha.config(variable=self.mostre_senha,command=self.ocultar_senha)
+
+    def config_button_enviar(self):
+          self.registro.button_enviar.config(command=self.salvar_usuario)
 
     def ocultar_senha(self):
-        self.registro.senha_entrada.config(show='*')
+        if self.mostre_senha==1:
+            self.registro.senha_entrada.config(show='')
+        else:
+            self.registro.senha_entrada.config(show='*')
+
+       
     
     def config_eventos(self):
         self.registro.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
