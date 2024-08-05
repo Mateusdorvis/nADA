@@ -109,9 +109,11 @@ class CarregarUsuario:
                 }
                 if usuario[1] == self.nome_procurado and usuario[3] == self.senha_procurada:
                     Mensagens.msgInfo(f'{self.nome_procurado} encontrado')
-                elif usuario[1] != self.nome_procurado or usuario[3] != self.senha_procurada:
-                    Mensagens.msgInfo('Senha ou nome estão incorretos !')
-                    return 
+                    return
+
+                else:
+                    Mensagens.msgAtencao('Senha ou nome estão errados !')
+                    return
             Mensagens.msgAtencao(f'Não foi encontrado {self.nome_procurado}!')
         except mysql.connector.Error as err:
             print(f'Erro ao mostrar usuários: {err}')
