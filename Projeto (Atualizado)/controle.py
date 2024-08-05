@@ -17,13 +17,16 @@ class Controle:
          self.window = tk.Tk()
          self.root.destroy()
          self.login = Login(self.window)
-         self.login.button_login.config(command=self.check_user_janela_login)
-    
-    def check_user_janela_login(self):
-        self.nome_procurado = self.login.nome_get()
-        self.senha_procurado = self.login.senha_get()
-        self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
-    
+         self.login.button_login.config(command=check_user_janela_login)
+
+         def check_user_janela_login():
+            self.nome_procurado = self.login.nome_get()
+            self.senha_procurado = self.login.senha_get()
+            self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
+            #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
+            if self.carrega_user.resposta:
+                return self.registro
+        
     
     
     def config_check(self):

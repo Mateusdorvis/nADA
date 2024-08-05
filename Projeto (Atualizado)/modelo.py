@@ -77,7 +77,7 @@ class SalvarUsuario:
         except mysql.connector.Error as err:
             print(f'Erro ao inserir o usuário {self.nome_usuario}: {err}')
 
-    
+#classe dedica ao modulo login e verifica se o usuario existe ou não
 class CarregarUsuario:
     def __init__(self, nome_procurado: str, senha_procurada: str):
         self.nome_procurado = nome_procurado
@@ -100,7 +100,12 @@ class CarregarUsuario:
             if self.conexao:
                 self.conexao.close()
 
+    #abre o cadastro se caso o use não achar
+    def abrir_cadastro(self, cadastro):
+        return cadastro
+
     def show_users(self):
+
         try:
             self.cursor.execute("SELECT * FROM dados_usuarios WHERE nome_usuario = %s;", (self.nome_procurado,))
             self.mostrar_usuarios = self.cursor.fetchall()
@@ -115,7 +120,7 @@ class CarregarUsuario:
                 }
                 if usuario[1] == self.nome_procurado:
                     if usuario[3] == self.senha_procurada:
-                        Mensagens.msgInfo(f'{self.nome_procurado} encontrado')
+                        Mensagens.msgInfo(f'{self.nome_procurado} encontrado !')
                     else:
                         Mensagens.msgAtencao(f'Usuário {self.nome_procurado} encontrado, mas a senha está errada!')
                     usuario_encontrado = True
@@ -123,6 +128,8 @@ class CarregarUsuario:
 
             if not usuario_encontrado:
                 Mensagens.msgAtencao(f'Não foi encontrado {self.nome_procurado}!')
+                self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?')
+
                 
         except mysql.connector.Error as err:
             print(f'Erro ao mostrar usuários: {err}')

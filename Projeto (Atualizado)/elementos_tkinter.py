@@ -11,6 +11,10 @@ class Mensagens:
   @staticmethod
   def msgInfo(msg):
     messagebox.showinfo('Informação', msg)
+  
+  @staticmethod
+  def msgQuestao(msg):
+    messagebox.askyesno('Questão', msg)
 
 def titulo(titulo, master,linha,  **args,):
   label = tk.Label(master, **args)
