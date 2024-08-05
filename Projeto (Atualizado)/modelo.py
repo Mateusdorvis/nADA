@@ -67,9 +67,10 @@ class SalvarUsuario:
             INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
             VALUES (%s, %s, %s);
             """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
+            print(f'Usuario  inserido com sucesso na tabela !')
             
-            print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
-
+            
+       
             Mensagens.msgInfo('Seu cadastro foi realizado com sucesso!')
         
         except mysql.connector.Error as err:
