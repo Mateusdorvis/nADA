@@ -28,11 +28,10 @@ class Controle:
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
             #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
             if self.carrega_user.resposta:
-                self.root.withdraw()
+                self.window.withdraw()
                 self.abrir_janela_registro()
            
-        
-         self.root.destroy()
+         self.root.withdraw()
          self.window = tk.Tk()
          self.login = Login(self.window)
          self.login.button_login.config(command=check_user_janela_login)
@@ -174,6 +173,7 @@ class Controle:
                     self.registro.data_entrada.config(state=tk.DISABLED)
                     self.registro.senha_entrada.config(state=tk.DISABLED)
                     self.salva_user_no_banco = SalvarUsuario(self.nome, self.data_formatada, self.senha)
+
                     return self.abrir_janela_login()
 
               
