@@ -8,6 +8,7 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.registro = Registro(root)
+        self.contar_click = 0
         self.config_button_enviar()
         self.config_check()
         self.config_eventos()
@@ -147,12 +148,18 @@ class Controle:
             elif  nome_status.cget('fg')=='red' and self.data == '' and self.senha == '' :
                 Mensagens.msgAtencao('O campo nome não seguiu os requsitos e ademais, os campos data e senha estão vazios, preencha por favor!')
             else:
-                Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
-                self.registro.nome_entrada.config(state=tk.DISABLED)
-                self.registro.data_entrada.config(state=tk.DISABLED)
-                self.registro.senha_entrada.config(state=tk.DISABLED)
-                self.salva_user_no_banco = SalvarUsuario(self.nome, self.data_formatada, self.senha)
+                self.contar_click+=1
+                if self.contar_click>=2:
+                    Mensagens.msgAtencao('Seu cadastro já foi enviado !')
+                else:
+                    self.registro.nome_entrada.config(state=tk.DISABLED)
+                    self.registro.data_entrada.config(state=tk.DISABLED)
+                    self.registro.senha_entrada.config(state=tk.DISABLED)
+                    self.salva_user_no_banco = SalvarUsuario(self.nome, self.data_formatada, self.senha)
+                    Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
+                    return self.login
 
+              
             
         verificar_campo_vazio()
 
