@@ -21,7 +21,7 @@ class Controle:
 
     def ocultar_senha(self):
         #no contexto checkbutton quando marco a caixa o valor é igual a 1
-        if self.mostre_senha.get()==1:
+        if self.mostre_senha.get():
             self.registro.senha_entrada.config(show='')
             self.registro.mostrar_senha.config(text='Ocultar senha')
         else:
@@ -142,7 +142,7 @@ class Controle:
                 self.registro.nome_entrada.config(state=tk.DISABLED)
                 self.registro.data_entrada.config(state=tk.DISABLED)
                 self.registro.senha_entrada.config(state=tk.DISABLED)
-                self.salva_user_no_banco = SalvarUsuario(self.nome, self.data, self.senha)
+                self.salva_user_no_banco = SalvarUsuario(self.nome, self.data_formatada, self.senha)
             
         verificar_campo_vazio()
 
