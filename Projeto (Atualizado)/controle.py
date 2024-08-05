@@ -157,7 +157,7 @@ class Controle:
                     self.registro.senha_entrada.config(state=tk.DISABLED)
                     self.salva_user_no_banco = SalvarUsuario(self.nome, self.data_formatada, self.senha)
                     Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
-                    return self.login
+                    return self.abrir_janela_login()
 
               
             
