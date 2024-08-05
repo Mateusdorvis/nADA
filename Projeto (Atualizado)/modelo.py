@@ -48,8 +48,8 @@ class SalvarUsuario:
             self.cursor.execute("SELECT * FROM dados_usuarios;")
             self.mostrar_usuarios = self.cursor.fetchall()
             self.dicio_pessoa = {}
-            for contar, usuario in enumerate(self.mostrar_usuarios, start=1):
-                self.dicio_pessoa[f'usuário {contar}'] = {
+            for usuario in self.mostrar_usuarios:
+                self.dicio_pessoa[f'usuário [usuario] = {
                     'ID': usuario[0],
                     'Nome': usuario[1],
                     'Data de nascimento': usuario[2],
