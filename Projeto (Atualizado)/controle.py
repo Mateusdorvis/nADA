@@ -14,9 +14,9 @@ class Controle:
         self.config_eventos()
     
   
-        
+    #só iremos chamar se o usuario se registrar pelo login
     def abrir_janela_registro(self):
-        self.window2.destroy()
+        self.root.destroy()
         self.registro.abrir()
 
     def abrir_janela_login(self):
