@@ -5,7 +5,8 @@ from modelo import SalvarUsuario, CarregarUsuario
 from datetime import datetime
 
 class Controle:
-    def __init__(self):
+    def __init__(self, root):
+        self.root= root
         self.contar_click = 0
         self.abrir_janela_registro()
         self.config_button_enviar()
@@ -20,7 +21,6 @@ class Controle:
         else:
            self.window_reg = tk.Tk()
            self.registro = Registro(self.window_reg)
-           self.window_reg.mainloop()
 
     def abrir_janela_login(self):
          def check_user_janela_login():
@@ -182,8 +182,10 @@ class Controle:
         verificar_campo_vazio()
 
      
-
-Controle()
+if __name__=='__main__':
+    root = tk.Tk()
+    Controle(root)
+    root.mainloop()
 
 
 
