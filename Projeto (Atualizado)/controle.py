@@ -8,6 +8,7 @@ class Controle:
     def __init__(self, root):
         self.root = root
         self.contar_click = 0
+        self.abrir_janela_registro()
         self.config_button_enviar()
         self.config_check()
         self.config_eventos()
@@ -23,7 +24,7 @@ class Controle:
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
             #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
             if self.carrega_user.resposta:
-                return 
+                return self.abrir_janela_registro()
         
          self.window2 = tk.Tk()
          self.root.destroy()
