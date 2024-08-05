@@ -16,9 +16,7 @@ class Controle:
         if hasattr(self, 'registro') and self.registro:
             self.registro.deiconify()
         else:
-           self.root.destroy()
-           self.window_reg = tk.Tk()
-           self.registro = Registro(self.window_reg)
+           self.registro = Registro(self.root)
            self.config_button_enviar()
            self.config_check()
            self.config_eventos()
@@ -31,11 +29,11 @@ class Controle:
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
             #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
             if self.carrega_user.resposta:
-                self.window.withdraw()
+                self.root.withdraw()
                 self.abrir_janela_registro()
-         self.window_reg.withdraw()
-         self.window = tk.Tk()
-         self.login = Login(self.window)
+
+         self.root.withdraw()
+         self.login = Login(self.root)
          self.login.button_login.config(command=check_user_janela_login)
 
          
