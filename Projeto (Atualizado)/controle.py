@@ -5,8 +5,7 @@ from modelo import SalvarUsuario, CarregarUsuario
 from datetime import datetime
 
 class Controle:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self):
         self.contar_click = 0
         self.abrir_janela_registro()
         self.config_button_enviar()
