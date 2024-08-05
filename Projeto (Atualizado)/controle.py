@@ -13,8 +13,8 @@ class Controle:
        
     # Só iremos chamar se o usuário se registrar pelo login
     def abrir_janela_cadastro(self):
-        if hasattr(self, 'cadastro') and self.cadastro:
-            self.cadastro.deiconify()
+        if hasattr(self, 'registro') and self.registro:
+            self.registro.deiconify()
         else:
             self.registro = Registro(self.root)
             self.config_button_enviar()
