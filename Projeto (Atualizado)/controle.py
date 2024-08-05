@@ -16,7 +16,7 @@ class Controle:
         if hasattr(self, 'registro') and self.registro:
             self.registro.deiconify()
         else:
-            self.registro = Registro(self.root)
+            self.registro = Registro(self.cadastro)
             self.config_button_enviar()
             self.config_check()
             self.config_eventos()
