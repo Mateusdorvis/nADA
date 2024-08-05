@@ -24,7 +24,7 @@ class Controle:
         self.senha_procurado = self.login.senha_get()
         self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
     
-    def mostrar
+    
     
     def config_check(self):
         self.mostre_senha = tk.IntVar()
