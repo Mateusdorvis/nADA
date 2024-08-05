@@ -28,8 +28,10 @@ class Controle:
             self.senha_procurado = self.login.senha_get()
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
             #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
-            if self.carrega_user.resposta:
-                self.abrir_janela_registro()
+            if not self.carrega_user:
+                self.login.destruir_janela()
+                return
+            self.abrir_janela_registro()
            
         
          self.root.destroy()
