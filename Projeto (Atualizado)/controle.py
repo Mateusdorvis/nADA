@@ -14,7 +14,8 @@ class Controle:
         self.config_eventos()
     
     def abrir_janela_login(self):
-         self.login = Login(self.root)
+         self.window = tk.Tk()
+         self.login = Login(self.window)
          self.login.button_login.config(command=self.check_user_janela_login)
     
     def check_user_janela_login(self):
