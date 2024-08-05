@@ -30,8 +30,8 @@ class Controle:
             #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
             if self.carrega_user.resposta:
                 self.window.destroy()
-                 self.abrir_janela_registro()
-                 self.root.mainloop()
+                self.abrir_janela_registro()
+                self.root.mainloop()
         
          self.root.destroy()
          self.window = tk.Tk()
