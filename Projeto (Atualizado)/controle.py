@@ -16,13 +16,13 @@ class Controle:
   
     #só iremos chamar se o usuario se registrar pelo login
     def abrir_janela_registro(self):
-        self.registro = Registro(self.root)
+        if hasattr(self, 'registro') and self.registro():
+            self.registro.deiconify()
+        else:
+           self.registro = Registro(self.root)
 
     def abrir_janela_login(self):
          def check_user_janela_login():
-           
-                
-
             self.nome_procurado = self.login.nome_get()
             self.senha_procurado = self.login.senha_get()
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
