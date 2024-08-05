@@ -165,6 +165,9 @@ class Controle:
 
      
 
+app = tk.Tk()
+control = Controle(app)
+app.mainloop()
         
 
 
