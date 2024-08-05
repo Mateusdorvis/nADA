@@ -61,21 +61,26 @@ class SalvarUsuario:
                 elif usuario[3] == self.senha_usuario:
                     Mensagens.msgAtencao('Já existe um usuário com esta senha! Mude para outra senha!')
                     return
+                
+                 try:
+                    # Inserir o usuário se ele não existir
+                    self.cursor.execute("""
+                    INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
+                    VALUES (%s, %s, %s);
+                    """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
+                    print('Usuario  inserido com sucesso na tabela !')
+                    
+                    print('Usuario inserido com sucesso na tabela !')
             
-            # Inserir o usuário se ele não existir
-            self.cursor.execute("""
-            INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
-            VALUES (%s, %s, %s);
-            """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
-            print('Usuario  inserido com sucesso na tabela !')
-            
-            
-       
-            Mensagens.msgInfo('Seu cadastro foi realizado com sucesso!')
-        
+                    Mensagens.msgInfo('Seu cadastro foi realizado com sucesso!')
+                except ValueError:
+                    print('Usuario não foi inserido com sucesso na tabela !')
+     
+    
         except mysql.connector.Error as err:
             print(f'Erro ao inserir o usuário {self.nome_usuario}: {err}')
-     
+        
+       
 
 #classe dedica ao modulo login e verifica se o usuario existe ou não
 class CarregarUsuario:
