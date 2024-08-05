@@ -139,6 +139,10 @@ class Controle:
                 Mensagens.msgAtencao('O campo nome não seguiu os requsitos e ademais, os campos data e senha estão vazios, preencha por favor!')
             else:
                 Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
+                self.registro.nome_entrada.config(state=tk.DISABLED)
+                self.registro.data_entrada.config(state=tk.DISABLED)
+                self.registro.senha_entrada.config(state=tk.DISABLED)
+                self.salva_user_no_banco = SalvarUsuario(self.nome, self.data, self.senha)
             
         verificar_campo_vazio()
 
