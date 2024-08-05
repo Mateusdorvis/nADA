@@ -32,7 +32,6 @@ class Controle:
                 self.root.withdraw()
                 self.abrir_janela_registro()
 
-         self.root.withdraw()
          self.login = Login(self.root)
          self.login.button_login.config(command=check_user_janela_login)
 
