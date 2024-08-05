@@ -16,7 +16,7 @@ class Controle:
   
     #só iremos chamar se o usuario se registrar pelo login
     def abrir_janela_registro(self):
-        if hasattr(self, 'registro') and self.registro():
+        if hasattr(self, 'registro') and self.registro:
             self.registro.deiconify()
         else:
            self.root.destroy()
