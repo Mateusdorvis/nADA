@@ -1,110 +1,17 @@
 import tkinter as tk
-from tkinter import ttk
-from datetime import datetime
-from tkinter import messagebox
-from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens, Framecustomizado, Textcustomizado, Entrycustomizado, CheckButtoncustomizado
 
-class BaseCadastro:
+class Cadastro:
     def __init__(self, root):
         self.root = root
-        self.frame_caixa = Framecustomizado(self.root, width=400, height=400)
-        self.frame_caixa.grid(row=0, column=0)
-        self.root.grid_columnconfigure(0, weight=1)
-        self.root.grid_rowconfigure(0, weight=1)
-        self.root.config(bg='#0dc0a8')
-        self.entrada_nome()
-        self.entrada_senha()
-        self.entrada_data()
+        self.root.title('Título do Cadastro')  # Define o título padrão para Cadastro
 
-    def entrada_nome(self):
-        self.nome_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
-        self.nome_titulo.grid(row=0, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.nome_label = Labelcustomizada(self.frame_caixa, text='Digite seu nome :')
-        self.nome_label.grid(row=1, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.nome_entrada = Textcustomizado(self.frame_caixa)
-        self.nome_entrada.grid(row=1, column=1, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.nome_dicas = Labelcustomizada(self.frame_caixa)
-        self.nome_dicas.grid(row=2, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-    def entrada_senha(self):
-        self.senha_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO SENHA.')
-        self.senha_titulo.grid(row=3, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.senha_label = Labelcustomizada(self.frame_caixa, text='Digite sua senha :')
-        self.senha_label.grid(row=4, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.senha_entrada = Entrycustomizado(self.frame_caixa, show='*')
-        self.senha_entrada.grid(row=4, column=1, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.mostrar_senha = CheckButtoncustomizado(self.frame_caixa, text='Mostrar senha', bg='white', command=self.toggle_senha)
-        self.mostrar_senha.grid(row=5, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.senha_dicas = Labelcustomizada(self.frame_caixa)
-        self.senha_dicas.grid(row=6, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-    def entrada_data(self):
-        self.data_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO DATA.')
-        self.data_titulo.grid(row=7, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.data_label = Labelcustomizada(self.frame_caixa, text='Digite sua data de nascimento \n no formato dd-mm-YYYY :', justify='left')
-        self.data_label.grid(row=8, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.data_entrada = Textcustomizado(self.frame_caixa)
-        self.data_entrada.grid(row=8, column=1, sticky=tk.NSEW, pady=5, padx=5)
-
-        self.data_dicas = Labelcustomizada(self.frame_caixa)
-        self.data_dicas.grid(row=9, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
-    def nome_get(self):
-        return self.nome_entrada.get(1.0, tk.END).strip()
-
-    def senha_get(self):
-        return self.senha_entrada.get().strip()
-
-    def data_get(self):
-        return self.data_entrada.get(1.0, tk.END).strip()
-
-    def toggle_senha(self):
-        if self.mostrar_senha.var.get() == 1:
-            self.senha_entrada.config(show='')
-            self.mostrar_senha.config(text='Ocultar senha')
-        else:
-            self.senha_entrada.config(show='*')
-            self.mostrar_senha.config(text='Mostrar senha')
-
-
-class Registro(BaseCadastro):
+class Login(Cadastro):
     def __init__(self, root):
         super().__init__(root)
-        self.root.title('Registro de usuário')
-        self.button_enviar = Buttoncustomizado(self.frame_caixa, text='Enviar cadastro', bg='black', fg='white')
-        self.button_enviar.grid(row=12, column=0, pady=5, padx=5)
+        self.root.title('Login de usuário')  # Sobrescreve o título na classe Login
 
-class Login(BaseCadastro):
-    def __init__(self, root):
-        super().__init__(root)
-        self.root.title('Login de usuário')
-        self.button_login = Buttoncustomizado(self.frame_caixa, text='Enviar login', bg='black', fg='white')
-        self.button_login.grid(row=12, column=0, pady=5, padx=5)
+if __name__ == "__main__":
+    root = tk.Tk()  # Cria a instância principal da janela
+    app = Login(root)  # Passa a instância principal para a classe Login
+    root.mainloop()  # Inicia o loop principal da interface gráfica
 
-        self.button_senha = Buttoncustomizado(self.frame_caixa, text='Esqueci senha', bg='black', fg='white')
-        self.button_senha.grid(row=16, column=0, pady=5, padx=5)
-
-    def entrada_data(self):
-        # Sobrescreve para não mostrar a entrada de dados
-        pass
-
-    def config_eventos(self):
-        self.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
-        self.senha_entrada.bind('<KeyRelease>', self.dicas_senha)
-
-    def dicas_nome(self, event):
-        # Implementar lógica para dicas de nome aqui
-        pass
-
-    def dicas_senha(self, event):
-        # Implementar lógica para dicas de senha aqui
-        pass
