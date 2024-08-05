@@ -44,8 +44,8 @@ class SalvarUsuario:
 
     def inserir_usuario_nas_tabelas(self):
         try:
-            #verifica se um usuario existe com este nome ou não
-            self.cursor.execute("SELECT * FROM dados_usuarios WHERE nome_usuario = %s OR data_de_nascimento = %s OR senha_usuario = %s  ;", 
+            # Verifica se um usuário existe com este nome ou não
+            self.cursor.execute("SELECT * FROM dados_usuarios WHERE nome_usuario = %s OR data_de_nascimento = %s OR senha_usuario = %s;", 
                                 (self.nome_usuario, self.data_usuario, self.senha_usuario,))
             usuarios_existentes = self.cursor.fetchall()
 
@@ -55,34 +55,28 @@ class SalvarUsuario:
                     return
                 
                 elif usuario[1] == self.nome_usuario:
-                    Mensagens.msgAtencao('Já existe um usuário com este nome ! Mude para outra nome!')
+                    Mensagens.msgAtencao('Já existe um usuário com este nome! Mude para outro nome!')
                     return
 
                 elif usuario[3] == self.senha_usuario:
                     Mensagens.msgAtencao('Já existe um usuário com esta senha! Mude para outra senha!')
                     return
-                
-                
+            
+            # Inserir o usuário se ele não existir
             self.cursor.execute("""
             INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
             VALUES (%s, %s, %s);
-        """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
-            if self.nome_usuario.endswith('a'):
-                    print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
-            else:
-                    print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
+            """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
             
-            Mensagens.msgInfo('Seu cadastro foi realizado com sucesso!')
+            if self.nome_usuario.endswith('a'):
+                print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
+            else:
+                print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
 
+            Mensagens.msgInfo('Seu cadastro foi realizado com sucesso!')
+        
         except mysql.connector.Error as err:
             print(f'Erro ao inserir o usuário {self.nome_usuario}: {err}')
-        
-
-          
-        
-    
-    
-
      
 
 #classe dedica ao modulo login e verifica se o usuario existe ou não
