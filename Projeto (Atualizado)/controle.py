@@ -10,8 +10,12 @@ class Controle:
         self.registro = Registro(root)
        
         self.registro.button_enviar.config(command=self.salvar_usuario)
+        self.
         self.config_eventos()
+    
 
+    def ocultar_senha(self):
+        self.registro.senha_entrada.config(show='*')
     
     def config_eventos(self):
         self.registro.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
