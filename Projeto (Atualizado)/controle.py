@@ -10,7 +10,6 @@ class Controle:
         self.contar_click = 0
         self.registro = Registro(self.root)
         self.config_button_enviar()
-        self.abrir_janela_login()
         self.config_check()
         self.config_eventos()
     
