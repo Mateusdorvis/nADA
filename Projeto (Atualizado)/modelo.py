@@ -62,7 +62,7 @@ class SalvarUsuario:
                     Mensagens.msgAtencao('Já existe um usuário com esta senha! Mude para outra senha!')
                     return
                 
-                 try:
+                try:
                     # Inserir o usuário se ele não existir
                     self.cursor.execute("""
                     INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
