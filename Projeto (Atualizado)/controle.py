@@ -16,6 +16,7 @@ class Controle:
   
     #só iremos chamar se o usuario se registrar pelo login
     def abrir_janela_registro(self):
+        self.window.destroy()
         self.registro = Registro(self.root)
 
     def abrir_janela_login(self):
