@@ -61,9 +61,8 @@ class SalvarUsuario:
             self.cursor.execute("SELECT * FROM dados_usuarios;")
             self.mostrar_usuarios = self.cursor.fetchall()
             self.dicio_pessoa = {}
-            contar = 0
-            for usuario in self.mostrar_usuarios:
-                self.dicio_pessoa[f'usuário {usuario[0]} '] = {
+            for contar, usuario in enumerate(self.mostrar_usuarios, start=1):
+                self.dicio_pessoa[f'usuário {contar}'] = {
                     'ID': usuario[0],
                     'Nome': usuario[1],
                     'Data de nascimento': usuario[2],
@@ -97,9 +96,10 @@ class CarregarUsuario:
 
     def show_users(self):
         try:
-            self.cursor.execute("SELECT * FROM dados_usuarios WHERE nome_usuario = %s AND senha_usuario = %s ; ",(self.nome_procurado, self.senha_procurada,))
+            self.cursor.execute("SELECT * FROM dados_usuarios WHERE nome_usuario = %s;", (self.nome_procurado,))
             self.mostrar_usuarios = self.cursor.fetchall()
             self.dicio_pessoa = {}
+            usuario_encontrado = False
             for usuario in self.mostrar_usuarios:
                 self.dicio_pessoa[f'usuário {usuario[0]}'] = {
                     'ID': usuario[0],
@@ -107,13 +107,16 @@ class CarregarUsuario:
                     'Data de nascimento': usuario[2],
                     'Senha': usuario[3]
                 }
-                if usuario[1] == self.nome_procurado and usuario[3] == self.senha_procurada:
-                    Mensagens.msgInfo(f'{self.nome_procurado} encontrado')
-                    return
+                if usuario[1] == self.nome_procurado:
+                    if usuario[3] == self.senha_procurada:
+                        Mensagens.msgInfo(f'{self.nome_procurado} encontrado')
+                    else:
+                        Mensagens.msgAtencao(f'Usuário {self.nome_procurado} encontrado, mas a senha está errada!')
+                    usuario_encontrado = True
+                    break
 
-                elif usuario[1] == self.nome_procurado and  self.senha_procurada != usuario[3]:
-                    Mensagens.msgAtencao(f'Usuário { self.nome_procurado} encontrado, mas a senha esá errada !')
-                    return
-            Mensagens.msgAtencao(f'Não foi encontrado {self.nome_procurado}!')
+            if not usuario_encontrado:
+                Mensagens.msgAtencao(f'Não foi encontrado {self.nome_procurado}!')
+                
         except mysql.connector.Error as err:
             print(f'Erro ao mostrar usuários: {err}')
