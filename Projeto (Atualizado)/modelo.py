@@ -69,16 +69,21 @@ class CarregarUsuario:
     def __init__(self, nome_user  : str, senha_user : str):
         self.nome_user = nome_user
         self.senha_user  = senha_user
-        self.conexao = mysql.connector.connect(
-            host="localhost",       
-            user="app",             
-            password="oi",         
-            database="app_jogos"    
-        )
-        self.cursor = self.conexao.cursor()
-        self.show_users()
-        self.conexao.commit()
-        self.conexao.close()
+        try:
+
+            self.conexao = mysql.connector.connect(
+                host="localhost",       
+                user="app",             
+                password="oi",         
+                database="app_jogos"    
+            )
+            self.cursor = self.conexao.cursor()
+            self.show_users()
+            self.conexao.commit()
+            self.conexao.close()
+
+        except mysql.connector.Error as err:
+            print(f'Erro ao conectar ao banco de dados : {err}')
     
     def show_users(self):
         try:
@@ -96,6 +101,6 @@ class CarregarUsuario:
                     return
                 
                 Mensagens.msgAtencao(f'Não foi encontrado {self.nome_user} !')
-                
+
         except mysql.connector.Error as err:
             print(f'Erro ao mostrar usuários: {err}')
