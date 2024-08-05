@@ -1,5 +1,6 @@
 import mysql.connector
 from datetime import datetime
+from elementos_tkinter import Mensagens
 
 class SalvarUsuario:
     def __init__(self, nome_usuario : str, data_usuario : datetime , senha_usuario : str):
@@ -92,6 +93,6 @@ class CarregarUsuario:
             'Senha'  : usuario[3]
             }
             if usuario[1]==self.nome_user and usuario[3]==self.senha_user:
-                print(f'{self.nome_user} Encontrado')
+                Mensagens.msgInfo(f'{self.nome_user} Encontrado')
             else:
-                print(f'Não foi encontrado {self.nome_user} !')
+                Mensagens.msgAtencao(f'Não foi encontrado {self.nome_user} !')

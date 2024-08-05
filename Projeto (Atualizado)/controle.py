@@ -12,6 +12,15 @@ class Controle:
         self.config_check()
         self.config_eventos()
     
+    def abrir_janela_login(self):
+         self.login = Login(self.root)
+         self.login.button_login.config(command=self.check_user_janela_login)
+    
+    def check_user_janela_login(self):
+        self.nome_procurado = self.login.nome_get()
+        self.senha_procurado = self.login.senha_get()
+        self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
+    
     def config_check(self):
         self.mostre_senha = tk.IntVar()
         self.registro.mostrar_senha.config(variable=self.mostre_senha,command=self.ocultar_senha)
@@ -143,6 +152,7 @@ class Controle:
                 self.registro.data_entrada.config(state=tk.DISABLED)
                 self.registro.senha_entrada.config(state=tk.DISABLED)
                 self.salva_user_no_banco = SalvarUsuario(self.nome, self.data_formatada, self.senha)
+
             
         verificar_campo_vazio()
 
@@ -152,12 +162,4 @@ class Controle:
 
 
 
-root = tk.Tk()
-x = Controle(root)
-root_m = tk.Tk()
-login = Login(root_m)
-root.mainloop()
-root_m.mainloop()
-    
-        
         
