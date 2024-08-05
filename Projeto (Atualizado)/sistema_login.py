@@ -100,4 +100,7 @@ class Login(BaseCadastro):
     def config_eventos(self):
         self.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
         self.senha_entrada.bind('<KeyRelease>', self.dicas_senha)
+    
+    def destruir_janela(self):
+        self.root.destroy()
 
