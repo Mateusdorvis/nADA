@@ -13,14 +13,14 @@ class Controle:
         self.config_eventos()
     
     def config_check(self):
-        self.mostre_senha = tk.IntVar(value=0)
+        self.mostre_senha = tk.IntVar()
         self.registro.mostrar_senha.config(variable=self.mostre_senha,command=self.ocultar_senha)
 
     def config_button_enviar(self):
           self.registro.button_enviar.config(command=self.salvar_usuario)
 
     def ocultar_senha(self):
-        if self.mostre_senha==1:
+        if self.mostre_senha.get():
             self.registro.senha_entrada.config(show='')
         else:
             self.registro.senha_entrada.config(show='*')
