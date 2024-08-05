@@ -72,11 +72,14 @@ class SalvarUsuario:
         """, (self.nome_usuario, self.data_usuario, self.senha_usuario))
             
             Mensagens.msgInfo('Seu cadastro foi realizado com sucesso!')
-            
-            if self.nome_usuario.endswith('a'):
+        
+        if self.nome_usuario.endswith('a'):
                 print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
-            else:
+        else:
                 print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
+    
+
+     
 
 #classe dedica ao modulo login e verifica se o usuario existe ou não
 class CarregarUsuario:
