@@ -19,6 +19,7 @@ class Controle:
         if hasattr(self, 'registro') and self.registro():
             self.registro.deiconify()
         else:
+           self.root.destroy()
            self.window_reg = tk.Tk()
            self.registro = Registro(self.window_reg)
 
@@ -176,9 +177,6 @@ class Controle:
                     self.salva_user_no_banco = SalvarUsuario(self.nome, self.data_formatada, self.senha)
 
                     return self.abrir_janela_login()
-
-              
-            
         verificar_campo_vazio()
 
      
