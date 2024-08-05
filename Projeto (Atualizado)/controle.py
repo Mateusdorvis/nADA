@@ -14,6 +14,7 @@ class Controle:
         self.config_eventos()
     
     def abrir_janela_registro(self):
+         self.window2.destroy()
          self.registro = Registro(self.root)
 
 
