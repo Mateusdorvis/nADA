@@ -32,8 +32,7 @@ class Controle:
             if self.carrega_user.resposta:
                 self.window.withdraw()
                 self.abrir_janela_registro()
-           
-         self.root.withdraw()
+         self.window_reg.withdraw()
          self.window = tk.Tk()
          self.login = Login(self.window)
          self.login.button_login.config(command=check_user_janela_login)
