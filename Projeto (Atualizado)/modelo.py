@@ -48,7 +48,6 @@ class SalvarUsuario:
             self.cursor.execute("SELECT * FROM dados_usuarios;")
             self.mostrar_usuarios = self.cursor.fetchall()
             self.dicio_pessoa = {}
-            usuario_novo = False
             for contar, usuario in enumerate(self.mostrar_usuarios, start=1):
                 self.dicio_pessoa[f'usuário {contar}'] = {
                     'ID': usuario[0],
@@ -65,18 +64,16 @@ class SalvarUsuario:
                 
                 else:
                     Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
-                    
                     self.cursor.execute("""
-            INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
-            VALUES (%s, %s, %s);
-            """, (self.nome_usuario, self.data_usuario, self.senha_usuario,))
+                        INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
+                        VALUES (%s, %s, %s);
+                        """, (self.nome_usuario, self.data_usuario, self.senha_usuario,)
+                    )
                 
                     if self.nome_usuario.endswith('a'):
                         print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
                     else:
                         print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
-                    usuario_novo = True
-                    break
                     
         except mysql.connector.Error as err:
             print(f'Erro ao inserir o usuário {self.nome_usuario}: {err}')
