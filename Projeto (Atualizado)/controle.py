@@ -13,19 +13,21 @@ class Controle:
   
     #só iremos chamar se o usuario se registrar pelo login
     def abrir_janela_registro(self):
-           self.window_reg = tk.Toplevel(self.root)
-           self.registro = Registro(self.window_reg)
-           self.config_button_enviar()
-           self.config_check()
-           self.config_eventos()
+        if hasattr(self, 'registro') and self.registro:
+               self.window_reg.deiconify()
+        else:
+                self.window_reg = tk.Toplevel(self.root)
+                self.registro = Registro(self.window_reg)
+                self.config_button_enviar()
+                self.config_check()
+                self.config_eventos()
     
 
     def abrir_janela_login(self):
         self.window_reg.withdraw()
         self.window = tk.Toplevel(self.root)
         self.login = Login(self.window)
-        def abri_registro():
-            self.window_reg.deiconify()
+            
         def check_user_janela_login():
             #usuario insere o nome e a senha
             self.nome_procurado = self.login.nome_get()
