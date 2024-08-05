@@ -97,7 +97,7 @@ class CarregarUsuario:
 
     def show_users(self):
         try:
-            self.cursor.execute("SELECT * FROM dados_usuarios WHERE nome_usuario = %s AND senha_usuario = %s ; ",(self.nome_procurado, self.senha_procurada))
+            self.cursor.execute("SELECT * FROM dados_usuarios WHERE nome_usuario = %s AND senha_usuario = %s ; ",(self.nome_procurado, self.senha_procurada,))
             self.mostrar_usuarios = self.cursor.fetchall()
             self.dicio_pessoa = {}
             for usuario in self.mostrar_usuarios:
