@@ -40,7 +40,7 @@ class BaseCadastro:
         self.senha_entrada = Entrycustomizado(self.frame_caixa, show='*')
         self.senha_entrada.grid(row=4, column=1, sticky=tk.NSEW, pady=5, padx=5)
 
-        self.senha_dicas = tk.Radiobutton(self.frame_caixa, text='mostrar senha')
+        self.senha_dicas = tk.Checkbutton(self.frame_caixa, text='mostrar senha')
         self.senha_dicas.grid(row=5, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.senha_dicas = Labelcustomizada(self.frame_caixa)
