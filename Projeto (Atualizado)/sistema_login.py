@@ -76,8 +76,16 @@ class Registro(BaseCadastro):
     def __init__(self, root):
         super().__init__(root)
         self.root.title('Registro de usuário')
+        self.window = None
         self.button_enviar = Buttoncustomizado(self.frame_caixa, text='Enviar cadastro', bg='black', fg='white')
         self.button_enviar.grid(row=12, column=0, pady=5, padx=5)
+        
+        #vamos chamar se o usuario ir direto para o login.
+    def abrir(self):
+            if self.window is None:
+                self.window = tk.Toplevel(self.root)
+                self.configurar_janela() 
+            self.window.deiconify()
     
 
 

@@ -15,24 +15,24 @@ class Controle:
     
   
         
-
+    def abrir_janela_registro(self):
+        self.window2.destroy()
+        self.registro.abrir()
 
     def abrir_janela_login(self):
          def check_user_janela_login():
-            def abrir_janela_registro():
-                self.window2.destroy()
-                self.registro
+           
+                
 
             self.nome_procurado = self.login.nome_get()
             self.senha_procurado = self.login.senha_get()
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
             #  self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?') se for verdade retorne para a janela cadastro
             if self.carrega_user.resposta:
-                 abrir_janela_registro()
+                 self.abrir_janela_registro()
         
-         self.window2 = tk.Tk()
          self.root.destroy()
-         self.login = Login(self.window2)
+         self.login = Login(self.root)
          self.login.button_login.config(command=check_user_janela_login)
 
          
