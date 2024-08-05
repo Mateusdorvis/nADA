@@ -44,6 +44,7 @@ class SalvarUsuario:
 
     def inserir_usuario_nas_tabelas(self):
         try:
+            #verifica se um usuario existe com este nome ou não
             self.cursor.execute("SELECT * FROM dados_usuarios WHERE nome_usuario = %s OR data_de_nascimento = %s OR senha_usuario = %s  ;", 
                                 (self.nome_usuario, self.data_usuario, self.senha_usuario,))
             usuarios_existentes = self.cursor.fetchall()
