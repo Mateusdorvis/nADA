@@ -128,7 +128,8 @@ class CarregarUsuario:
 
             if not usuario_encontrado:
                 Mensagens.msgAtencao(f'Não foi encontrado {self.nome_procurado}!')
-            
+                self.resposta = Mensagens.msgQuestao('Deseja fazer cadastro ?')
+
                 
         except mysql.connector.Error as err:
             print(f'Erro ao mostrar usuários: {err}')

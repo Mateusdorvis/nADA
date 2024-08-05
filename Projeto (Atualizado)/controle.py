@@ -33,9 +33,11 @@ class Controle:
             self.nome_procurado = self.login.nome_get()
             self.senha_procurado = self.login.senha_get()
             self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
+            if self.carrega_user.resposta:
+                self.abrir_janela_registro()
+            
 
         self.login.button_login.config(command=check_user_janela_login)
-        self.login.button_reg.config(command=self.abrir_janela_registro)
         
 
          
