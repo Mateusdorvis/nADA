@@ -65,6 +65,13 @@ class SalvarUsuario:
         except mysql.connector.Error as err:
             print(f'Erro ao inserir o usuário {self.nome_usuario}: {err}')
         
+        except:
+            if self.nome_usuario.endswith('a'):
+                print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
+            else:
+                    print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
+                
+        
         finally:
             self.cursor.execute("""
             INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
@@ -73,10 +80,7 @@ class SalvarUsuario:
             
             Mensagens.msgInfo('Seu cadastro foi realizado com sucesso!')
         
-        if self.nome_usuario.endswith('a'):
-                print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
-        else:
-                print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
+    
     
 
      
