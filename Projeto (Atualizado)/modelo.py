@@ -100,7 +100,7 @@ class CarregarUsuario:
                     Mensagens.msgInfo(f'{self.nome_user} Encontrado')
                     return
                 
-                Mensagens.msgAtencao(f'Não foi encontrado {self.nome_user} !')
+            Mensagens.msgAtencao(f'Não foi encontrado {self.nome_user} !')
 
         except mysql.connector.Error as err:
             print(f'Erro ao mostrar usuários: {err}')
