@@ -52,6 +52,11 @@ class SalvarUsuario:
                 if usuario[1] == self.nome_usuario and usuario[2] == self.data_usuario and usuario[3] == self.senha_usuario:
                     Mensagens.msgAtencao('Você já foi cadastrado!')
                     return
+                
+                elif usuario[1] == self.nome_usuario:
+                    Mensagens.msgAtencao('Já existe um usuário com este nome ! Mude para outra nome!')
+                    return
+
                 elif usuario[3] == self.senha_usuario:
                     Mensagens.msgAtencao('Já existe um usuário com esta senha! Mude para outra senha!')
                     return
