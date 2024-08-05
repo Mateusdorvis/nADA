@@ -17,6 +17,7 @@ class Controle:
            self.config_button_enviar()
            self.config_check()
            self.config_eventos()
+           return self.registro
     
 
     def abrir_janela_login(self):
