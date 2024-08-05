@@ -9,10 +9,7 @@ class Controle:
         self.root= root
         self.contar_click = 0
         self.abrir_janela_registro()
-        self.config_button_enviar()
-        self.config_check()
-        self.config_eventos()
-    
+       
   
     #só iremos chamar se o usuario se registrar pelo login
     def abrir_janela_registro(self):
@@ -22,6 +19,10 @@ class Controle:
            self.root.destroy()
            self.window_reg = tk.Tk()
            self.registro = Registro(self.window_reg)
+           self.config_button_enviar()
+           self.config_check()
+           self.config_eventos()
+    
 
     def abrir_janela_login(self):
          def check_user_janela_login():
