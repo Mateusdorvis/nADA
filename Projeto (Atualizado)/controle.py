@@ -13,9 +13,7 @@ class Controle:
         self.config_eventos()
     
     def abrir_janela_registro(self):
-         self.window = tk.Tk()
-         self.registro = Registro(self.window)
-         self.window.mainloop()
+         self.registro = Registro(self.root)
 
 
     def abrir_janela_login(self):
