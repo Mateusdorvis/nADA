@@ -70,7 +70,7 @@ class SalvarUsuario:
                     'Senha': usuario[3]
                 }
                 if usuario[1]==self.nome_usuario and usuario[3]==self.senha_usuario:
-                    Mensagens.msgAtencao('Já existe um usuário com este nome  e senha ! mude para outro nome e senha !')
+                    Mensagens.msgAtencao('Já existe um usuário com este nome  e senha ! mude o seu  nome e senha !')
 
                 elif usuario[1]!=self.nome_usuario and usuario[3]==self.senha_usuario:
                     Mensagens.msgAtencao('Já existe um usuário com esta senha ! mude para outra senha !')
