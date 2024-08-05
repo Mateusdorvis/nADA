@@ -18,7 +18,9 @@ class Controle:
         if hasattr(self, 'registro') and self.registro():
             self.registro.deiconify()
         else:
-           self.registro = Registro(self.root)
+           self.window_reg = tk.Tk()
+           self.registro = Registro(self.window_reg)
+           self.window_reg.mainloop()
 
     def abrir_janela_login(self):
          def check_user_janela_login():
@@ -181,10 +183,7 @@ class Controle:
 
      
 
-app = tk.Tk()
-control = Controle(app)
-app.mainloop()
-        
+Controle()
 
 
 
