@@ -18,7 +18,7 @@ class SalvarUsuario:
             self.cursor = self.conexao.cursor()
             self.criar_tabela_dados_usuarios()
             self.inserir_usuario_nas_tabelas()
-            self.show_users()
+
         except mysql.connector.Error as err:
             print(f"Erro de conexão: {err}")
         finally:
@@ -43,20 +43,7 @@ class SalvarUsuario:
             print(f'Erro ao criar tabela: {err}')
 
     def inserir_usuario_nas_tabelas(self):
-        try:
-            self.cursor.execute("""
-            INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
-            VALUES (%s, %s, %s);
-            """, (self.nome_usuario, self.data_usuario, self.senha_usuario,))
-                
-            if self.nome_usuario.endswith('a'):
-                print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
-            else:
-                print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
-        except mysql.connector.Error as err:
-            print(f'Erro ao inserir o usuário {self.nome_usuario}: {err}')
-
-    def show_users(self):
+        #antes de inserir o usuario, o programa faz a checagem se o usuario existe ou não
         try:
             self.cursor.execute("SELECT * FROM dados_usuarios;")
             self.mostrar_usuarios = self.cursor.fetchall()
@@ -69,22 +56,31 @@ class SalvarUsuario:
                     'Data de nascimento': usuario[2],
                     'Senha': usuario[3]
                 }
+                print(self.dicio_pessoa)
                 if usuario[1]==self.nome_usuario and usuario[3]==self.senha_usuario:
-                    Mensagens.msgAtencao('Já existe um usuário com este nome  e senha ! mude o seu  nome e senha !')
+                    Mensagens.msgAtencao('Você já foi cadastrado!')
 
                 elif usuario[1]!=self.nome_usuario and usuario[3]==self.senha_usuario:
                     Mensagens.msgAtencao('Já existe um usuário com esta senha ! mude para outra senha !')
                 
                 else:
                     Mensagens.msgInfo('Seu cadastro foi realizado com sucesso !')
+                    
+                    self.cursor.execute("""
+            INSERT INTO dados_usuarios (nome_usuario, data_de_nascimento, senha_usuario)
+            VALUES (%s, %s, %s);
+            """, (self.nome_usuario, self.data_usuario, self.senha_usuario,))
+                
+                    if self.nome_usuario.endswith('a'):
+                        print(f'A Usuária {self.nome_usuario} foi inserida na tabela com sucesso!')
+                    else:
+                        print(f'O Usuário {self.nome_usuario} foi inserido na tabela com sucesso!')
                     usuario_novo = True
                     break
                     
-                
-                
-                print(self.dicio_pessoa)
         except mysql.connector.Error as err:
-            print(f'Erro ao mostrar usuários: {err}')
+            print(f'Erro ao inserir o usuário {self.nome_usuario}: {err}')
+
 
     
 class CarregarUsuario:
