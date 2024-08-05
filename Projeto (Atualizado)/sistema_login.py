@@ -94,7 +94,7 @@ class Login(BaseCadastro):
         self.button_senha = Buttoncustomizado(self.frame_caixa, text='Esqueci senha', bg='black', fg='white')
         self.button_senha.grid(row=16, column=0, pady=5, padx=5)
         
-        self.label_reg = Labelcustomizada(self.frame_caixa, text='Não tem cadastro ? Clique no botão ao lado para fazer cadastro.', wraplenght=200)
+        self.label_reg = Labelcustomizada(self.frame_caixa, text='Não tem cadastro ? Clique no botão ao lado para fazer cadastro.',  wraplength=150)
         self.label_reg.grid(row=19, column=0, pady=5, padx=5)
 
         self.button_reg = Buttoncustomizado(self.frame_caixa, text='Fazer cadastro', bg='black', fg='white')
