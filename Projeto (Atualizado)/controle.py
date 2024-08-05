@@ -15,6 +15,7 @@ class Controle:
     
     def abrir_janela_login(self):
          self.window = tk.Tk()
+         self.root.destroy()
          self.login = Login(self.window)
          self.login.button_login.config(command=self.check_user_janela_login)
     
@@ -22,6 +23,8 @@ class Controle:
         self.nome_procurado = self.login.nome_get()
         self.senha_procurado = self.login.senha_get()
         self.carrega_user = CarregarUsuario(self.nome_procurado, self.senha_procurado)
+    
+    def mostrar
     
     def config_check(self):
         self.mostre_senha = tk.IntVar()
