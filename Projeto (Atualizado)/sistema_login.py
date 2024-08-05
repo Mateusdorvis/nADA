@@ -1,13 +1,15 @@
 import tkinter as tk
 from datetime import datetime
-from tkinter import Widget, ttk
 from tkinter import messagebox
-from elementos_tkinter import Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, Mensagens, Framecustomizado, Textcustomizado, Entrycustomizado, CheckButtoncustomizado
+from elementos_tkinter import (Labelcustomizada, LabelcustomizadaTitulo, Buttoncustomizado, 
+                               Mensagens, Framecustomizado, Textcustomizado, Entrycustomizado, 
+                               CheckButtoncustomizado)
+from modelo import SalvarUsuario, CarregarUsuario
 
 class BaseCadastro:
     def __init__(self, root):
         self.root = root
-        self.frame_caixa = Framecustomizado(self.root,width=400, height=400)
+        self.frame_caixa = Framecustomizado(self.root, width=400, height=400)
         self.frame_caixa.grid(row=0, column=0)
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
@@ -15,7 +17,6 @@ class BaseCadastro:
         self.entrada_nome()
         self.entrada_senha()
         self.entrada_data()
-    
     
     def entrada_nome(self):
         self.nome_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO NOME.')
@@ -40,13 +41,11 @@ class BaseCadastro:
         self.senha_entrada = Entrycustomizado(self.frame_caixa)
         self.senha_entrada.grid(row=4, column=1, sticky=tk.NSEW, pady=5, padx=5)
         
-        
         self.mostrar_senha = CheckButtoncustomizado(self.frame_caixa, text='Ocultar senha', bg='white')
         self.mostrar_senha.grid(row=5, column=0, sticky=tk.NSEW, pady=5, padx=5)
 
         self.senha_dicas = Labelcustomizada(self.frame_caixa)
         self.senha_dicas.grid(row=6, column=0, sticky=tk.NSEW, pady=5, padx=5)
-
     
     def entrada_data(self):
         self.data_titulo = LabelcustomizadaTitulo(self.frame_caixa, text='CAMPO DATA.')
@@ -70,8 +69,6 @@ class BaseCadastro:
     def data_get(self):
         return self.data_entrada.get(1.0, tk.END).strip()
 
- 
-
 class Registro(BaseCadastro):
     def __init__(self, root):
         super().__init__(root)
@@ -79,15 +76,16 @@ class Registro(BaseCadastro):
         self.window = None
         self.button_enviar = Buttoncustomizado(self.frame_caixa, text='Enviar cadastro', bg='black', fg='white')
         self.button_enviar.grid(row=12, column=0, pady=5, padx=5)
-        
-        #vamos chamar se o usuario ir direto para o login.
-    def abrir(self):
-            if self.window is None:
-                self.window = tk.Toplevel(self.root)
-                self.configurar_janela() 
-            self.window.deiconify()
-    
 
+    def abrir(self):
+        if self.window is None:
+            self.window = tk.Toplevel(self.root)
+            self.configurar_janela()
+        self.window.deiconify()
+
+    def configurar_janela(self):
+        # Adicione a configuração da janela aqui, se necessário
+        pass
 
 class Login(BaseCadastro):
     def __init__(self, root):
@@ -105,4 +103,3 @@ class Login(BaseCadastro):
     def config_eventos(self):
         self.nome_entrada.bind('<KeyRelease>', self.dicas_nome)
         self.senha_entrada.bind('<KeyRelease>', self.dicas_senha)
-
